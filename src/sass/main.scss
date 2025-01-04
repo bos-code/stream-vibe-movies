@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import './base/base';
+@import './base/typography';
+@import './components/btn';
+@import './components/card';
+@import './components/form';
+@import './layout/footer';
+@import './layout/grid';
+@import './layout/grid';
+@import './layout/navbar';
+@import './layout/header';
+@import './pages/home/home';
+@import './utils/mixins';
+@import './utils/varibles';
