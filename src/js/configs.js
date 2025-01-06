@@ -1,0 +1,2 @@
+export const API_KEY = `465c8a03a49665a1678b47c4e4a653af`;
+export const API_URL = `https://api.https://api.themoviedb.org/3/trending/all/?api_key=${API_KEY}/week?language=en-US.org/3/movie/changes?page=1`;
