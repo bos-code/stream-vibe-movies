@@ -4,6 +4,7 @@ export default {
       './src/**/*.{html,js}',
       './index.html',
     ],
+    
     theme: {
       colors: {
         transparent: 'transparent',
@@ -22,6 +23,7 @@ export default {
         'red99': '#fffafa',
         'bk06': '#0f0f0f',
         'bk08': '#141414',
+        'bk08-trans': '#1414147a',
         'bk10': '#1a1a1a',
         'bk12': '#1f1f1f',
         'bk15': '#262626',
@@ -29,7 +31,7 @@ export default {
         'bk25': '#404040',
         'bk30': '#4d4d4d',
 
-        'gray60': '#999999',
+        'gray60': '#696969',
         'gray65': '#a6a6a6',
         'gray70': '#b3b3b3',
         'gray75': '#bfbfbf',
@@ -44,6 +46,13 @@ export default {
     
 
 
+        },
+        screens: {
+          sm: '480px',
+          md: '768px',
+          lg: '976px',
+          xl: '1440px',
+          lp: '1600px'
         },
       plugins: [],
     }

@@ -1,0 +1,43 @@
+.nav {
+    @apply px-6 pt-8 md:px-20 lg:px-24 lp:px-40 w-lvw pb-4 backdrop:blur-md flex justify-between items-center;
+
+    .logo {
+        @apply flex items-center;
+
+        img {
+            @apply h-8 w-8;
+        }
+
+    }
+
+    .menuBar {
+        border: 3px solid #262626;
+
+        @apply flex md:hidden justify-between items-center rounded-md w-12 h-12 p-3 gap-4 bg-bk12;
+
+    }
+
+    .fx {
+        @apply flex items-center justify-center gap-4;
+    }
+
+    .mainLinks {
+        border: 3px solid;
+        @extend .fx;
+        @apply capitalize border-bk12 bg-bk08 py-1 pl-2 rounded-md pr-7;
+
+    }
+
+    .navItems {
+        @extend .fx;
+        gap: 12px;
+
+        li {
+            @apply rounded-md;
+
+            &:hover {
+                @apply bg-bk12;
+            }
+        }
+    }
+}

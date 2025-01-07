@@ -1,0 +1,75 @@
+.btn:link,
+.btn:visited {
+    white-space: nowrap;
+    transition: all 200ms ease-in-out;
+    @apply bg-red50 px-6 py-3 rounded-lg;
+
+}
+
+
+.btn:hover,
+.btn:active {
+
+    transform: scale(1);
+    background-color: transparent;
+    position: relative;
+    transition: all 300ms ease;
+    @apply text-red50;
+
+
+}
+
+.btn:active {
+    transform: scale(.9);
+}
+
+.btn::after {
+    backface-visibility: hidden;
+    border: .5px solid transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    position: relative;
+    transition: all 200ms ease-in-out;
+    transform: scale(0);
+ 
+
+}
+
+.btn:hover::after {
+    transition: width 200ms ease-in-out;
+    transform: scale(1);
+  
+
+    @apply border-red50;
+}
+
+.mainNavLink:link,
+.mainNavLink:visited {
+    @apply px-5 py-2 rounded-lg bg-transparent ease-in-out;
+    transform-origin: left;
+    transition-duration: 100ms;
+    background-size: 400% 400%;
+    background-image: linear-gradient(to right, transparent 50%, red 50%);
+}
+
+.mainNavLink {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+
+
+    &:hover {
+        @apply bg-bk10;
+
+        &::after {
+            transform: scale(1, 1)
+        }
+    }
+
+    &:active {
+    background-position: right center;
+    }
+
+}
+
