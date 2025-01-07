@@ -40,4 +40,52 @@
             }
         }
     }
+
+    // ...existing code...
+
+    .navmobile {
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 50vw;
+        opacity: 1;
+        display: none;
+        z-index: 9; // Hide by default
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(6px);
+        transform: translateX(100%);
+        transition: all 500ms ease-out;
+        transform-origin: top left;
+
+        @media (max-width: 768px) {
+            display: block; // Show on small screens
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.8);
+
+
+            .nav-items {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 2rem;
+
+                li {
+                    width: 100%;
+                    text-align: center;
+                    white-space: nowrap;
+                }
+            }
+        }
+
+    }
+
+
+}
+
+.slide-in {
+    transform: translateX(0) !important;
+
 }

@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/sass/main.scss">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
     <title>Vite App</title>
 </head>
 
@@ -51,7 +52,7 @@
                 </svg>
 
             </a>
-            <div class="menuBar ">
+            <div class="menuBar z-50 ">
                 <img src="/public/asset/svg/meunIcon.svg" alt=" menuBar">
             </div>
             <li class="hidden md:block">
@@ -74,6 +75,26 @@
 
                 </ul>
             </li>
+
+
+            <li class=" md:hidden navmobile slide-in fixed shadow-2xl bg-red50  pt-40">
+                <ul class="nav-items hidden ">
+                    <li><a class="mainNavLink" href="#">home</a></li>
+                    <li><a class="mainNavLink" href="#">movies & shows </a></li>
+                    <li><a class="mainNavLink" href="#"> support</a></li>
+                    <li><a class="mainNavLink" href="#">subcription</a></li>
+                    <li class="flex items-center justify-center">
+                        <img src="/public/asset/svg/search.svg" alt="" class=" w-6 h-6">
+                        <span>search</span>
+            </li>
+            <li class="flex mainNavLink items-center justify-center"> 
+                <img src="/public/asset/svg/notification.svg" class=" w-6 mainNavLink h-6" alt="">
+                <span>notificatio</span>
+                </li>
+
+                </ul>
+                </li>
+
         </nav>
         <figure class=" bgimages ">
             <!-- rendered -->
@@ -81,7 +102,7 @@
         <div class="loader">
             <img class="  shadow-2xl  z-50 loader" src="/public/asset/svg/loader.svg" alt="">
         </div>
-        <div class="textBox z-10  w-full ">
+        <div class="textBox   w-full ">
             <h1 class="heading-primary">The Best Streaming Experience</h1>
             <p class="heroDescription md:hidden text-sm text-gray60 ">StreamVibe is the best streaming experience for
                 watching your favorite movies and shows on demand, anytime, anywhere. </p>
@@ -96,9 +117,13 @@
         </div>
     </div>
     <main class=" mt-12 h-lvh">
+
+
+
     </main>
 
     <script type="module" src="/src/js/controller.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 </body>
 
 </html>
