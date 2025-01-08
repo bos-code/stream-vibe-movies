@@ -1,0 +1,32 @@
+.features {
+    @apply flex flex-col gap-10;
+
+    .feats {
+        @apply grid grid-cols-1 gap-5 md:grid-cols-3;
+
+        .feat-item {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            gap: 1.5rem;
+            border: 1px solid #262626;
+            background:
+                linear-gradient(221.52deg, rgba(229, 0, 0, 0.5) -208.03%, rgba(229, 0, 0, 0) 41.32%);
+
+            @apply p-10 bg-bk06 transition-all ease-in-out rounded-xl;
+
+            .head-wrapper {
+                display: flex;
+                align-items: center;
+                gap: .8rem;
+
+
+                .icon-wrapper {
+                    @apply bg-bk08 p-3 shadow-2xl rounded-xl;
+                    border: 1px solid #1F1F1F;
+                }
+            }
+
+        }
+    }
+}
