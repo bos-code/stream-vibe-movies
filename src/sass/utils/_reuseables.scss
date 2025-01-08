@@ -1,0 +1,20 @@
+.section-fx{
+  @apply  flex justify-between items-center;
+    .textBox {
+        @apply flex justify-center items-start flex-col w-3/4 gap-2 md:pr-10;
+
+
+
+    }
+}
+
+.flex-center{
+    display: flex;justify-content: center;align-items: center;
+}
+.flex-between{
+    display: flex;justify-content: space-between;align-items: center;
+}
+
+.mar-btm{
+    @apply mb-12 lg:mb-16 xl:mb-28 lp:mb-36;
+}
