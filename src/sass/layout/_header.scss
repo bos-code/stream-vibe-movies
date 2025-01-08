@@ -1,8 +1,9 @@
 .header {
-height: 120%;
+    // height: 150%;
+    // position: relative;
 
 
-    @apply w-lvw   overflow-hidden;
+    @apply w-lvw overflow-hidden;
 
 
     .bgimages {
@@ -10,7 +11,7 @@ height: 120%;
         position: relative;
         grid-template-columns: repeat(9, 1fr);
         // grid-auto-rows: 200px;
-        @apply gap-2 h-4/5 md:h-3/4  w-[1200px] md:w-full lg:w-full grid-flow-row-dense ;
+        @apply gap-2 h-4/5 md:h-3/4 w-[1200px] md:w-full lg:w-full grid-flow-row-dense;
 
         img {
             width: 100%;
@@ -26,24 +27,28 @@ height: 120%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        @apply duration-1000 z-10 w-52 md:w-80 lg:w-96 h-52 md:h-auto  flex justify-center items-center bg-blend-multiply;
+        @apply duration-1000 z-10 w-52 md:w-80 lg:w-96 h-52 md:h-auto flex justify-center items-center bg-blend-multiply lg:top-[40%];
 
         img {
-            @apply w-full ;
+            @apply w-full;
         }
     }
 
     .textBox {
-        position: absolute;
+        position: relative;
+        bottom: 0;
         left: 50%;
-        transform: translate(-50%,10%);
+        transform: translate(-50%, -20%);
+        @media(max-width: 1500px){
+        transform: translate(-50%, -10%);
+
+        }
         text-align: center;
         gap: 10px;
         z-index: 1;
-        // background: linear-gradient(180deg, transparent 0%, black 100%);
-        background: linear-gradient(180deg, rgba(20, 20, 20, 0.02) 0%,#141414 25%, #141414 100%);
+        background: linear-gradient(180deg, rgba(20, 20, 20, 0.02) 0%, #141414 25%, #141414 100%);
 
-        @apply flex flex-col items-center justify-center px-2 md:px-10 lg:px-40 mt-5 -bottom-1/4 ;
+        @apply flex flex-col items-center justify-center px-2 md:px-10 lg:px-40  ;
     }
 }
 
