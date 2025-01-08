@@ -28,7 +28,8 @@
             border: 1px solid #262626;
             border-radius: 10px;
             padding: 1.25rem;
-
+            // width: 200px !important;
+            // @apply w-96 h-auto;
 
 
 
@@ -37,11 +38,23 @@
 
             .gridImg {
                 @apply grid grid-cols-2 gap-2;
-                background: linear-gradient(180deg, rgba(26, 26, 26, 0) 0%, #1A1A1A 101.79%);
+
 
                 img {
                     width: 100%;
                     border-radius: 10px;
+                }
+
+                &::after {
+                    display: block;
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    // background: linear-gradient(180deg, rgba(26, 26, 26, 0) 0%, #1A1A1A 101.79%);
+                    background-color: red;
+                    z-index: 22222222222222;
                 }
             }
 
