@@ -1,5 +1,13 @@
 .heading-primary {
-   
     @apply text-3xl md:text-5xl lg:text-6xl font-bold text-center ;
+    overflow: hidden;
+}
 
+.heading-secondary{
+    @extend .heading-primary;
+    @apply text-2xl text-left;
+}
+
+.section-description{
+@apply font-bold sm:text-sm xsm:text-xs lg:text-lg leading-normal text-gray60;
 }
