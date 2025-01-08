@@ -22,8 +22,9 @@ export function animateImages() {
     } );
     tl.to(images, {
         duration: 2,
-        x: center,
+        // x: center,
         ease: "back",
+      
       });
   } else {
     console.error("Elements not found in the DOM");
