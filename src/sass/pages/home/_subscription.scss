@@ -1,0 +1,26 @@
+.subscription {
+    .cards {
+        @apply flex justify-center flex-col md:flex-row items-center gap-5 mt-10 md:mt-12 lg:mt-14 xl:mt-16;
+
+        .subcription_card {
+            @apply shadow-2xl;
+            .textbox {
+                h3 {
+                    @apply text-white text-lg capitalize;
+                }
+
+                p {
+                    @apply text-gray60 text-sm;
+                }
+            }
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+           
+            // @apply gap-3 md:gap-4 xl:gap-5
+        }
+    }
+}

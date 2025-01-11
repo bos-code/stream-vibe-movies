@@ -6,7 +6,7 @@ function populateHeroImages() {
     for (let i = 1; i <= 36; i++) {
         const img = document.createElement("img");
         img.className = "hero";
-        img.src = `./asset/images/image-${i}.svg`;
+        img.src = `/public/asset/images/image-${i}.svg`;
         img.alt = "";
         fragment.appendChild(img);
     }
