@@ -1,0 +1,68 @@
+$breakpoints: (
+    "sm-phone": 25,
+    "phone": 37.5rem,
+    "big-phone": 47em,
+    "tab-port": 56.25em,
+    "tab-land": 75em,
+    "sm-desktop": 93.8em,
+    "bg-desktop": 112.5em,
+    "xl-desktop": 140.5em,
+
+);
+
+@mixin small-phone {
+    @media (max-width: map-get($breakpoints, "sm-phone")) {
+        @content;
+    }
+
+}
+
+@mixin phone {
+    @media (max-width: map-get($breakpoints, "phone")) {
+        @content;
+    }
+
+}
+
+@mixin big-phone {
+    @media (max-width: map-get($breakpoints, "big-phone")) {
+        @content;
+    }
+
+}
+
+@mixin tab-port {
+    @media (max-width: map-get($breakpoints, "tab-port")) {
+        @content;
+    }
+
+}
+
+@mixin tab-land {
+    @media (max-width: map-get($breakpoints, "tab-land")) {
+        @content;
+    }
+
+}
+
+@mixin sm-desktop {
+    @media (max-width: map-get($breakpoints, "sm-desktop")) {
+        @content;
+    }
+
+}
+
+@mixin bg-desktop {
+    @media (min-width: map-get($breakpoints, "bg-desktop")) {
+        @content;
+    }
+
+
+}
+
+@mixin xl-desktop {
+    @media (min-width: map-get($breakpoints, "xl-desktop")) {
+        @content;
+    }
+
+}

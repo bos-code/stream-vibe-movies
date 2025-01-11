@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 
+@import './abstracts/mixins';
+@import './abstracts/reuseables';
+@import './abstracts/varibles';
 @import './base/base';
 @import './base/typography';
 @import './components/accordion';
@@ -18,6 +21,3 @@
 @import './pages/home/faq';
 @import './pages/home/feature';
 @import './pages/home/home';
-@import './utils/mixins';
-@import './utils/reuseables';
-@import './utils/varibles';

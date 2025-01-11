@@ -9,27 +9,44 @@
         height: 60vh;
         margin-top: 5rem;
         column-gap: 4rem;
+
         // row-gap: 1rem;
         // @include lg(){
         //     background-color: reed;
         // }
+        @include phone {
+            height: 100%;
+        }
+
+        @include tab-port {
+            height: 90vh;
+
+        }
 
         &:last-child {
             border: none !important;
         }
 
         .accordion-item {
-            // width: 47%;
-            max-width: 760px;
-            min-width: 375px;
-            // @apply max-w-xl min-w-max;
+            width: calc(100% / 2);
 
-            .answer{
-                p{
-                   @apply text-gray60 w-4/5 text-base md:text-lg  pb-6;
-               }
+            @include tab-port {
+                // height: 80vh;
+                width: 100%;
+
             }
-                
+
+            // // width: 47%;
+            // max-width: 760px;
+            // min-width: 375px;
+
+
+            .answer {
+                p {
+                    @apply text-gray60 w-4/5 text-base md:text-lg pb-6 ml-1 md:ml-4;
+                }
+            }
+
         }
     }
 }
