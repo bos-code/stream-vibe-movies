@@ -5,7 +5,7 @@
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-        width: 100%;
+        width:95%;
         height: 75vh;
         margin-top: 5rem;
         column-gap: 4rem;
@@ -13,7 +13,7 @@
 
 
         @include tab-port {
-            height: 90vh;
+            height: 100%;
 
         }
 

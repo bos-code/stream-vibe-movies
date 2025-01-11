@@ -86,12 +86,14 @@
 }
 
 .btn-def-red {
-    @apply px-5 py-2 rounded-lg bg-transparent ease-in-out;
+    @apply px-2 xsm:px-2 py-2 sm:px-5 sm:py-2
+      lg:px-1 xl:px-3 lp:px-5 xsm:py-1 
+       rounded-lg bg-transparent ease-in-out;
     background-image: linear-gradient(25deg, red 50%, transparent 50%);
     transform-origin: left;
     transition-duration: 300ms;
     background-size: 400%;
-    transform: scale(1,1);
+    transform: scale(1, 1);
 
 }
 
@@ -111,7 +113,7 @@
 
     &:active {
         background-position: right center;
-       transform: scale(.9);
+        transform: scale(.9);
 
     }
 
@@ -119,12 +121,15 @@
 
 .btn-def-default {
     border: 1px solid #262626;
-    @apply px-5 py-2 rounded-lg bg-transparent ease-in-out;
-    background-image: linear-gradient(135deg, #1a1a1a  50%, #141414 50%);
+    @apply px-5 xsm:px-2 py-2 sm:px-5 
+    sm:py-2 xsm:py-1 rounded-lg bg-transparent
+     ease-in-out md:px-1 xl:px-3 lp:px-5;
+    background-image: linear-gradient(135deg, #1a1a1a 50%, #141414 50%);
     transform-origin: right;
     transition-duration: 300ms;
     background-size: 400%;
     transform: scale(1);
+    white-space: nowrap;
 
 }
 
@@ -137,13 +142,14 @@
     &:hover {
         @apply bg-transparent;
         background-position: right center;
+
         &::after {
             transform: scale(1, 1)
         }
     }
 
     &:active {
-       transform: scale(.9);
+        transform: scale(.9);
     }
 
 }

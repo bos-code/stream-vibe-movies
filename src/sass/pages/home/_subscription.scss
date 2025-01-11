@@ -20,7 +20,11 @@
             justify-content: space-between;
             align-items: center;
            
-            // @apply gap-3 md:gap-4 xl:gap-5
+            @apply gap-3 md:gap-4 xl:gap-5;
+            button{
+                width: calc(50% - .5rem);
+                @apply text-sm xl:text-lg;
+            }
         }
     }
 }
