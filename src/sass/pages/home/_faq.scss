@@ -1,0 +1,35 @@
+.FAQ {
+    // height: 100vh;
+
+    .accordion {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100%;
+        height: 60vh;
+        margin-top: 5rem;
+        column-gap: 4rem;
+        // row-gap: 1rem;
+        // @include lg(){
+        //     background-color: reed;
+        // }
+
+        &:last-child {
+            border: none !important;
+        }
+
+        .accordion-item {
+            // width: 47%;
+            max-width: 760px;
+            min-width: 375px;
+            // @apply max-w-xl min-w-max;
+
+            .answer{
+                p{
+                   @apply text-gray60 w-4/5 text-base md:text-lg  pb-6;
+               }
+            }
+                
+        }
+    }
+}
