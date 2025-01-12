@@ -1,26 +1,23 @@
-@use './abstracts/mixins' as *;
-@use './abstracts/reuseables' as *;
-@use './abstracts/varibles' as *;
+@use 'abstracts/mixins';
+@use 'abstracts/reuseables';
+@use 'abstracts/varibles';
 
-@use './base/base' as *;
-@use './base/typography' as *;
+@use 'base/base';
+@use 'base/typography';
 
-@use './components/accordion' as *;
-@use './components/btn' as *;
-@use './components/card' as *;
-@use './components/form' as *;
+@use 'components/accordion';
+@use 'components/btn';
+@use 'components/card';
+@use 'components/form';
 
-@use './layout/footer' as *;
-@use './layout/grid' as *;
-@use './layout/grid' as *;
-@use './layout/navbar' as *;
-@use './layout/header' as *;
+@use 'layout/footer';
+@use 'layout/grid';
+@use 'layout/navbar';
+@use 'layout/header';
 
-@use './pages/home/catigories' as *;
-@use './pages/home/faq' as *;
-@use './pages/home/feature' as *;
-@use './pages/home/subscription' as *;
+@use 'pages/home/catigories';
+@use 'pages/home/faq';
+@use 'pages/home/feature';
+@use 'pages/home/subscription';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@use 'vendors/tailwind'
