@@ -1,23 +1,23 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@use 'abstracts/mixins';
+@use 'abstracts/reuseables';
+@use 'abstracts/varibles';
 
+@use 'base/base';
+@use 'base/typography';
 
-@import './abstracts/mixins';
-@import './abstracts/reuseables';
-@import './abstracts/varibles';
-@import './base/base';
-@import './base/typography';
-@import './components/accordion';
-@import './components/btn';
-@import './components/card';
-@import './components/form';
-@import './layout/footer';
-@import './layout/grid';
-@import './layout/grid';
-@import './layout/navbar';
-@import './layout/header';
-@import './pages/home/catigories';
-@import './pages/home/faq';
-@import './pages/home/feature';
-@import './pages/home/subscription';
+@use 'components/accordion';
+@use 'components/btn';
+@use 'components/card';
+@use 'components/form';
+
+@use 'layout/footer';
+@use 'layout/grid';
+@use 'layout/navbar';
+@use 'layout/header';
+
+@use 'pages/home/catigories';
+@use 'pages/home/faq';
+@use 'pages/home/feature';
+@use 'pages/home/subscription';
+
+@use 'vendors/tailwind'

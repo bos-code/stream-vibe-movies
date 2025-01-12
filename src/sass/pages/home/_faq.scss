@@ -1,3 +1,5 @@
+@use "../../abstracts/mixins";
+
 .FAQ {
 
 
@@ -12,12 +14,12 @@
 
 
 
-        @include tab-port {
+        @include mixins.tab-port {
             height: 100%;
 
         }
 
-        @include phone {
+        @include mixins.phone {
             height: 100%;
             row-gap: 2rem;
         }
@@ -30,7 +32,7 @@
         .accordion-item {
             width: calc(50% - 2rem);
 
-            @include tab-port {
+            @include mixins.tab-port {
                 width: 100%;
 
             }
