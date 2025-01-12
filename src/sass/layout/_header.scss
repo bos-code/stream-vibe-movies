@@ -24,12 +24,18 @@
     }
 
     .loader {
-        @apply duration-1000 z-10 w-52 md:w-80 lg:w-96 h-52 md:h-full flex justify-center items-center bg-blend-multiply lg:top-[30%];
-        
+        @apply duration-1000  w-52 md:w-80 lg:w-96 h-52 md:h-full flex justify-center items-center bg-blend-multiply lg:top-[30%];
+
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        z-index: 1;
+        height: 100%;
+
+     @media (max-width: 25em){
+        top: 45%;
+     }
 
         img {
             @apply w-full;

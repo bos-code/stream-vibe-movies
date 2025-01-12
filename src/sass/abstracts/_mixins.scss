@@ -1,7 +1,7 @@
 @use "sass:map";
 $breakpoints: (
-    "sm-phone": 25,
-    "phone": 37.5rem,
+    "sm-phone": 25em,
+    "phone": 37.5em,
     "big-phone": 47em,
     "tab-port": 56.25em,
     "tab-land": 75em,
