@@ -1,11 +1,11 @@
 .subcription_card {
     border: 1px solid #262626;
-    @apply bg-bk08 rounded-2xl p-6 xl:p-12 xsm:p-4 
-    xsm:gap-5 flex flex-col gap-8 xl:gap-12 sm:p-12 sm:gap-8 md:p-3;
+    @apply bg-bk08 rounded-2xl p-6  xsm:p-4 
+    xsm:gap-5 flex flex-col gap-8 lg:gap-12 lg:p-12 sm:p-12 sm:gap-8 md:p-3;
 
     .buttons {
         @apply sm:gap-6;
-        
+
     }
 
 }

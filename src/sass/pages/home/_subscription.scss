@@ -3,7 +3,8 @@
         @apply flex justify-center flex-col md:flex-row items-center gap-5 mt-10 md:mt-12 lg:mt-14 xl:mt-16;
 
         .subcription_card {
-            @apply shadow-2xl;
+            @apply shadow-2xl   lp:p-14;
+
             .textbox {
                 h3 {
                     @apply text-white text-lg capitalize;

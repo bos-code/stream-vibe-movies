@@ -1,0 +1,40 @@
+.footer {
+  
+    @apply  bg-bk06;
+    
+    .footerGrid{
+      @apply py-12 md:py-20 lg:py-24 pb-12;
+        
+        // background-color: #fff;
+        border-bottom: 1px solid #262626;
+        ul {
+            li {
+                h3 {
+                    // color: red;
+                    @apply text-xl font-semibold mb-6;
+                }
+
+                ul {
+                    @apply flex items-start flex-col gap-3 text-gray60 text-lg;
+                }
+
+                ul#social-media-icons {
+                    flex-direction: row;
+                    gap: 10px;
+
+                    li {
+                        height: 3.5rem;
+                        width: 3.5rem;
+                        background-color: #1A1A1A;
+                        border: 1px solid #262626;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: .5rem;
+                    }
+                }
+            }
+        }
+    }
+
+}
