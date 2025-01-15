@@ -39,7 +39,7 @@
     }
 
     &-footer {
-       
+
 
         .navbox {
 
@@ -48,11 +48,14 @@
 
             ul {
                 display: flex;
-                justify-content: center;
-                align-items: center;
+                @apply justify-start gap-8 mt-5 md:gap-2 md:mt-0;
 
-                li{
-                    padding: .3rem 1rem;
+                li {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    @apply text-sm md:text-base text-center px-2;
+
                 }
             }
 

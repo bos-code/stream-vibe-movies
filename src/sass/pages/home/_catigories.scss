@@ -1,4 +1,6 @@
 .catigories {
+    overflow-x: scroll;
+
     .textBox {
         @apply flex justify-center items-start flex-col gap-2 md:pr-10;
     }
@@ -11,33 +13,27 @@
         padding-bottom: 2rem;
         width: auto;
 
-
-        @apply gap-4 overflow-x-scroll md:overflow-hidden;
+        @apply gap-5 overflow-x-scroll;
 
         &::-webkit-scrollbar {
             display: none;
         }
 
-
         .catItems {
-            // width: 50%;
+            width: 100%;
             display: flex;
             white-space: nowrap;
             align-items: center;
             flex-direction: column;
             border: 1px solid #262626;
             border-radius: 10px;
-            padding: 1.25rem;height: auto;
-          
-
-
-
-
-
+            padding: 1.25rem;
+            background-color: #1A1A1A;
+            flex-shrink: 0; /* Prevent shrinking */
 
             .gridImg {
                 @apply grid grid-cols-2 gap-2;
-
+                position: relative;
 
                 img {
                     width: 100%;
@@ -45,14 +41,14 @@
                 }
 
                 &::after {
+                    content: " ";
                     display: block;
-                    position: relative;
+                    position: absolute;
                     top: 0;
                     left: 0;
                     height: 100%;
                     width: 100%;
-                    // background: linear-gradient(180deg, rgba(26, 26, 26, 0) 0%, #1A1A1A 101.79%);
-                    background-color: red;
+                    background: linear-gradient(180deg, rgba(26, 26, 26, 0) 0%, #1A1A1A 101.79%);
                     z-index: 22222222222222;
                 }
             }
@@ -64,9 +60,7 @@
                 width: 100%;
             }
         }
-
     }
-
 
     /*********** Baseline, reset styles ***********/
     input[type="range"] {
