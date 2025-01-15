@@ -9,7 +9,7 @@ function populateHeroImages() {
         const img = document.createElement("img");
 
         img.className = "hero";
-        img.src = `/asset/images/Image-${i}.svg`;
+        img.src = `/asset/images/Image-${i}.png`;
         img.alt = "";
 
         fragment.appendChild(img);

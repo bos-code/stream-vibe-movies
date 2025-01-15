@@ -9,6 +9,7 @@ export function animateImages() {
     images.classList.remove(".hidden");
     const distance = images.clientWidth;
     const windowWidth = header.clientWidth;
+    
     const center = (windowWidth / 2 - distance / 2 ) / 2;
     const tl = gsap.timeline();
 
@@ -34,3 +35,7 @@ export function animateImages() {
 
 
 window.addEventListener("load", animateImages);
+
+window.addEventListener('scroll',()=>{
+  console.log(window.scrollX);
+})

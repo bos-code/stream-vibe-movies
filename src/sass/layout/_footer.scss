@@ -1,12 +1,13 @@
 .footer {
-  
-    @apply  bg-bk06;
-    
-    .footerGrid{
-      @apply py-12 md:py-20 lg:py-24 pb-12;
-        
+
+    @apply bg-bk06;
+
+    .footerGrid {
+        @apply py-12 md:py-20 lg:py-24 pb-12;
+
         // background-color: #fff;
         border-bottom: 1px solid #262626;
+
         ul {
             li {
                 h3 {
@@ -37,4 +38,24 @@
         }
     }
 
+    &-footer {
+       
+
+        .navbox {
+
+            padding-top: 1.25rem;
+            margin-bottom: 2.3rem;
+
+            ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                li{
+                    padding: .3rem 1rem;
+                }
+            }
+
+        }
+    }
 }
