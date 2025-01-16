@@ -3,6 +3,9 @@ import  '../sass/main.scss';
 import * as model from './model.js';
 import * as view from './views/heroView.js';
 import './animations.js'
+import Glide from '@glidejs/glide'
+
+new Glide('.glide').mount()
 
 
 

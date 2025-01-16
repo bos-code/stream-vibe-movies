@@ -9,6 +9,7 @@
     border: 1px solid #262626;
     position: relative;
     border-radius: .8rem;
+    display: block;
 
 
     &::after {
@@ -18,8 +19,8 @@
         left: 0;
         height: 100%;
         width: 100%;
-        // z-index: -1;
-        background: linear-gradient(89.97deg, #0F0F0F 2.42%, rgba(20, 15, 15, 0.974681) 25.46%, rgba(34, 14, 14, 0.909574) 46.72%, rgba(229, 0, 0, 0) 168.98%);
+        display: block;
+        background: linear-gradient(130deg, #0F0F0F 2.42%, rgba(20, 15, 15, 0.974681) 25.46%, rgba(34, 14, 14, 0.909574) 46.72%, rgba(229, 0, 0, 0) 168.98%);
     }
 
     .section-fx {

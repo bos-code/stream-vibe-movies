@@ -1,5 +1,4 @@
 .catigories {
-    overflow-x: scroll;
 
     .textBox {
         @apply flex justify-center items-start flex-col gap-2 md:pr-10;
@@ -20,7 +19,6 @@
         }
 
         .catItems {
-            width: 100%;
             display: flex;
             white-space: nowrap;
             align-items: center;
@@ -29,8 +27,8 @@
             border-radius: 10px;
             padding: 1.25rem;
             background-color: #1A1A1A;
-            flex-shrink: 0; /* Prevent shrinking */
-
+            
+            @apply flex-shrink-0 w-1/2  md:flex-shrink;
             .gridImg {
                 @apply grid grid-cols-2 gap-2;
                 position: relative;
