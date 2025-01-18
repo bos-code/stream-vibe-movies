@@ -1,6 +1,7 @@
 const heroContainer = document.querySelector(".bgimages");
 
 function populateHeroImages() {
+    if(!heroContainer)return
     heroContainer.innerHTML = "";
 
     const fragment = document.createDocumentFragment();

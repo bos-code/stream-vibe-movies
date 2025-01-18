@@ -5,6 +5,7 @@ const header = document.querySelector(".header");
 const heroImages = document.querySelectorAll(".bgimages img");
 
 export function animateImages() {
+  if(!images) return
   if (images && header) {
     images.classList.remove(".hidden");
     const distance = images.clientWidth;
