@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "gsap": "^3.12.5",
-    "sass-embedded": "^1.83.1"
+    "sass-embedded": "^1.83.1",
+    "swiper": "^11.2.1"
   }
 }

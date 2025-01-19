@@ -9,7 +9,8 @@
         position: relative;
         grid-template-columns: repeat(9, 1fr);
         // grid-auto-rows: 200px;
-        @apply gap-2 h-4/5 md:h-3/4 w-[1200px] md:w-full lg:w-full grid-flow-row-dense;
+        height: 80vh;
+        @apply gap-2  w-[1200px] md:w-full lg:w-full grid-flow-row-dense;
 
         img {
             width: 100%;

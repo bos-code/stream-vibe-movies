@@ -16,11 +16,13 @@ export function animateImages() {
 
     tl.from(heroImages, {
       duration: 1,
-      y: 50,
+      y: -50,
       opacity: 0,
-      rotateY: -360,
-      stagger: 0.03,
+      rotationY: -360,
+      // scrollTo: 50,
+      stagger: 0.02,
       ease: "back",
+      
     } );
     tl.to(images, {
         duration: 2,
