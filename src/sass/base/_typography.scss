@@ -1,13 +1,25 @@
 .heading-primary {
-    @apply text-3xl md:text-5xl lg:text-6xl font-bold text-center ;
+    @apply text-3xl md:text-5xl lg:text-6xl font-bold text-center;
     overflow: hidden;
 }
 
-.heading-secondary{
+.heading-secondary {
     @extend .heading-primary;
     @apply text-2xl md:text-3xl lg:text-4xl text-left;
 }
 
-.section-description{
-@apply font-bold sm:text-sm xsm:text-xs lg:text-lg leading-normal text-gray60;
+.section-description {
+    @apply font-bold sm:text-sm xsm:text-xs lg:text-lg leading-normal text-gray60;
+}
+
+.heading-tertiary {
+    font-size: 2.25rem;
+    line-height: 1.4;
+    text-align: center;
+
+
+}
+
+.contDesc {
+    font-size: 1.2rem;
 }

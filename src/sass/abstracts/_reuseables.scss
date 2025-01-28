@@ -22,7 +22,7 @@
 }
 
 .mar-btm {
-    @apply mb-24 lg:mb-32 xl:mb-36 lp:mb-40;
+    @apply mb-24 lg:mb-28 lp:mb-36;
 }
 
 .box {
@@ -30,4 +30,15 @@
 
     background: #1F1F1F;
     border: 1px solid #262626
+}
+
+.bor {
+    border: 1px solid #262626;
+    background: #141414;
+    border-radius: 8px;
+}
+
+.profile-card {
+    padding: 1.3rem;
+    gap: .6rem;
 }
