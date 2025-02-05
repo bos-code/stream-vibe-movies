@@ -89,7 +89,7 @@
 
 .open-main {
     align-items: start;
-
+@apply flex gap-5 flex-col-reverse md:flex-row;
     .main-content {
         display: flex;
         flex-direction: column;

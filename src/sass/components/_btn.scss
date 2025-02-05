@@ -88,7 +88,7 @@
 .btn-def-red {
     @apply px-2 xsm:px-2 py-2 sm:px-5 sm:py-2
       lg:px-1 xl:px-3 lp:px-2 xsm:py-1 
-       rounded-lg bg-transparent ease-in-out flex;
+       rounded-md bg-transparent ease-in-out flex;
     background-image: linear-gradient(25deg, red 50%, transparent 50%);
     transform-origin: left;
     transition-duration: 300ms;
