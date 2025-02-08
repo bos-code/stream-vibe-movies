@@ -30,8 +30,6 @@ function swiper(parentEl) {
   swiperEl.initialize();
 }
 
-
-
 function cardSwiper(parentEl) {
   const swiperEl = document.querySelector(`${parentEl}`);
   if (!swiperEl) return;
@@ -60,8 +58,6 @@ function cardSwiper(parentEl) {
   swiperEl.initialize();
 }
 
-
-
 function moviesSwp(parentEl) {
   const swiperEl = document.querySelector(`${parentEl}`);
   if (!swiperEl) return;
@@ -78,9 +74,7 @@ function moviesSwp(parentEl) {
   swiperEl.initialize();
 }
 
-
-
-function slider(parentEl) {
+function slider(parentEl, next, prev) {
   const swiperEl = document.querySelector(`${parentEl}`);
   if (!swiperEl) return;
 
@@ -89,20 +83,19 @@ function slider(parentEl) {
     slidesPerView: 5,
     spaceBetween: 30,
     pagination: true,
-    navigation: true,
-    // scrollbar: true,
+    navigation: {
+      nextEl: next,
+      prevEl: prev,
+    },
     speed: 300,
   });
 
   swiperEl.initialize();
 }
 
-function main() {
-  moviesSwp(".moviesSwiper");
-  slider(".cat");
-  slider(".cat-2");
-  cardSwiper(".myreview");
-  swiper(".mySwiper");
-}
+moviesSwp(".moviesSwiper");
+slider(".cat", ".nx-1", ".pv-1");
+slider(".cat-2", ".nx-2", ".pv-2");
+cardSwiper(".myreview");
+swiper(".mySwiper");
 
-main()

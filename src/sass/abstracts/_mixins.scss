@@ -6,8 +6,7 @@
 }
 
 @mixin centered{
-    margin-left: 8.3rem;
-    margin-right: 8.3rem;
+  @apply mx-6  sm:mx-10 lg:mx-16 xl:mx-20 lp:mx-40
 }
 
 
