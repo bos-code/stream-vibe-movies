@@ -155,7 +155,7 @@
       </div>
     </div>
     <main class="cont">
-      <section class="catigories mar-btm">
+      <section class="catigories mar-btm" id="categories-swiper">
         <div class="flex justify-between items-center">
           <div class="textBox">
             <h2 class="heading-secondary">
@@ -169,18 +169,61 @@
           <div
             class="pagenation rounded-2xl hidden md:flex justify-between md:gap-2 md:p-3 lg:gap-3 lg:p-4 bg-bk06 items-center"
           >
-            <img src="/asset/svg/ButtonR.svg" alt=" button left" />
-            <div class="dots flex justify-center items-center">
-              <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
-              <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
-              <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
-              <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
-            </div>
-            <img src="/asset/svg/ButtonL.svg" alt=" button left" />
+            <img
+              src="/asset/svg/ButtonR.svg"
+              alt="button left"
+              id="prev-slide"
+            />
+            <div
+              class="dots flex justify-center items-center"
+              id="pagination"
+            ></div>
+            <img
+              src="/asset/svg/ButtonL.svg"
+              alt=" button left"
+              id="next-slide"
+            />
           </div>
         </div>
-        <div class="cat">
-          <li class="catItems">
+
+        <ul class="cat swiper-wrapper">
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img src="/asset/images/Image-20.png" alt="" />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img src="/asset/images/Image-20.png" alt="" />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide shadow-2xl">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img src="/asset/images/Image-20.png" alt="" />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide">
             <div class="gridImg">
               <img src="/asset/images/Image-18.png" alt="" />
               <img src="/asset/images/Image-19.png" alt="" />
@@ -196,7 +239,7 @@
               <img src="/asset/svg/arrl.svg" alt="" />
             </div>
           </li>
-          <li class="catItems">
+          <li class="catItems swiper-slide">
             <div class="gridImg">
               <img src="/asset/images/Image-18.png" alt="" />
               <img src="/asset/images/Image-19.png" alt="" />
@@ -212,55 +255,7 @@
               <img src="/asset/svg/arrl.svg" alt="" />
             </div>
           </li>
-          <li class="catItems shadow-2xl">
-            <div class="gridImg">
-              <img src="/asset/images/Image-18.png" alt="" />
-              <img src="/asset/images/Image-19.png" alt="" />
-              <img
-                src="/asset/images/Image-20.png
-						"
-                alt=""
-              />
-              <img src="/asset/images/Image-31.png" alt="" />
-            </div>
-            <div class="title">
-              <p class="catName">Action</p>
-              <img src="/asset/svg/arrl.svg" alt="" />
-            </div>
-          </li>
-          <li class="catItems">
-            <div class="gridImg">
-              <img src="/asset/images/Image-18.png" alt="" />
-              <img src="/asset/images/Image-19.png" alt="" />
-              <img
-                src="/asset/images/Image-20.png
-						"
-                alt=""
-              />
-              <img src="/asset/images/Image-31.png" alt="" />
-            </div>
-            <div class="title">
-              <p class="catName">Action</p>
-              <img src="/asset/svg/arrl.svg" alt="" />
-            </div>
-          </li>
-          <li class="catItems">
-            <div class="gridImg">
-              <img src="/asset/images/Image-18.png" alt="" />
-              <img src="/asset/images/Image-19.png" alt="" />
-              <img
-                src="/asset/images/Image-20.png
-						"
-                alt=""
-              />
-              <img src="/asset/images/Image-31.png" alt="" />
-            </div>
-            <div class="title">
-              <p class="catName">Action</p>
-              <img src="/asset/svg/arrl.svg" alt="" />
-            </div>
-          </li>
-        </div>
+        </ul>
         <div class="scrollbar flex md:hidden justify-center items-center">
           <input type="range" name="slider-range" value="0" />
         </div>
@@ -694,6 +689,5 @@
     </footer>
 
     <script type="module" src="/src/js/controller.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
   </body>
 </html>

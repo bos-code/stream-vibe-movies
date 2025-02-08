@@ -1,56 +1,54 @@
 body {
-    font-family: 'Manrope', sans-serif;
-    @apply text-white bg-bk08 ;
-
+  font-family: "Manrope", sans-serif;
+  box-sizing: border-box;
+  @apply text-white bg-bk08;
 }
-html{
-  font-size: 92.5%;
+html {
+  // font-size: 92.5%;
 }
 
 body {
-    --sb-track-color: #333333;
-    --sb-thumb-color: ##E50000;
-    --sb-size: 7px;
+  --sb-track-color: #333333;
+  --sb-thumb-color: ##e50000;
+  --sb-size: 7px;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 20px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 20px;
+  border: 1px solid transparent;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
-  
-  body::-webkit-scrollbar {
-    width: var(--sb-size)
-  }
-  
-  body::-webkit-scrollbar-track {
-    background: var(--sb-track-color);
-    border-radius: 20px;
-  }
-  
-  body::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-    border-radius: 20px;
-    border: 1px solid  transparent;
-  }
-  
-  @supports not selector(::-webkit-scrollbar) {
-    body {
-      scrollbar-color: var(--sb-thumb-color)
-                       var(--sb-track-color);
-    }
-  }
+}
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    // color: #;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
-li{
-    list-style: none;
+li {
+  list-style: none;
 }
 
-.cont{
-    padding: 0 4vw;
+.cont {
+  padding: 0 4vw;
 }

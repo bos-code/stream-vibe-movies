@@ -1,126 +1,126 @@
 .catigories {
+  overflow-x: hidden;
 
-    .textBox {
-        @apply flex justify-center items-start flex-col gap-2 md:pr-10;
+  .textBox {
+    @apply flex justify-center items-start flex-col gap-2 md:pr-10;
+  }
+
+  .cat {
+    margin-top: 2.5rem;
+    padding-bottom: 2rem;
+
+    &::-webkit-scrollbar {
+      display: none;
     }
 
-    .cat {
+    .catItems {
+      display: flex;
+      white-space: nowrap;
+      align-items: center;
+      flex-direction: column;
+      border: 1px solid #262626;
+      border-radius: 10px;
+      padding: 1.25rem;
+      background-color: #1a1a1a;
+
+      // @apply flex-shrink-0 w-1/2  md:flex-shrink;
+      //   @apply w-1/2;
+      .gridImg {
+        @apply grid grid-cols-2 gap-2;
+        position: relative;
+
+        img {
+          width: 100%;
+          border-radius: 10px;
+        }
+
+        &::after {
+          content: " ";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background: linear-gradient(
+            180deg,
+            rgba(26, 26, 26, 0) 0%,
+            #1a1a1a 101.79%
+          );
+          z-index: 22222222222222;
+        }
+      }
+
+      .title {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        margin-top: 2.5rem;
-        padding-bottom: 2rem;
-        width: auto;
-
-        @apply gap-5 overflow-x-scroll;
-
-        &::-webkit-scrollbar {
-            display: none;
-        }
-
-        .catItems {
-            display: flex;
-            white-space: nowrap;
-            align-items: center;
-            flex-direction: column;
-            border: 1px solid #262626;
-            border-radius: 10px;
-            padding: 1.25rem;
-            background-color: #1A1A1A;
-            
-            @apply flex-shrink-0 w-1/2  md:flex-shrink;
-            .gridImg {
-                @apply grid grid-cols-2 gap-2;
-                position: relative;
-
-                img {
-                    width: 100%;
-                    border-radius: 10px;
-                }
-
-                &::after {
-                    content: " ";
-                    display: block;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                    width: 100%;
-                    background: linear-gradient(180deg, rgba(26, 26, 26, 0) 0%, #1A1A1A 101.79%);
-                    z-index: 22222222222222;
-                }
-            }
-
-            .title {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-            }
-        }
+        width: 100%;
+      }
     }
+  }
 
-    /*********** Baseline, reset styles ***********/
-    input[type="range"] {
-        -webkit-appearance: none;
-        appearance: none;
-        background: transparent;
-        cursor: pointer;
-        width: 5.5rem;
-        margin: 0 auto;
-    }
+  /*********** Baseline, reset styles ***********/
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 5.5rem;
+    margin: 0 auto;
+  }
 
-    /* Removes default focus */
-    input[type="range"]:focus {
-        outline: none;
-    }
+  /* Removes default focus */
+  input[type="range"]:focus {
+    outline: none;
+  }
 
-    /******** Chrome, Safari, Opera and Edge Chromium styles ********/
-    /* slider track */
-    input[type="range"]::-webkit-slider-runnable-track {
-        background-color: #333333;
-        border-radius: 0.5rem;
-        height: 0.5rem;
-    }
+  /******** Chrome, Safari, Opera and Edge Chromium styles ********/
+  /* slider track */
+  input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #333333;
+    border-radius: 0.5rem;
+    height: 0.5rem;
+  }
 
-    /* slider thumb */
-    input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        /* Override default look */
-        appearance: none;
-        margin-top: 0px;
-        /* Centers thumb on the track */
-        background-color: #E50000;
-        border-radius: 2rem;
-        height: 0.5rem;
-        width: 1rem;
-    }
+  /* slider thumb */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    margin-top: 0px;
+    /* Centers thumb on the track */
+    background-color: #e50000;
+    border-radius: 2rem;
+    height: 0.5rem;
+    width: 1rem;
+  }
 
-    input[type="range"]:focus::-webkit-slider-thumb {
-        outline: 3px solid #E50000;
-        outline-offset: 0.125rem;
-    }
+  input[type="range"]:focus::-webkit-slider-thumb {
+    outline: 3px solid #e50000;
+    outline-offset: 0.125rem;
+  }
 
-    /*********** Firefox styles ***********/
-    /* slider track */
-    input[type="range"]::-moz-range-track {
-        background-color: #333333;
-        border-radius: 0.5rem;
-        height: 0.5rem;
-    }
+  /*********** Firefox styles ***********/
+  /* slider track */
+  input[type="range"]::-moz-range-track {
+    background-color: #333333;
+    border-radius: 0.5rem;
+    height: 0.5rem;
+  }
 
-    /* slider thumb */
-    input[type="range"]::-moz-range-thumb {
-        background-color: #E50000;
-        border: none;
-        /*Removes extra border that FF applies*/
-        border-radius: 2rem;
-        height: 0.5rem;
-        width: 1rem;
-    }
+  /* slider thumb */
+  input[type="range"]::-moz-range-thumb {
+    background-color: #e50000;
+    border: none;
+    /*Removes extra border that FF applies*/
+    border-radius: 2rem;
+    height: 0.5rem;
+    width: 1rem;
+  }
 
-    input[type="range"]:focus::-moz-range-thumb {
-        outline: 3px solid #E50000;
-        outline-offset: 0.125rem;
-    }
+  input[type="range"]:focus::-moz-range-thumb {
+    outline: 3px solid #e50000;
+    outline-offset: 0.125rem;
+  }
 }
