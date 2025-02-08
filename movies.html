@@ -21,34 +21,6 @@
     <link rel="stylesheet" href="/src/sass/main.scss" />
 
     <title>StreamVibe</title>
-
-    <style>
-      .swiper {
-        width: 100%;
-        height: 50vh;
-      }
-
-      .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .swiper {
-        margin-left: auto;
-        margin-right: auto;
-      }
-    </style>
   </head>
 
   <body>
@@ -152,34 +124,361 @@
       </li>
     </nav>
 
-    <header class="movies-header cont">
-      <swiper-container class="mySwiper" pagination="true">
-        <swiper-slide>
-          <figure>
-            <img src="/public/asset/images/Image-11.png" alt="" />
-          </figure>
-        </swiper-slide>
-        <swiper-slide>
-          <figure>
-            <img src="/public/asset/images/Image-11.png" alt="" />
-          </figure>
-        </swiper-slide>
-        <swiper-slide>
-          <figure>
-            <img src="/public/asset/images/Image-11.png" alt="" />
-          </figure>
-        </swiper-slide>
-        <swiper-slide>
-          <figure>
-            <img src="/public/asset/images/Image-11.png" alt="" />
-          </figure>
-        </swiper-slide>
+    <!-- <header class="movies-header cont">
+      <swiper-container class="moviesSwiper" init="false">
+        <div>Slide 1</div>
+        <div>Slide 2</div>
+        <div>Slide 3</div>
+        <div>Slide 4</div>
+        <div>Slide 5</div>
+        <div>Slide 6</div>
+        <div>Slide 7</div>
+        <div>Slide 8</div>
+        <div>Slide 9</div>
       </swiper-container>
-    </header>
+    </header> -->
 
-   
+    <main class="content--wrapper" id="movies">
+      <div class="label"><label for="movies">Movies</label></div>
+      <section class="catig mar-btm">
+        <div class="flex justify-between items-center">
+          <div class="textBox">
+            <h2 class="heading-secondary">Our Genres</h2>
+            <p class="section-description">
+              Whether you're looking for a comedy to make you laugh, a drama to
+              make you think, or a documentary to learn something new
+            </p>
+          </div>
+          <div
+            class="pagenation rounded-2xl hidden md:flex justify-between md:gap-2 md:p-3 lg:gap-3 lg:p-4 bg-bk06 items-center"
+          >
+            <img class="" src="/asset/svg/ButtonR.svg" alt=" button left" />
+            <div class="dots flex justify-center items-center">
+              <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
+              <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
+              <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
+              <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
+            </div>
+            <img src="/asset/svg/ButtonL.svg" alt=" button left" />
+          </div>
+        </div>
+        <swiper-container class="cat content" init="false">
+
+          <swiper-slide class="catItems">
+            <div >
+              <div class="gridImg">
+                <img src="/asset/images/Image-18.png" alt="" />
+                <img src="/asset/images/Image-19.png" alt="" />
+                <img
+                  src="/asset/images/Image-20.png
+                "
+                  alt=""
+                />
+                <img src="/asset/images/Image-31.png" alt="" />
+              </div>
+              <div class="title">
+                <p class="catName">Action</p>
+                <img src="/asset/svg/arrl.svg" alt="" />
+              </div>
+            </div>
+          </swiper-slide>
+
+          <swiper-slide class="catItems">
+            <div >
+              <div class="gridImg">
+                <img src="/asset/images/Image-18.png" alt="" />
+                <img src="/asset/images/Image-19.png" alt="" />
+                <img
+                  src="/asset/images/Image-20.png
+                "
+                  alt=""
+                />
+                <img src="/asset/images/Image-31.png" alt="" />
+              </div>
+              <div class="title">
+                <p class="catName">Action</p>
+                <img src="/asset/svg/arrl.svg" alt="" />
+              </div>
+            </div>
+          </swiper-slide>
+
+          <swiper-slide class="catItems">
+            <div >
+              <div class="gridImg">
+                <img src="/asset/images/Image-18.png" alt="" />
+                <img src="/asset/images/Image-19.png" alt="" />
+                <img
+                  src="/asset/images/Image-20.png
+                "
+                  alt=""
+                />
+                <img src="/asset/images/Image-31.png" alt="" />
+              </div>
+              <div class="title">
+                <p class="catName">Action</p>
+                <img src="/asset/svg/arrl.svg" alt="" />
+              </div>
+            </div>
+          </swiper-slide>
+
+          <swiper-slide class="catItems">
+            <div >
+              <div class="gridImg">
+                <img src="/asset/images/Image-18.png" alt="" />
+                <img src="/asset/images/Image-19.png" alt="" />
+                <img
+                  src="/asset/images/Image-20.png
+                "
+                  alt=""
+                />
+                <img src="/asset/images/Image-31.png" alt="" />
+              </div>
+              <div class="title">
+                <p class="catName">Action</p>
+                <img src="/asset/svg/arrl.svg" alt="" />
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide class="catItems">
+            <div >
+              <div class="gridImg">
+                <img src="/asset/images/Image-18.png" alt="" />
+                <img src="/asset/images/Image-19.png" alt="" />
+                <img
+                  src="/asset/images/Image-20.png
+                "
+                  alt=""
+                />
+                <img src="/asset/images/Image-31.png" alt="" />
+              </div>
+              <div class="title">
+                <p class="catName">Action</p>
+                <img src="/asset/svg/arrl.svg" alt="" />
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide class="catItems">
+            <div >
+              <div class="gridImg">
+                <img src="/asset/images/Image-18.png" alt="" />
+                <img src="/asset/images/Image-19.png" alt="" />
+                <img
+                  src="/asset/images/Image-20.png
+                "
+                  alt=""
+                />
+                <img src="/asset/images/Image-31.png" alt="" />
+              </div>
+              <div class="title">
+                <p class="catName">Action</p>
+                <img src="/asset/svg/arrl.svg" alt="" />
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+        <div class="scrollbar flex md:hidden justify-center items-center">
+          <input type="range" name="slider-range" value="0" />
+        </div>
+      </section>
+      <section class="catig mar-btm">
+        <div class="flex justify-between items-center">
+          <div class="textBox">
+            <h2 class="heading-secondary">Our Genres</h2>
+            <p class="section-description">
+              Whether you're looking for a comedy to make you laugh, a drama to
+              make you think, or a documentary to learn something new
+            </p>
+          </div>
+          <div
+            class="pagenation rounded-2xl hidden md:flex justify-between md:gap-2 md:p-3 lg:gap-3 lg:p-4 bg-bk06 items-center"
+          >
+            <img src="/asset/svg/ButtonR.svg" alt=" button left" />
+            <div class="dots flex justify-center items-center">
+              <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
+              <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
+              <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
+              <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
+            </div>
+            <img src="/asset/svg/ButtonL.svg" alt=" button left" />
+          </div>
+        </div>
+        <swiper-container class="cat-2 content">
+          <swiper-slide class="catItems">
+            <div >
+              <div class="gridImg">
+                <img src="/asset/images/Image-18.png" alt="" />
+                <img src="/asset/images/Image-19.png" alt="" />
+                <img
+                  src="/asset/images/Image-20.png
+                "
+                  alt=""
+                />
+                <img src="/asset/images/Image-31.png" alt="" />
+              </div>
+              <div class="title">
+                <div class="tag">
+                  <span>Top 10 In</span>
+                  <p class="catName">Action</p>
+                </div>
+                <img src="/asset/svg/arrl.svg" alt="" />
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide class="catItems">
+            <div >
+              <div class="gridImg">
+                <img src="/asset/images/Image-18.png" alt="" />
+                <img src="/asset/images/Image-19.png" alt="" />
+                <img
+                  src="/asset/images/Image-20.png
+                "
+                  alt=""
+                />
+                <img src="/asset/images/Image-31.png" alt="" />
+              </div>
+              <div class="title">
+                <div class="tag">
+                  <span>Top 10 In</span>
+                  <p class="catName">Action</p>
+                </div>
+                <img src="/asset/svg/arrl.svg" alt="" />
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide class="catItems">
+            <div >
+              <div class="gridImg">
+                <img src="/asset/images/Image-18.png" alt="" />
+                <img src="/asset/images/Image-19.png" alt="" />
+                <img
+                  src="/asset/images/Image-20.png
+                "
+                  alt=""
+                />
+                <img src="/asset/images/Image-31.png" alt="" />
+              </div>
+              <div class="title">
+                <div class="tag">
+                  <span>Top 10 In</span>
+                  <p class="catName">Action</p>
+                </div>
+                <img src="/asset/svg/arrl.svg" alt="" />
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide class="catItems">
+            <div >
+              <div class="gridImg">
+                <img src="/asset/images/Image-18.png" alt="" />
+                <img src="/asset/images/Image-19.png" alt="" />
+                <img
+                  src="/asset/images/Image-20.png
+                "
+                  alt=""
+                />
+                <img src="/asset/images/Image-31.png" alt="" />
+              </div>
+              <div class="title">
+                <div class="tag">
+                  <span>Top 10 In</span>
+                  <p class="catName">Action</p>
+                </div>
+                <img src="/asset/svg/arrl.svg" alt="" />
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide class="catItems">
+            <div >
+              <div class="gridImg">
+                <img src="/asset/images/Image-18.png" alt="" />
+                <img src="/asset/images/Image-19.png" alt="" />
+                <img
+                  src="/asset/images/Image-20.png
+                "
+                  alt=""
+                />
+                <img src="/asset/images/Image-31.png" alt="" />
+              </div>
+              <div class="title">
+                <div class="tag">
+                  <span>Top 10 In</span>
+                  <p class="catName">Action</p>
+                </div>
+                <img src="/asset/svg/arrl.svg" alt="" />
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide class="catItems">
+            <div >
+              <div class="gridImg">
+                <img src="/asset/images/Image-18.png" alt="" />
+                <img src="/asset/images/Image-19.png" alt="" />
+                <img
+                  src="/asset/images/Image-20.png
+                "
+                  alt=""
+                />
+                <img src="/asset/images/Image-31.png" alt="" />
+              </div>
+              <div class="title">
+                <div class="tag">
+                  <span>Top 10 In</span>
+                  <p class="catName">Action</p>
+                </div>
+                <img src="/asset/svg/arrl.svg" alt="" />
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide class="catItems">
+            <div >
+              <div class="gridImg">
+                <img src="/asset/images/Image-18.png" alt="" />
+                <img src="/asset/images/Image-19.png" alt="" />
+                <img
+                  src="/asset/images/Image-20.png
+                "
+                  alt=""
+                />
+                <img src="/asset/images/Image-31.png" alt="" />
+              </div>
+              <div class="title">
+                <div class="tag">
+                  <span>Top 10 In</span>
+                  <p class="catName">Action</p>
+                </div>
+                <img src="/asset/svg/arrl.svg" alt="" />
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide class="catItems">
+            <div >
+              <div class="gridImg">
+                <img src="/asset/images/Image-18.png" alt="" />
+                <img src="/asset/images/Image-19.png" alt="" />
+                <img
+                  src="/asset/images/Image-20.png
+                "
+                  alt=""
+                />
+                <img src="/asset/images/Image-31.png" alt="" />
+              </div>
+              <div class="title">
+                <div class="tag">
+                  <span>Top 10 In</span>
+                  <p class="catName">Action</p>
+                </div>
+                <img src="/asset/svg/arrl.svg" alt="" />
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+        <div class="scrollbar flex md:hidden justify-center items-center">
+          <input type="range" name="slider-range" value="0" />
+        </div>
+      </section>
+    </main>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-
     <script type="module" src="/src/js/controller.js"></script>
   </body>
 </html>

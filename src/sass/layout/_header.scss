@@ -1,5 +1,5 @@
 .header {
-    
+
 
     @apply w-lvw overflow-hidden;
 
@@ -10,7 +10,7 @@
         grid-template-columns: repeat(9, 1fr);
         // grid-auto-rows: 200px;
         height: 80vh;
-        @apply gap-2  w-[1200px] md:w-full lg:w-full grid-flow-row-dense;
+        @apply gap-2 w-[1200px] md:w-full lg:w-full grid-flow-row-dense;
 
         img {
             width: 100%;
@@ -19,22 +19,27 @@
             object-fit: cover;
             @apply rounded-xl overflow-scroll;
         }
-        position: relative; 
+
+        position: relative;
     }
 
     .loader {
-        
+
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 1;
         height: 100%;
-        @apply duration-1000  w-52 md:w-80 lg:w-72 xl:w-3/12 h-52 md:h-full flex justify-center items-center bg-blend-multiply lg:top-[43%] xl:top-[50%];
+        @apply duration-1000 w-52 md:w-80 lg:w-72 xl:w-3/12 h-52 md:h-full flex justify-center items-center bg-blend-multiply lg:top-[43%] xl:top-[50%];
 
-     @media (max-width: 25em){
-        top: 45%;
-     }
+        img {
+            width: 100%;
+        }
+
+        @media (max-width: 25em) {
+            top: 45%;
+        }
 
         img {
             @apply w-full;

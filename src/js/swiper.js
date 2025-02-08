@@ -1,5 +1,6 @@
 function swiper(parentEl) {
   const swiperEl = document.querySelector(`${parentEl}`);
+  if (!swiperEl) return;
 
   Object.assign(swiperEl, {
     slidesPerView: 1,
@@ -29,15 +30,16 @@ function swiper(parentEl) {
   swiperEl.initialize();
 }
 
-swiper(".mySwiper");
+
 
 function cardSwiper(parentEl) {
   const swiperEl = document.querySelector(`${parentEl}`);
-
+  if (!swiperEl) return;
   Object.assign(swiperEl, {
-    slidesPerView: 1,
+    slidesPerView: 3,
     spaceBetween: 20,
     pagination: false,
+    loop: true,
     navigation: {
       nextEl: ".btnLt",
       prevEl: ".btnRt",
@@ -58,4 +60,49 @@ function cardSwiper(parentEl) {
   swiperEl.initialize();
 }
 
-cardSwiper(".myreview");
+
+
+function moviesSwp(parentEl) {
+  const swiperEl = document.querySelector(`${parentEl}`);
+  if (!swiperEl) return;
+
+  Object.assign(swiperEl, {
+    slidesPerView: 1,
+    // spaceBetween: 20,
+    pagination: true,
+    navigation: true,
+    scrollbar: true,
+    speed: 300,
+  });
+
+  swiperEl.initialize();
+}
+
+
+
+function slider(parentEl) {
+  const swiperEl = document.querySelector(`${parentEl}`);
+  if (!swiperEl) return;
+
+  Object.assign(swiperEl, {
+    slidesPergroup: 4,
+    slidesPerView: 5,
+    spaceBetween: 30,
+    pagination: true,
+    navigation: true,
+    // scrollbar: true,
+    speed: 300,
+  });
+
+  swiperEl.initialize();
+}
+
+function main() {
+  moviesSwp(".moviesSwiper");
+  slider(".cat");
+  slider(".cat-2");
+  cardSwiper(".myreview");
+  swiper(".mySwiper");
+}
+
+main()
