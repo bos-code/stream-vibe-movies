@@ -5,38 +5,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-function swiper(parentEl) {
-  const swiperEl = document.querySelector(`${parentEl}`);
-  if (!swiperEl) return;
-
-  Object.assign(swiperEl, {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    pagination: false,
-    navigation: {
-      nextEl: ".btnLeft",
-      prevEl: ".btnRight"
-    },
-    breakpoints: {
-      "@0.00": {
-        slidesPerView: 4,
-        spaceBetween: 10
-      },
-      "@0.75": {
-        slidesPerView: 6,
-        spaceBetween: 20
-      },
-
-      "@1.50": {
-        slidesPerView: 8,
-        spaceBetween: 10
-      }
-    }
-  });
-
-  swiperEl.initialize();
-}
-
 function moviesSwp(parentEl) {
   const swiperEl = document.querySelector(`${parentEl}`);
   if (!swiperEl) return;
@@ -145,5 +113,3 @@ export function createSwiper(el, config = {}) {
 // moviesSwp(".moviesSwiper");
 // slider(".cat", ".nx-1", ".pv-1");
 // slider(".cat-2", ".nx-2", ".pv-2");
-// cardSwiper(".myreview");
-// swiper(".mySwiper");
