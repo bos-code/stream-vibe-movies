@@ -5,82 +5,53 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-function moviesSwp(parentEl) {
-  const swiperEl = document.querySelector(`${parentEl}`);
-  if (!swiperEl) return;
-
-  Object.assign(swiperEl, {
-    slidesPerView: 1,
-    // spaceBetween: 20,
-    pagination: true,
-    navigation: true,
-    scrollbar: true,
-    speed: 300
-  });
-
-  swiperEl.initialize();
-}
-
-function slider(parentEl, next, prev) {
-  const swiperEl = document.querySelector(`${parentEl}`);
-  if (!swiperEl) return;
-
-  Object.assign(swiperEl, {
-    slidesPergroup: 4,
-    slidesPerView: 5,
-    spaceBetween: 30,
-    pagination: true,
-    navigation: {
-      nextEl: next,
-      prevEl: prev
-    },
-    speed: 300
-  });
-
-  // swiperEl.initialize();
-}
 
 export function createSwiper(el, config = {}) {
   if (!document.querySelector(el)) return;
 
   const catSwiper = new Swiper(el, {
     modules: [Navigation, Pagination],
-    slidesPerView: 4,
+    // slidesPerView: 5,
     spaceBetween: 10,
+    mousewheel: {
+         invert: true,
+    },
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev"
     },
     pagination: {
-      el: ".swiper-pagination",
-      clickable: true
+      el: ".dots",
+      clickable: true,
+      dynamicBullets: true,
+      dynamicMainBullets: 4
     },
     loop: true,
     ...config
   });
 
-  // Pagination
-  const pagination = document.querySelector("#categories-swiper #pagination");
+  // // Pagination
+  // const pagination = document.querySelector("#categories-swiper #pagination");
 
-  if (pagination) {
-    pagination.innerHTML = "";
+  // if (pagination) {
+  //   pagination.innerHTML = "";
 
-    const views = Math.ceil(
-      catSwiper.slides.length / catSwiper.slidesPerViewDynamic()
-    );
+  //   const views = Math.ceil(
+  //     catSwiper.slides.length / catSwiper.slidesPerViewDynamic()
+  //   );
 
-    for (let index = 0; index < views; index++) {
-      const activeTemp = '<div class="w-4 rounded-[100px] h-1 bg-red45"></div>';
-      const inactiveTemp =
-        '<div class="w-4 rounded-[100px] h-1 bg-bk20"></div>';
+  //   for (let index = 0; index < views; index++) {
+  //     const activeTemp = '<div class="w-4 rounded-[100px] h-1 bg-red45"></div>';
+  //     const inactiveTemp =
+  //       '<div class="w-4 rounded-[100px] h-1 bg-bk20"></div>';
 
-      if (index === catSwiper.activeIndex) {
-        pagination.insertAdjacentHTML("beforeend", activeTemp);
-      } else {
-        pagination.insertAdjacentHTML("beforeend", inactiveTemp);
-      }
-    }
-  }
+  //     if (index === catSwiper.activeIndex) {
+  //       pagination.insertAdjacentHTML("beforeend", activeTemp);
+  //     } else {
+  //       pagination.insertAdjacentHTML("beforeend", inactiveTemp);
+  //     }
+  //   }
+  // }
 
   // Navigation
   document.querySelector(`${el} #prev-slide`).addEventListener("click", () => {
@@ -111,5 +82,54 @@ export function createSwiper(el, config = {}) {
 }
 
 // moviesSwp(".moviesSwiper");
-// slider(".cat", ".nx-1", ".pv-1");
-// slider(".cat-2", ".nx-2", ".pv-2");
+
+
+export function creatSwipers() {
+  const swiperSelectors = ["#categories-swiper-7", "#categories-swiper-10", "#categories-swiper-9", "#categories-swiper-8", "#categories-swiper-5"];
+  swiperSelectors.forEach(selector => {
+    createSwiper(selector, {
+      slidesPerView: 4,
+    });
+  });
+  const swiperSelector5 = ["#categories-swiper", "#categories-swiper-2", "#categories-swiper-3", "#categories-swiper-4", "#categories-swiper-6",];
+  swiperSelector5.forEach(selector => {
+    createSwiper(selector, {
+      slidesPerView: 5,
+    });
+  });
+
+  createSwiper("#myreview", {
+    slidesPerView: 2,
+    spaceBetween: 20,
+    breakpoints: {
+      "@0.00": {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+
+      "@1.50": {
+        slidesPerView: 2,
+        spaceBetween: 20
+      }
+    }
+  });
+  createSwiper("#casts-swiper", {
+    slidesPerView: 10,
+    spaceBetween: 10,
+    breakpoints: {
+      "@0.00": {
+        slidesPerView: 4,
+        spaceBetween: 10
+      },
+      "@0.75": {
+        slidesPerView: 6,
+        spaceBetween: 20
+      },
+
+      "@1.50": {
+        slidesPerView: 8,
+        spaceBetween: 10
+      }
+    }
+  });
+}

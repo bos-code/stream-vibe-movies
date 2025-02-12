@@ -37,6 +37,7 @@
           viewBox="0 0 136 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          id="logo"
         >
           <path
             d="M0 6.90537C0 6.14663 0.1431 5.43478 0.429301 4.76982C0.715502 4.10486 1.10271 3.52515 1.59094 3.03069C2.08758 2.52771 2.66419 2.13129 3.32077 1.84143C3.97735 1.55158 4.68022 1.40665 5.42939 1.40665H13.7376V5.07673H5.42939C5.17686 5.07673 4.94117 5.12361 4.72231 5.21739C4.50345 5.31117 4.30984 5.44331 4.14149 5.61381C3.98156 5.77579 3.85529 5.9676 3.7627 6.18926C3.6701 6.41091 3.6238 6.64962 3.6238 6.90537C3.6238 7.16113 3.6701 7.40409 3.7627 7.63427C3.85529 7.85592 3.98156 8.052 4.14149 8.22251C4.30984 8.38448 4.50345 8.51236 4.72231 8.60614C4.94117 8.69991 5.17686 8.7468 5.42939 8.7468H9.0532C9.80237 8.7468 10.5052 8.89173 11.1618 9.18159C11.8268 9.46292 12.4034 9.85507 12.8917 10.3581C13.3883 10.8525 13.7755 11.4365 14.0533 12.11C14.3395 12.7749 14.4826 13.4868 14.4826 14.2455C14.4826 15.0043 14.3395 15.7161 14.0533 16.3811C13.7755 17.046 13.3883 17.63 12.8917 18.133C12.4034 18.6275 11.8268 19.0196 11.1618 19.3095C10.5052 19.5993 9.80237 19.7442 9.0532 19.7442H1.01012V16.0742H9.0532C9.30573 16.0742 9.54142 16.0273 9.76028 15.9335C9.97914 15.8397 10.1685 15.7118 10.3285 15.5499C10.4968 15.3794 10.6273 15.1833 10.7199 14.9616C10.8125 14.74 10.8588 14.5013 10.8588 14.2455C10.8588 13.9898 10.8125 13.7511 10.7199 13.5294C10.6273 13.3078 10.4968 13.1159 10.3285 12.954C10.1685 12.7835 9.97914 12.6513 9.76028 12.5575C9.54142 12.4638 9.30573 12.4169 9.0532 12.4169H5.42939C4.68022 12.4169 3.97735 12.272 3.32077 11.9821C2.66419 11.6922 2.08758 11.3001 1.59094 10.8056C1.10271 10.3026 0.715502 9.71867 0.429301 9.05371C0.1431 8.38022 0 7.66411 0 6.90537Z"
@@ -125,7 +126,7 @@
     </nav>
 
     <!-- <header class="movies-header cont">
-      <swiper-container class="moviesSwiper" init="false">
+      <div class="moviesSwiper" init="false">
         <div>Slide 1</div>
         <div>Slide 2</div>
         <div>Slide 3</div>
@@ -135,174 +136,37 @@
         <div>Slide 7</div>
         <div>Slide 8</div>
         <div>Slide 9</div>
-      </swiper-container>
+      </div>
     </header> -->
 
-    <main class="content--wrapper" id="movies">
+    <main class="content--wrapper mar-btm" id="movies">
       <div class="label"><label for="movies">Movies</label></div>
-      <section class="catig mar-btm">
+      <section class="catigories" id="categories-swiper">
         <div class="flex justify-between items-center">
           <div class="textBox">
-            <h2 class="heading-secondary">Our Genres</h2>
-            <p class="section-description">
-              Whether you're looking for a comedy to make you laugh, a drama to
-              make you think, or a documentary to learn something new
-            </p>
+            <h2 class="heading-secondary">
+              Explore our wide variety of categories
+            </h2>
           </div>
-          <div
-            class="pagenation rounded-2xl hidden md:flex justify-between md:gap-2 md:p-3 lg:gap-3 lg:p-4 bg-bk06 items-center"
-          >
-            <img class="nx-1" src="/asset/svg/ButtonR.svg" alt=" button left" />
-            <div class="dots flex justify-center items-center">
-              <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
-              <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
-              <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
-              <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
-            </div>
-            <img class="pv-1" src="/asset/svg/ButtonL.svg" alt=" button left" />
+          <div class="pagination">
+            <img
+              src="/asset/svg/ButtonR.svg"
+              alt="button left"
+              id="prev-slide"
+            />
+            <div
+              class="dots flex justify-center items-center"
+              id="pagination"
+            ></div>
+            <img
+              src="/asset/svg/ButtonL.svg"
+              alt=" button left"
+              id="next-slide"
+            />
           </div>
         </div>
-        <swiper-container class="cat content" init="false">
 
-          <swiper-slide class="catItems">
-            <div >
-              <div class="gridImg">
-                <img src="/asset/images/Image-18.png" alt="" />
-                <img src="/asset/images/Image-19.png" alt="" />
-                <img
-                  src="/asset/images/Image-20.png
-                "
-                  alt=""
-                />
-                <img src="/asset/images/Image-31.png" alt="" />
-              </div>
-              <div class="title">
-                <p class="catName">Action</p>
-                <img src="/asset/svg/arrl.svg" alt="" />
-              </div>
-            </div>
-          </swiper-slide>
-
-          <swiper-slide class="catItems">
-            <div >
-              <div class="gridImg">
-                <img src="/asset/images/Image-18.png" alt="" />
-                <img src="/asset/images/Image-19.png" alt="" />
-                <img
-                  src="/asset/images/Image-20.png
-                "
-                  alt=""
-                />
-                <img src="/asset/images/Image-31.png" alt="" />
-              </div>
-              <div class="title">
-                <p class="catName">Action</p>
-                <img src="/asset/svg/arrl.svg" alt="" />
-              </div>
-            </div>
-          </swiper-slide>
-
-          <swiper-slide class="catItems">
-            <div >
-              <div class="gridImg">
-                <img src="/asset/images/Image-18.png" alt="" />
-                <img src="/asset/images/Image-19.png" alt="" />
-                <img
-                  src="/asset/images/Image-20.png
-                "
-                  alt=""
-                />
-                <img src="/asset/images/Image-31.png" alt="" />
-              </div>
-              <div class="title">
-                <p class="catName">Action</p>
-                <img src="/asset/svg/arrl.svg" alt="" />
-              </div>
-            </div>
-          </swiper-slide>
-
-          <swiper-slide class="catItems">
-            <div >
-              <div class="gridImg">
-                <img src="/asset/images/Image-18.png" alt="" />
-                <img src="/asset/images/Image-19.png" alt="" />
-                <img
-                  src="/asset/images/Image-20.png
-                "
-                  alt=""
-                />
-                <img src="/asset/images/Image-31.png" alt="" />
-              </div>
-              <div class="title">
-                <p class="catName">Action</p>
-                <img src="/asset/svg/arrl.svg" alt="" />
-              </div>
-            </div>
-          </swiper-slide>
-          <swiper-slide class="catItems">
-            <div >
-              <div class="gridImg">
-                <img src="/asset/images/Image-18.png" alt="" />
-                <img src="/asset/images/Image-19.png" alt="" />
-                <img
-                  src="/asset/images/Image-20.png
-                "
-                  alt=""
-                />
-                <img src="/asset/images/Image-31.png" alt="" />
-              </div>
-              <div class="title">
-                <p class="catName">Action</p>
-                <img src="/asset/svg/arrl.svg" alt="" />
-              </div>
-            </div>
-          </swiper-slide>
-          <swiper-slide class="catItems">
-            <div >
-              <div class="gridImg">
-                <img src="/asset/images/Image-18.png" alt="" />
-                <img src="/asset/images/Image-19.png" alt="" />
-                <img
-                  src="/asset/images/Image-20.png
-                "
-                  alt=""
-                />
-                <img src="/asset/images/Image-31.png" alt="" />
-              </div>
-              <div class="title">
-                <p class="catName">Action</p>
-                <img src="/asset/svg/arrl.svg" alt="" />
-              </div>
-            </div>
-          </swiper-slide>
-        </swiper-container>
-        <div class="scrollbar flex md:hidden justify-center items-center">
-          <input type="range" name="slider-range" value="0" />
-        </div>
-      </section>
-      <section class="catig mar-btm">
-        <div class="flex justify-between items-center">
-          <div class="textBox">
-            <h2 class="heading-secondary">Our Genres</h2>
-            <p class="section-description">
-              Whether you're looking for a comedy to make you laugh, a drama to
-              make you think, or a documentary to learn something new
-            </p>
-          </div>
-          <div
-          class="pagenation rounded-2xl hidden md:flex justify-between md:gap-2 md:p-3 lg:gap-3 lg:p-4 bg-bk06 items-center"
-        >
-          <img class="nx-2" src="/asset/svg/ButtonR.svg" alt=" button left" />
-          <div class="dots flex justify-center items-center">
-            <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
-            <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
-            <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
-            <div class="w-4 rounded-[100px] h-1 bg-bk20"></div>
-          </div>
-          <img class="pv-2" src="/asset/svg/ButtonL.svg" alt=" button left" />
-        </div>
-
-        <ul class="cat  swiper-wrapper content">
+        <ul class="cat swiper-wrapper content">
           <li class="catItems swiper-slide">
             <div class="gridImg">
               <img src="/asset/images/Image-18.png" alt="" />
@@ -314,162 +178,1811 @@
               <p class="catName">Action</p>
               <img src="/asset/svg/arrl.svg" alt="" />
             </div>
-          </swiper-slide>
-          <swiper-slide class="catItems">
-            <div >
-              <div class="gridImg">
-                <img src="/asset/images/Image-18.png" alt="" />
-                <img src="/asset/images/Image-19.png" alt="" />
-                <img
-                  src="/asset/images/Image-20.png
-                "
-                  alt=""
-                />
-                <img src="/asset/images/Image-31.png" alt="" />
+          </li>
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img src="/asset/images/Image-20.png" alt="" />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide shadow-2xl">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img src="/asset/images/Image-20.png" alt="" />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img
+                src="/asset/images/Image-20.png
+						"
+                alt=""
+              />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img
+                src="/asset/images/Image-20.png
+						"
+                alt=""
+              />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+        </ul>
+        <div class="scrollbar flex md:hidden justify-center items-center">
+          <input type="range" name="slider-range" value="0" />
+        </div>
+      </section>
+      <!-- cat 2 -->
+      <section class="catigories" id="categories-swiper-2">
+        <div class="flex justify-between items-center">
+          <div class="textBox">
+            <h2 class="heading-secondary">Popular Top 10 In Genres</h2>
+          </div>
+          <div class="pagination">
+            <img
+              src="/asset/svg/ButtonR.svg"
+              alt="button left"
+              id="prev-slide"
+            />
+            <div
+              class="dots flex justify-center items-center"
+              id="pagination"
+            ></div>
+            <img
+              src="/asset/svg/ButtonL.svg"
+              alt=" button left"
+              id="next-slide"
+            />
+          </div>
+        </div>
+
+        <ul class="cat swiper-wrapper content">
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img src="/asset/images/Image-20.png" alt="" />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName mt-1">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img src="/asset/images/Image-20.png" alt="" />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName mt-1">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide shadow-2xl">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img src="/asset/images/Image-20.png" alt="" />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName mt-1">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img
+                src="/asset/images/Image-20.png
+      "
+                alt=""
+              />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName mt-1">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img
+                src="/asset/images/Image-20.png
+      "
+                alt=""
+              />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName mt-1">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+        </ul>
+        <div class="scrollbar flex md:hidden justify-center items-center">
+          <input type="range" name="slider-range" value="0" />
+        </div>
+      </section>
+      <!-- cat-3 -->
+      <section class="catigories" id="categories-swiper-3">
+        <div class="flex justify-between items-center">
+          <div class="textBox">
+            <h2 class="heading-secondary">Trending Now</h2>
+          </div>
+          <div class="pagination">
+            <img
+              src="/asset/svg/ButtonR.svg"
+              alt="button left"
+              id="prev-slide"
+            />
+            <div
+              class="dots flex justify-center items-center"
+              id="pagination"
+            ></div>
+            <img
+              src="/asset/svg/ButtonL.svg"
+              alt=" button left"
+              id="next-slide"
+            />
+          </div>
+        </div>
+
+        <ul class="cat swiper-wrapper content cot">
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
               </div>
-              <div class="title">
-                <div class="tag">
-                  <span>Top 10 In</span>
-                  <p class="catName">Action</p>
-                </div>
-                <img src="/asset/svg/arrl.svg" alt="" />
+              <div class="views-tag">
+                <img src="/asset/images/eye.svg" alt="" />
+                <span class="text-xs text-gray60">2K</span>
               </div>
             </div>
-          </swiper-slide>
-          <swiper-slide class="catItems">
-            <div >
-              <div class="gridImg">
-                <img src="/asset/images/Image-18.png" alt="" />
-                <img src="/asset/images/Image-19.png" alt="" />
-                <img
-                  src="/asset/images/Image-20.png
-                "
-                  alt=""
-                />
-                <img src="/asset/images/Image-31.png" alt="" />
+          </li>
+
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
               </div>
-              <div class="title">
-                <div class="tag">
-                  <span>Top 10 In</span>
-                  <p class="catName">Action</p>
-                </div>
-                <img src="/asset/svg/arrl.svg" alt="" />
+              <div class="views-tag">
+                <img src="/asset/images/eye.svg" alt="" />
+                <span class="text-xs text-gray60">2K</span>
               </div>
             </div>
-          </swiper-slide>
-          <swiper-slide class="catItems">
-            <div >
-              <div class="gridImg">
-                <img src="/asset/images/Image-18.png" alt="" />
-                <img src="/asset/images/Image-19.png" alt="" />
-                <img
-                  src="/asset/images/Image-20.png
-                "
-                  alt=""
-                />
-                <img src="/asset/images/Image-31.png" alt="" />
+          </li>
+
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
               </div>
-              <div class="title">
-                <div class="tag">
-                  <span>Top 10 In</span>
-                  <p class="catName">Action</p>
-                </div>
-                <img src="/asset/svg/arrl.svg" alt="" />
+              <div class="views-tag">
+                <img src="/asset/images/eye.svg" alt="" />
+                <span class="text-xs text-gray60">2K</span>
               </div>
             </div>
-          </swiper-slide>
-          <swiper-slide class="catItems">
-            <div >
-              <div class="gridImg">
-                <img src="/asset/images/Image-18.png" alt="" />
-                <img src="/asset/images/Image-19.png" alt="" />
-                <img
-                  src="/asset/images/Image-20.png
-                "
-                  alt=""
-                />
-                <img src="/asset/images/Image-31.png" alt="" />
+          </li>
+
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
               </div>
-              <div class="title">
-                <div class="tag">
-                  <span>Top 10 In</span>
-                  <p class="catName">Action</p>
-                </div>
-                <img src="/asset/svg/arrl.svg" alt="" />
+              <div class="views-tag">
+                <img src="/asset/images/eye.svg" alt="" />
+                <span class="text-xs text-gray60">2K</span>
               </div>
             </div>
-          </swiper-slide>
-          <swiper-slide class="catItems">
-            <div >
-              <div class="gridImg">
-                <img src="/asset/images/Image-18.png" alt="" />
-                <img src="/asset/images/Image-19.png" alt="" />
-                <img
-                  src="/asset/images/Image-20.png
-                "
-                  alt=""
-                />
-                <img src="/asset/images/Image-31.png" alt="" />
+          </li>
+
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
               </div>
-              <div class="title">
-                <div class="tag">
-                  <span>Top 10 In</span>
-                  <p class="catName">Action</p>
-                </div>
-                <img src="/asset/svg/arrl.svg" alt="" />
+              <div class="views-tag">
+                <img src="/asset/images/eye.svg" alt="" />
+                <span class="text-xs text-gray60">2K</span>
               </div>
             </div>
-          </swiper-slide>
-          <swiper-slide class="catItems">
-            <div >
-              <div class="gridImg">
-                <img src="/asset/images/Image-18.png" alt="" />
-                <img src="/asset/images/Image-19.png" alt="" />
-                <img
-                  src="/asset/images/Image-20.png
-                "
-                  alt=""
-                />
-                <img src="/asset/images/Image-31.png" alt="" />
+          </li>
+
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
               </div>
-              <div class="title">
-                <div class="tag">
-                  <span>Top 10 In</span>
-                  <p class="catName">Action</p>
-                </div>
-                <img src="/asset/svg/arrl.svg" alt="" />
+              <div class="views-tag">
+                <img src="/asset/images/eye.svg" alt="" />
+                <span class="text-xs text-gray60">2K</span>
               </div>
             </div>
-          </swiper-slide>
-          <swiper-slide class="catItems">
-            <div >
-              <div class="gridImg">
-                <img src="/asset/images/Image-18.png" alt="" />
-                <img src="/asset/images/Image-19.png" alt="" />
-                <img
-                  src="/asset/images/Image-20.png
-                "
-                  alt=""
-                />
-                <img src="/asset/images/Image-31.png" alt="" />
+          </li>
+
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
               </div>
-              <div class="title">
-                <div class="tag">
-                  <span>Top 10 In</span>
-                  <p class="catName">Action</p>
-                </div>
-                <img src="/asset/svg/arrl.svg" alt="" />
+              <div class="views-tag">
+                <img src="/asset/images/eye.svg" alt="" />
+                <span class="text-xs text-gray60">2K</span>
               </div>
             </div>
-          </swiper-slide>
-        </swiper-container>
+          </li>
+        </ul>
+        <div class="scrollbar flex md:hidden justify-center items-center">
+          <input type="range" name="slider-range" value="0" />
+        </div>
+      </section>
+      <!-- cat-4 -->
+
+      <section class="catigories" id="categories-swiper-4">
+        <div class="flex justify-between items-center">
+          <div class="textBox">
+            <h2 class="heading-secondary">New Releases</h2>
+          </div>
+          <div class="pagination">
+            <img
+              src="/asset/svg/ButtonR.svg"
+              alt="button left"
+              id="prev-slide"
+            />
+            <div
+              class="dots flex justify-center items-center"
+              id="pagination"
+            ></div>
+            <img
+              src="/asset/svg/ButtonL.svg"
+              alt=" button left"
+              id="next-slide"
+            />
+          </div>
+        </div>
+
+        <ul class="cat swiper-wrapper content cot">
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="release-tag">
+                <span class="text-xs text-gray60"
+                  >Released at 14 April 2023</span
+                >
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="release-tag">
+                <span class="text-xs text-gray60"
+                  >Released at 14 April 2023</span
+                >
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="release-tag">
+                <span class="text-xs text-gray60"
+                  >Released at 14 April 2023</span
+                >
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="release-tag">
+                <span class="text-xs text-gray60"
+                  >Released at 14 April 2023</span
+                >
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="release-tag">
+                <span class="text-xs text-gray60"
+                  >Released at 14 April 2023</span
+                >
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="release-tag">
+                <span class="text-xs text-gray60"
+                  >Released at 14 April 2023</span
+                >
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="release-tag">
+                <span class="text-xs text-gray60"
+                  >Released at 14 April 2023</span
+                >
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="scrollbar flex md:hidden justify-center items-center">
+          <input type="range" name="slider-range" value="0" />
+        </div>
+      </section>
+      <!-- cat-5 -->
+      <section class="catigories" id="categories-swiper-5">
+        <div class="flex justify-between items-center">
+          <div class="textBox">
+            <h2 class="heading-secondary">Must - Watch Movies</h2>
+          </div>
+          <div class="pagination">
+            <img
+              src="/asset/svg/ButtonR.svg"
+              alt="button left"
+              id="prev-slide"
+            />
+            <div
+              class="dots flex justify-center items-center"
+              id="pagination"
+            ></div>
+            <img
+              src="/asset/svg/ButtonL.svg"
+              alt=" button left"
+              id="next-slide"
+            />
+          </div>
+        </div>
+
+        <ul class="cat swiper-wrapper content cot">
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <div class="rating flex items-center justify-center">
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                </div>
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <div class="rating flex items-center justify-center">
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                </div>
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <div class="rating flex items-center justify-center">
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                </div>
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <div class="rating flex items-center justify-center">
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                </div>
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <div class="rating flex items-center justify-center">
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                </div>
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+        </ul>
         <div class="scrollbar flex md:hidden justify-center items-center">
           <input type="range" name="slider-range" value="0" />
         </div>
       </section>
     </main>
+    <main class="content--wrapper mar-btm" id="tv">
+      <div class="label"><label for="movies">Shows</label></div>
+      <!-- cat 2 -->
+      <section class="catigories" id="categories-swiper-6">
+        <div class="flex justify-between items-center">
+          <div class="textBox">
+            <h2 class="heading-secondary">Popular Top 10 In Genres</h2>
+          </div>
+          <div class="pagination">
+            <img
+              src="/asset/svg/ButtonR.svg"
+              alt="button left"
+              id="prev-slide"
+            />
+            <div
+              class="dots flex justify-center items-center"
+              id="pagination"
+            ></div>
+            <img
+              src="/asset/svg/ButtonL.svg"
+              alt=" button left"
+              id="next-slide"
+            />
+          </div>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+        <ul class="cat swiper-wrapper content">
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img src="/asset/images/Image-20.png" alt="" />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName mt-1">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img src="/asset/images/Image-20.png" alt="" />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName mt-1">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide shadow-2xl">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img src="/asset/images/Image-20.png" alt="" />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName mt-1">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img
+                src="/asset/images/Image-20.png
+      "
+                alt=""
+              />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName mt-1">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img
+                src="/asset/images/Image-20.png
+      "
+                alt=""
+              />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <p class="catName mt-1">Action</p>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+        </ul>
+        <div class="scrollbar flex md:hidden justify-center items-center">
+          <input type="range" name="slider-range" value="0" />
+        </div>
+      </section>
+      <!-- cat 2 -->
+      <section class="catigories" id="categories-swiper-7">
+        <div class="flex justify-between items-center">
+          <div class="textBox">
+            <h2 class="heading-secondary">Popular Top 10 In Genres</h2>
+          </div>
+          <div class="pagination">
+            <img
+              src="/asset/svg/ButtonR.svg"
+              alt="button left"
+              id="prev-slide"
+            />
+            <div
+              class="dots flex justify-center items-center"
+              id="pagination"
+            ></div>
+            <img
+              src="/asset/svg/ButtonL.svg"
+              alt=" button left"
+              id="next-slide"
+            />
+          </div>
+        </div>
+
+        <ul class="cat swiper-wrapper content">
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img src="/asset/images/Image-20.png" alt="" />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <div class="tag mt-2">
+                <span>Top 10 In</span>
+                <p class="catName mt-1">Action</p>
+              </div>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img src="/asset/images/Image-20.png" alt="" />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <div class="tag mt-2">
+                <span>Top 10 In</span>
+                <p class="catName mt-1">Action</p>
+              </div>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide shadow-2xl">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img src="/asset/images/Image-20.png" alt="" />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <div class="tag mt-2">
+                <span>Top 10 In</span>
+                <p class="catName mt-1">Action</p>
+              </div>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img
+                src="/asset/images/Image-20.png
+						"
+                alt=""
+              />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <div class="tag mt-2">
+                <span>Top 10 In</span>
+                <p class="catName mt-1">Action</p>
+              </div>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+          <li class="catItems swiper-slide">
+            <div class="gridImg">
+              <img src="/asset/images/Image-18.png" alt="" />
+              <img src="/asset/images/Image-19.png" alt="" />
+              <img
+                src="/asset/images/Image-20.png
+						"
+                alt=""
+              />
+              <img src="/asset/images/Image-31.png" alt="" />
+            </div>
+            <div class="title">
+              <div class="tag mt-2">
+                <span>Top 10 In</span>
+                <p class="catName mt-1">Action</p>
+              </div>
+              <img src="/asset/svg/arrl.svg" alt="" />
+            </div>
+          </li>
+        </ul>
+        <div class="scrollbar flex md:hidden justify-center items-center">
+          <input type="range" name="slider-range" value="0" />
+        </div>
+      </section>
+
+      <!-- cat-3 -->
+      <section class="catigories" id="categories-swiper-8">
+        <div class="flex justify-between items-center">
+          <div class="textBox">
+            <h2 class="heading-secondary">Trending Now</h2>
+          </div>
+          <div class="pagination">
+            <img
+              src="/asset/svg/ButtonR.svg"
+              alt="button left"
+              id="prev-slide"
+            />
+            <div
+              class="dots flex justify-center items-center"
+              id="pagination"
+            ></div>
+            <img
+              src="/asset/svg/ButtonL.svg"
+              alt=" button left"
+              id="next-slide"
+            />
+          </div>
+        </div>
+
+        <ul class="cat swiper-wrapper content cot">
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <img src="/asset/images/eye.svg" alt="" />
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <img src="/asset/images/eye.svg" alt="" />
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <img src="/asset/images/eye.svg" alt="" />
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <img src="/asset/images/eye.svg" alt="" />
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <img src="/asset/images/eye.svg" alt="" />
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <img src="/asset/images/eye.svg" alt="" />
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <img src="/asset/images/eye.svg" alt="" />
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="scrollbar flex md:hidden justify-center items-center">
+          <input type="range" name="slider-range" value="0" />
+        </div>
+      </section>
+      <!-- cat-4 -->
+
+      <section class="catigories" id="categories-swiper-9">
+        <div class="flex justify-between items-center">
+          <div class="textBox">
+            <h2 class="heading-secondary">New Releases</h2>
+          </div>
+          <div class="pagination">
+            <img
+              src="/asset/svg/ButtonR.svg"
+              alt="button left"
+              id="prev-slide"
+            />
+            <div
+              class="dots flex justify-center items-center"
+              id="pagination"
+            ></div>
+            <img
+              src="/asset/svg/ButtonL.svg"
+              alt=" button left"
+              id="next-slide"
+            />
+          </div>
+        </div>
+
+        <ul class="cat swiper-wrapper content cot">
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="release-tag">
+                <span class="text-xs text-gray60"
+                  >Released at 14 April 2023</span
+                >
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="release-tag">
+                <span class="text-xs text-gray60"
+                  >Released at 14 April 2023</span
+                >
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="release-tag">
+                <span class="text-xs text-gray60"
+                  >Released at 14 April 2023</span
+                >
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="release-tag">
+                <span class="text-xs text-gray60"
+                  >Released at 14 April 2023</span
+                >
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="release-tag">
+                <span class="text-xs text-gray60"
+                  >Released at 14 April 2023</span
+                >
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="release-tag">
+                <span class="text-xs text-gray60"
+                  >Released at 14 April 2023</span
+                >
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="release-tag">
+                <span class="text-xs text-gray60"
+                  >Released at 14 April 2023</span
+                >
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="scrollbar flex md:hidden justify-center items-center">
+          <input type="range" name="slider-range" value="0" />
+        </div>
+      </section>
+      <!-- cat-5 -->
+      <section class="catigories" id="categories-swiper-10">
+        <div class="flex justify-between items-center">
+          <div class="textBox">
+            <h2 class="heading-secondary">Must - Watch Movies</h2>
+          </div>
+          <div class="pagination">
+            <img
+              src="/asset/svg/ButtonR.svg"
+              alt="button left"
+              id="prev-slide"
+            />
+            <div
+              class="dots flex justify-center items-center"
+              id="pagination"
+            ></div>
+            <img
+              src="/asset/svg/ButtonL.svg"
+              alt=" button left"
+              id="next-slide"
+            />
+          </div>
+        </div>
+
+        <ul class="cat swiper-wrapper content cot">
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <div class="rating flex items-center justify-center">
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                </div>
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <div class="rating flex items-center justify-center">
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                </div>
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <div class="rating flex items-center justify-center">
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                </div>
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <div class="rating flex items-center justify-center">
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                </div>
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+          <li class="views swiper-slide">
+            <figure class="poster">
+              <img src="/asset/images/test.png" alt="" />
+            </figure>
+            <div class="details">
+              <div class="time-tag">
+                <img src="/asset/images/time.svg" alt="" />
+                <span class="text-xs text-gray60">1h 30min</span>
+              </div>
+              <div class="views-tag">
+                <div class="rating flex items-center justify-center">
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill=""
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.38086 0.5L12.4967 5.2114L17.9404 6.71885L14.4224 11.1381L14.6709 16.7812L9.38086 14.801L4.09079 16.7812L4.33931 11.1381L0.821351 6.71885L6.26501 5.2114L9.38086 0.5Z"
+                      fill="#E60000"
+                    />
+                  </svg>
+                </div>
+                <span class="text-xs text-gray60">2K</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="scrollbar flex md:hidden justify-center items-center">
+          <input type="range" name="slider-range" value="0" />
+        </div>
+      </section>
+    </main>
+    <div class="cont">
+      <section class="dec cont mar-btm">
+        <div class="section-fx items-center justify-center gap-9">
+          <div class="textBox text-center md:text-left">
+            <h2 class="heading-secondary text-center md:text-left">
+              Start your free trial today!
+            </h2>
+            <p class="section-description">
+              This is a clear and concise call to action that encourages users
+              to sign up for a free trial of StreamVibe.
+            </p>
+          </div>
+          <a href="#" class="btn">Start a Free Trail</a>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer cont">
+      <nav aria-label="Footer navigation" class="footerGrid">
+        <ul
+          class="footer-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10"
+        >
+          <li class="footer-column">
+            <h3>Home</h3>
+            <ul>
+              <li><a href="#">Categories</a></li>
+              <li><a href="#">Devices</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </li>
+          <li class="footer-column">
+            <h3>Movies</h3>
+            <ul>
+              <li><a href="#">Genres</a></li>
+              <li><a href="#">Trending</a></li>
+              <li><a href="#">New Release</a></li>
+              <li><a href="#">Popular</a></li>
+            </ul>
+          </li>
+          <li class="footer-column">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </li>
+          <li class="footer-column">
+            <h3>Shows</h3>
+            <ul>
+              <li><a href="#">Genres</a></li>
+              <li><a href="#">Trending</a></li>
+              <li><a href="#">New Episodes</a></li>
+              <li><a href="#">Popular</a></li>
+            </ul>
+          </li>
+          <li class="footer-column">
+            <h3>Subscription</h3>
+            <ul>
+              <li><a href="#">Plans</a></li>
+              <li><a href="#">Features</a></li>
+            </ul>
+          </li>
+
+          <li class="footer-column">
+            <h3>Connect With Us</h3>
+            <ul id="social-media-icons">
+              <li>
+                <a href="#" target="_blank"
+                  ><img src="/asset/images/facebook.svg" alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="#" target="_blank"
+                  ><img src="/asset/images/Icon-linkin.svg" alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="#" target="_blank"
+                  ><img src="/asset/images/Icon-x.svg" alt=""
+                /></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <nav class="footer-footer">
+        <div class="navbox flex justify-between flex-col md:flex-row">
+          <p>@<span id="year">2023</span> streamvibe, All Rights Reserved</p>
+          <ul class="divide-x-2">
+            <li>Terms of Use</li>
+            <li class="bud">Privacy Policy</li>
+            <li>Cookie Policy</li>
+          </ul>
+        </div>
+      </nav>
+    </footer>
     <script type="module" src="/src/js/controller.js"></script>
   </body>
 </html>

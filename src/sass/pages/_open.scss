@@ -1,92 +1,94 @@
-.open-hero {
-  height: 100vh;
-  overflow: hidden;
+// .open-hero {
+//   height: 100vh;
+//   overflow: hidden;
 
-  .heroimages {
-    border: 1px solid rgba(38, 38, 38);
+//   .heroimages {
+//     border: 1px solid rgba(38, 38, 38);
 
-    // border-image-source: linear-gradient( #d11616 0%, 100%);
-    // padding: 10px;
 
-    // height: 100%;
-    border-radius: 12px;
+//     border-radius: 12px;
 
-    img {
-      width: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
+//     img {
+//       width: 100%;
+//       object-fit: cover;
+//       object-position: center;
+//     }
 
-    position: relative;
-  }
+//     position: relative;
+//   }
 
-  .contentbox {
-    position: absolute;
+//   .contentbox {
+//     position: absolute;
 
-    left: 50%;
-    bottom: 10%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    width: 100%;
-    z-index: 2;
+//     left: 50%;
+//     bottom: 10%;
+//     transform: translateX(-50%);
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: column;
+//     text-align: center;
+//     width: 100%;
+//     z-index: 2;
 
-    .tab {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.25rem;
-      margin-top: 2rem;
+//     .tab {
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       gap: 1.25rem;
+//       margin-top: 2rem;
 
-      button {
-        padding: 14px;
-      }
+//       button {
+//         padding: 14px;
+//       }
 
-      .action {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.625rem;
+//       .action {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         gap: 0.625rem;
 
-        li {
-          height: 3.5rem;
-          width: 3.5rem;
-          position: relative;
-          background-color: #fff;
-          border: 1px solid #262626;
-          background: #0f0f0f;
-          border-radius: 0.5rem;
+//         li {
+//           height: 3.5rem;
+//           width: 3.5rem;
+//           position: relative;
+//           background-color: #fff;
+//           border: 1px solid #262626;
+//           background: #0f0f0f;
+//           border-radius: 0.5rem;
 
-          img {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-          }
-        }
-      }
-    }
-  }
+//           img {
+//             position: absolute;
+//             left: 50%;
+//             top: 50%;
+//             transform: translate(-50%, -50%);
+//           }
+//         }
+//       }
+//     }
+//   }
 
-  position: relative;
+//   position: relative;
 
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(transparent, #141414 90%);
-  }
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     height: 100%;
+//     width: 100%;
+//     background: linear-gradient(transparent, #141414 90%);
+//   }
+// }
+#movies,#tv{
+  gap: 100px;
+display: flex;flex-direction: column;
 }
 
-.open-main {
-  align-items: start;
-  @apply block md:grid md:grid-cols-12 gap-5;
+.content--wrapper {
+  // align-items: start;
+// @apply grid grid-cols-1 gap-24 ;
+
 
   .main-content {
     display: flex;
@@ -130,7 +132,7 @@
         swiper-slide {
           border-radius: 12px;
           overflow: hidden;
-          flex-grow: 1;
+          // flex-grow: 1;
 
           img {
             height: 100%;
@@ -148,7 +150,7 @@
           border: 1px solid #262626;
 
           border-radius: 12px;
-          @apply bg-bk06 p-10;
+          @apply bg-bk06;
         }
 
         .reviewHeader {
@@ -196,4 +198,37 @@
       gap: 1.3rem;
     }
   }
+}
+
+
+.details {
+  @apply flex justify-between items-center w-full;
+
+  .time-tag,
+  .views-tag,
+  .release-tag {
+    border: 1px solid #262626;
+    @apply mt-2 flex items-center justify-center gap-1 px-2 py-2 xsm:py-1 xl:py-1 lp:py-2 bg-bk08 rounded-full;
+  }
+}
+
+.cot {
+  .swiper-slide {
+    border: 1px solid #262626;
+    @apply flex flex-col items-center justify-center gap-4 p-4 bg-bk10 rounded-xl;
+
+    .poster {
+      @apply overflow-hidden rounded-xl w-full;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .details>.release-tag {
+      width: 100%;
+    }
+  }
+
+
 }
