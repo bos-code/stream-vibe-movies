@@ -1,12 +1,67 @@
 @use '../../abstracts/mixins' as *;
 
+header.moviesHeader-cont {
+    // background-color: red;
+    height: 90vh;
+    margin-bottom: 180px;
+    position: relative;
+    @include centered;
+
+    figure {
+        object-fit: contain;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid;
+
+        border-image-source: linear-gradient(180deg, #262626 0%, rgba(38, 38, 38, 0) 100%);
+
+
+        height: 100%;
+        width: 100%;
+
+        img {
+            border-radius: 12px;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .overlay {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(0deg, #141414 0%, rgba(20, 20, 20, 0) 100%);
+
+        h1 {
+            //    display: block;
+            overflow: visible;
+        }
+
+        p {
+            padding: 10px 5% 0;
+        }
+
+        .pagination-hero {
+            margin-top: 3rem;
+            width: 100%;
+        }
+    }
+}
+
+
 .content--wrapper {
     @include centered;
 
-    padding: 50px;
-    // z-index: -1;
     @include round-small;
-    @apply relative;
+    @apply relative p-12 md:p-9 lg:p-7;
     overflow: visible;
 
     .label {
@@ -22,4 +77,3 @@
         }
     }
 }
-

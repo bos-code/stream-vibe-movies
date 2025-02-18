@@ -1,5 +1,4 @@
 import { defineConfig } from "vite";
-import imagemin from "vite-plugin-imagemin";
 
 export default defineConfig({
   css: {
@@ -7,6 +6,11 @@ export default defineConfig({
       scss: {
         api: "modern-compiler"
       }
+    }
+  },
+  build: {
+    rollupOptions: {
+      external: ['fsevents']
     }
   }
   //   plugins: [

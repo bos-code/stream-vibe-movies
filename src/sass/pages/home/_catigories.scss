@@ -8,6 +8,9 @@
   .cat {
     margin-top: 2.5rem;
     padding-bottom: 2rem;
+    display: flex;
+    
+
 
     &::-webkit-scrollbar {
       display: none;
@@ -22,6 +25,7 @@
       border-radius: 10px;
       padding: 1.25rem;
       background-color: #1a1a1a;
+
 
       // @apply flex-shrink-0 w-1/2  md:flex-shrink;
       //   @apply w-1/2;
@@ -42,11 +46,9 @@
           left: 0;
           height: 100%;
           width: 100%;
-          background: linear-gradient(
-            180deg,
-            rgba(26, 26, 26, 0) 0%,
-            #1a1a1a 101.79%
-          );
+          background: linear-gradient(180deg,
+              rgba(26, 26, 26, 0) 0%,
+              #1a1a1a 101.79%);
           z-index: 22222222222222;
         }
       }

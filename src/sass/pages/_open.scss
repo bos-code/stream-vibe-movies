@@ -80,14 +80,16 @@
 //     background: linear-gradient(transparent, #141414 90%);
 //   }
 // }
-#movies,#tv{
+#movies,
+#tv {
   gap: 100px;
-display: flex;flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .content--wrapper {
   // align-items: start;
-// @apply grid grid-cols-1 gap-24 ;
+  // @apply grid grid-cols-1 gap-24 ;
 
 
   .main-content {
@@ -210,6 +212,11 @@ display: flex;flex-direction: column;
     border: 1px solid #262626;
     @apply mt-2 flex items-center justify-center gap-1 px-2 py-2 xsm:py-1 xl:py-1 lp:py-2 bg-bk08 rounded-full;
   }
+}
+
+.views {
+  align-items: center;
+  justify-content: center;
 }
 
 .cot {

@@ -1,5 +1,5 @@
 import Swiper from "swiper";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination,EffectFade } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -10,9 +10,10 @@ export function createSwiper(el, config = {}) {
   if (!document.querySelector(el)) return;
 
   const catSwiper = new Swiper(el, {
-    modules: [Navigation, Pagination],
+    modules: [Navigation, Pagination, EffectFade],
     // slidesPerView: 5,
     spaceBetween: 10,
+    // effect: "fade",
     mousewheel: {
          invert: true,
     },
@@ -25,6 +26,7 @@ export function createSwiper(el, config = {}) {
       clickable: true,
       dynamicBullets: true,
       dynamicMainBullets: 4
+      
     },
     loop: true,
     ...config
@@ -89,12 +91,43 @@ export function creatSwipers() {
   swiperSelectors.forEach(selector => {
     createSwiper(selector, {
       slidesPerView: 4,
+      // breakpoints:{
+      //   375: {
+      //     slidesPerView: 2,
+     
+      //   },
+      //   640: {
+      //     slidesPerView: 2,
+      //   },
+      //   768: {
+      //     slidesPerView: 3,
+      //   },
+      //   1024: {
+      //     slidesPerView: 4,
+      //   },
+      //   1224: {
+      //     slidesPerView: 5,
+      //   },
+      // }
     });
   });
   const swiperSelector5 = ["#categories-swiper", "#categories-swiper-2", "#categories-swiper-3", "#categories-swiper-4", "#categories-swiper-6",];
   swiperSelector5.forEach(selector => {
     createSwiper(selector, {
       slidesPerView: 5,
+      // breakpoints:{
+      //   375: {
+      //     slidesPerView: 2,
+      //   },
+    
+      //   768: {
+      //     slidesPerView: 3,
+      //   },
+      //   1024: {
+      //     slidesPerView: 4,
+      //   },
+      
+      // }
     });
   });
 

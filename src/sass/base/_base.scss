@@ -3,14 +3,15 @@ body {
   box-sizing: border-box;
   @apply text-white bg-bk08;
 }
+
 html {
-  // font-size: 92.5%;
+  font-size: 92.5%;
 }
 
 body {
   --sb-track-color: #333333;
   --sb-thumb-color: ##e50000;
-  --sb-size: 7px;
+  --sb-size: 8px;
   overflow-x: hidden;
 }
 
@@ -19,14 +20,16 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: var(--sb-track-color);
+  // background: ;
+  background: #333333;
   border-radius: 20px;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: var(--sb-thumb-color);
+  background: red;
   border-radius: 20px;
-  border: 1px solid transparent;
+  // padding: 2px;
+  border: 1px solid red;
 }
 
 @supports not selector(::-webkit-scrollbar) {
@@ -35,7 +38,9 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
