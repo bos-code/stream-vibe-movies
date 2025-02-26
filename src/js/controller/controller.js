@@ -1,24 +1,17 @@
 import "../../sass/main.scss";
-import * as model from "../model/model.js"
-// import * as view from "../views/heroView.js"
-// import discoverView from "../views/discoverView.js";
-import "../animations.js";
-import { async } from "regenerator-runtime";
-import 'core-js/stable';
-import {creatSwipers} from "../swiper.js";
 
-creatSwipers();
+import model, { trendingData } from "../model/model.js";
+import { datast } from "../model/model.js";
+import { renderHero } from "../views/discoverView.js";
+import { rendertrends } from "../views/trendingView.js";
+import View from "../views/view.js";
+// import { movieTemplate } from "../views/discoverView.js";
 
+const movies = await datast.results;
 
-export default class Controller {
-  constructor(model, view) {
-      this.model = model;
-      this.view = view;
-  }
+const trendData = await trendingData.results;
+//
 
-  async loadContent(endpoint, params = {}) {
-      const data = await this.model.fetchData('trending/all ');
-      this.view.render(data);
-  }
-}
-
+console.log(trendData);
+renderHero(movies);
+rendertrends(trendData)

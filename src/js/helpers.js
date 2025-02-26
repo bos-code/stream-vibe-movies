@@ -1,10 +1,84 @@
-export const getJSON = async function (url) {
- try {
-  const res = await fetch(url);
-  const data = await res.json();
-  return data;
- } catch (err) {
-  console.log(err);
- }
-};
+import { data } from "autoprefixer";
+import { TIMEOUT_SEC } from "./config";
+
+const timeout = function (s) {
+    return new Promise(function (_, reject) {
+      setTimeout(function () {
+        reject(new Error(`Request took too long! Timeout after ${s} second`));
+      }, s * 1000);
+    });
+  };
   
+  export const AJAX = async function (endpoint, bodyData = null, headers = {}) {
+    try {
+      const url = `https://api.themoviedb.org/3/${endpoint}?append_to_response=details`;
+      const options = {
+        method : 'GET',
+        mode: "cors",
+        
+        headers: {
+          'Content-Type': 'application/json',
+          ...headers,
+        },
+      };
+  
+      if (bodyData) options.body = JSON.stringify(bodyData);
+  
+      const fetchPro = fetch(url, options);
+      const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
+      const data = await res.json();
+  
+      if (!res.ok) throw new Error(`${data.message || 'Request failed'} (${res.status})`);
+      return data;
+    } catch (err) {
+      throw err;
+    }
+  };
+  
+
+
+  export function formatNumber(num) {
+    if (num < 1000) {
+        return num.toString();
+    } else {
+        return Math.ceil(num / 1000) + "k";
+    }
+}
+
+
+
+export async function fetchMovieDetails(movieId) {
+  const url = `https://api.themoviedb.org/3/movie/${movieId}?append_to_response=videos`;
+  
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0NjVjOGEwM2E0OTY2NWExNjc4YjQ3YzRlNGE2NTNhZiIsIm5iZiI6MTczNTc1MDQ0MC4wMSwic3ViIjoiNjc3NTczMjgxOTRiNTgxNmQ3NjEzYjAzIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.rrD9n7tnIMUfuxs3Wh1wWMqzB3dSr4Ds4uiqCeapjTE`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+
+    const dat = await response.json();
+    console.log(dat.runtime)
+    return dat.runtime;
+  } catch (error) {
+    console.error('Error fetching movie details:', error);
+    return null;
+  }
+}
+
+
+
+export function runTime(minutes) {
+  if (!minutes || minutes < 0) return 'Invalid time';
+
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+
+  return hours > 0 
+    ? hours + "h " + mins + "min" 
+    : mins + "min";
+}

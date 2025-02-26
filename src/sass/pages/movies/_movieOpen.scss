@@ -1,57 +1,83 @@
 @use '../../abstracts/mixins' as *;
 
+#hero-swiper{
+    height: 90vh !important;
+    width: 90vw !important;
+    margin: 0 auto  180px;
+    @include centered;
+    overflow: hidden  !important;
+
+}
+
 header.moviesHeader-cont {
     // background-color: red;
-    height: 90vh;
-    margin-bottom: 180px;
-    position: relative;
-    @include centered;
-
-    figure {
-        object-fit: contain;
+    width: 100% !important;
+    height: 100%;
+    .swiper-slide {
+        opacity: 0 !important;
+        visibility: hidden;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    
+    .swiper-slide-active {
+        opacity: 1 !important;
+        visibility: visible;
+    }
+    .swiper-slide {
         position: relative;
+        width: 100% !important;
+        // display: block;
         overflow: hidden;
-        border: 1px solid;
+        @include centered;
+        transition: opacity 300ms ease-in-out;
 
-        border-image-source: linear-gradient(180deg, #262626 0%, rgba(38, 38, 38, 0) 100%);
+        figure {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid;
+
+            border-image-source: linear-gradient(180deg, #262626 0%, rgba(38, 38, 38, 0) 100%);
 
 
-        height: 100%;
-        width: 100%;
+            height: 100%;
+            width: 100%;
 
-        img {
-            border-radius: 12px;
+            img {
+                border-radius: 12px;
+                position: absolute;
+                top: 0;
+                width: 100% !important;
+                // aspect-ratio: 16/;
+                object-fit: cover;
+                object-position: bottom;
+            }
+        }
+
+        .overlay {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            flex-direction: column;
             position: absolute;
             top: 0;
+            left: 0;
+            height: 100%;
             width: 100%;
-            object-fit: cover;
-        }
-    }
+            background: linear-gradient(0deg, #141414 0%, rgba(20, 20, 20, 0) 100%);
 
-    .overlay {
-        display: flex;
-        justify-content: end;
-        align-items: center;
-        flex-direction: column;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: linear-gradient(0deg, #141414 0%, rgba(20, 20, 20, 0) 100%);
+            h1 {
+                //    display: block;
+                overflow: visible;
+            }
 
-        h1 {
-            //    display: block;
-            overflow: visible;
-        }
+            p {
+                padding: 10px 5% 0;
+            }
 
-        p {
-            padding: 10px 5% 0;
-        }
-
-        .pagination-hero {
-            margin-top: 3rem;
-            width: 100%;
+            .pagination-hero {
+                margin-top: 3rem;
+                width: 100%;
+            }
         }
     }
 }

@@ -9,10 +9,9 @@ export function animateImages() {
   if (!images ) return;
   if (images && header) {
     images.classList.remove(".hidden");
-    const distance = images.clientWidth;
-    const windowWidth = header.clientWidth;
+   
 
-    const center = (windowWidth / 2 - distance / 2) / 2;
+    // const center = (windowWidth / 2 - distance / 2) / 2;
     const tl = gsap.timeline();
 
     tl.from(heroImages, {

@@ -1,58 +1,36 @@
-import { getJSON } from "../helpers";
-import { API_URL } from "../configs";
-import { async } from "regenerator-runtime";
-import 'core-js/stable';
-import { createLogger } from "vite";
-console.log(API_URL, async);
+import { AJAX } from "../helpers";
 
+import { API_CONFIG, TMDB_ENDPOINTS } from "../config";
 
-
-  
-
-// export default class Model {
-// 	constructor(apiKey, baseUrl = 'https://api.themoviedb.org/3') {
-// 	  this.apiKey = apiKey;
-// 	  this.baseUrl = baseUrl;
-// 	}
-  
-// 	async fetchData(endpoint, params = {}) {
-// 	  const url = new URL(`${this.baseUrl}${endpoint}`);
-// 	  url.searchParams.append('api_key', this.apiKey);
-  
-// 	  Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
-  
-// 	  try {
-// 		const response = await fetch(url);
-// 		if (!response.ok) {
-// 		  throw new Error(`HTTP error! Status: ${response.status}`);
-// 		}
-// 		return await response.json();
-// 	  } catch (error) {
-// 		console.error('Fetch error:', error);
-// 	  }
-// 	}
-//   }
-
-export default class Model {
-    constructor(apiKey) {
-        this.apiKey = apiKey;
-        this.baseUrl = 'https://api.themoviedb.org/3';
+// const state
+export default class model {
+  constructor() {
+    this.API_CONFIG = API_CONFIG;
+    this.state = {
+        movies: []
     }
+  }
 
-    async fetchData(endpoint, params = {}) {
-        params.api_key = this.apiKey; // Append API key to parameters
-        const url = `${this.baseUrl}${endpoint}?${new URLSearchParams(params)}`;
-
-        try {
-            const response = await fetch(url);
-            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-            const data = await response.json();
-            console.log(data)
-            return data
-        } catch (error) {
-            console.log("Fetch error:",);
-        }
+  async fetchData(endpoint, bodyData = null, headers = {}) {
+    try {
+      // Append API key to the endpoint
+      const fullEndpoint = endpoint;
+      return await AJAX(fullEndpoint, bodyData, headers);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      throw error;
     }
+  }
 }
 
-  
+const data = new model();
+export const datast = await data.fetchData(
+  TMDB_ENDPOINTS[1],
+  null,
+  (Headers = API_CONFIG)
+);
+export const trendingData = await data.fetchData(
+  TMDB_ENDPOINTS[0],
+  null,
+  (Headers = API_CONFIG)
+);

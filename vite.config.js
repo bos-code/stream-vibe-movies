@@ -9,8 +9,11 @@ export default defineConfig({
     }
   },
   build: {
+    
+      target: "esnext" ,// Allows top-level await
+    
     rollupOptions: {
-      external: ['fsevents']
+      external: ["fsevents"]
     }
   }
   //   plugins: [

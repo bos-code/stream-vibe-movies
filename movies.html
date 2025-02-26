@@ -124,35 +124,9 @@
         </ul>
       </li>
     </nav>
-<div class="moviesHeader">
-  <header class="moviesHeader-cont">
-    <figure><img src="/asset/images/hero.png" alt=""></figure>
-    <div class="overlay">
-      <div class="textbox">
-        <h1 class="heading-primary">Avengers : Endgame</h1>
-        <p class="section-description text-center">
-          With the help of remaining allies, the Avengers must assemble once
-          more in order to undo Thanos's actions and undo the chaos to the
-          universe, no matter what consequences may be in store, and no matter
-          who they face... Avenge the fallen.
-        </p>
-      </div>
-</div>
-
-        <div class="pagination-hero">
-          <img src="/asset/svg/ButtonR.svg" alt="button left" id="prev-slide" />
-          <div
-            class="dots flex justify-center items-center"
-            id="pagination"
-          ></div>
-          <img
-            src="/asset/svg/ButtonL.svg"
-            alt=" button left"
-            id="next-slide"
-          />
-        </div>
-      </div>
-    </header>
+    <div class="moviesHeader" id="hero-swiper">
+      <header class="moviesHeader-cont swiper-wrapper" id="heroSlides"></header>
+    </div>
 
     <main class="content--wrapper mar-btm" id="movies">
       <div class="label"><label for="movies">Movies</label></div>
@@ -377,118 +351,8 @@
           </div>
         </div>
 
-        <ul class="cat swiper-wrapper content cot">
-          <li class="views swiper-slide">
-            <figure class="poster">
-              <img src="/asset/images/test.png" alt="" />
-            </figure>
-            <div class="details">
-              <div class="time-tag">
-                <img src="/asset/images/time.svg" alt="" />
-                <span class="text-xs text-gray60">1h 30min</span>
-              </div>
-              <div class="views-tag">
-                <img src="/asset/images/eye.svg" alt="" />
-                <span class="text-xs text-gray60">2K</span>
-              </div>
-            </div>
-          </li>
-
-          <li class="views swiper-slide">
-            <figure class="poster">
-              <img src="/asset/images/Image-11.png" alt="" />
-            </figure>
-            <div class="details">
-              <div class="time-tag">
-                <img src="/asset/images/time.svg" alt="" />
-                <span class="text-xs text-gray60">1h 30min</span>
-              </div>
-              <div class="views-tag">
-                <img src="/asset/images/eye.svg" alt="" />
-                <span class="text-xs text-gray60">2K</span>
-              </div>
-            </div>
-          </li>
-
-          <li class="views swiper-slide">
-            <figure class="poster">
-              <img src="/asset/images/test.png" alt="" />
-            </figure>
-            <div class="details">
-              <div class="time-tag">
-                <img src="/asset/images/time.svg" alt="" />
-                <span class="text-xs text-gray60">1h 30min</span>
-              </div>
-              <div class="views-tag">
-                <img src="/asset/images/eye.svg" alt="" />
-                <span class="text-xs text-gray60">2K</span>
-              </div>
-            </div>
-          </li>
-
-          <li class="views swiper-slide">
-            <figure class="poster">
-              <img src="/asset/images/test.png" alt="" />
-            </figure>
-            <div class="details">
-              <div class="time-tag">
-                <img src="/asset/images/time.svg" alt="" />
-                <span class="text-xs text-gray60">1h 30min</span>
-              </div>
-              <div class="views-tag">
-                <img src="/asset/images/eye.svg" alt="" />
-                <span class="text-xs text-gray60">2K</span>
-              </div>
-            </div>
-          </li>
-
-          <li class="views swiper-slide">
-            <figure class="poster">
-              <img src="/asset/images/test.png" alt="" />
-            </figure>
-            <div class="details">
-              <div class="time-tag">
-                <img src="/asset/images/time.svg" alt="" />
-                <span class="text-xs text-gray60">1h 30min</span>
-              </div>
-              <div class="views-tag">
-                <img src="/asset/images/eye.svg" alt="" />
-                <span class="text-xs text-gray60">2K</span>
-              </div>
-            </div>
-          </li>
-
-          <li class="views swiper-slide">
-            <figure class="poster">
-              <img src="/asset/images/test.png" alt="" />
-            </figure>
-            <div class="details">
-              <div class="time-tag">
-                <img src="/asset/images/time.svg" alt="" />
-                <span class="text-xs text-gray60">1h 30min</span>
-              </div>
-              <div class="views-tag">
-                <img src="/asset/images/eye.svg" alt="" />
-                <span class="text-xs text-gray60">2K</span>
-              </div>
-            </div>
-          </li>
-
-          <li class="views swiper-slide">
-            <figure class="poster">
-              <img src="/asset/images/test.png" alt="" />
-            </figure>
-            <div class="details">
-              <div class="time-tag">
-                <img src="/asset/images/time.svg" alt="" />
-                <span class="text-xs text-gray60">1h 30min</span>
-              </div>
-              <div class="views-tag">
-                <img src="/asset/images/eye.svg" alt="" />
-                <span class="text-xs text-gray60">2K</span>
-              </div>
-            </div>
-          </li>
+        <ul class="cat swiper-wrapper content cot" id="trends">
+         <!-- rendered  -->
         </ul>
         <div class="scrollbar flex md:hidden justify-center items-center">
           <input type="range" name="slider-range" value="0" />
@@ -499,7 +363,7 @@
       <section class="catigories" id="categories-swiper-4">
         <div class="flex justify-between items-center">
           <div class="textBox">
-            <h2 class="heading-secondary">New Releases</h2>
+            <h2 class="heading-secondary flex-1">New Releases</h2>
           </div>
           <div class="pagination">
             <img

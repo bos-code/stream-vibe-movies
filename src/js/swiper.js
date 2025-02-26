@@ -1,19 +1,17 @@
 import Swiper from "swiper";
-import { Navigation, Pagination,EffectFade } from "swiper/modules";
-
+import { Scrollbar } from "swiper/modules";
+import { Navigation, Pagination, EffectFade } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
 
 export function createSwiper(el, config = {}) {
   if (!document.querySelector(el)) return;
 
   const catSwiper = new Swiper(el, {
-    modules: [Navigation, Pagination, EffectFade],
-    // slidesPerView: 5,
+    modules: [Navigation, Pagination, EffectFade,Autoplay],
     spaceBetween: 10,
-    // effect: "fade",
     mousewheel: {
          invert: true,
     },
@@ -26,34 +24,12 @@ export function createSwiper(el, config = {}) {
       clickable: true,
       dynamicBullets: true,
       dynamicMainBullets: 4
-      
     },
     loop: true,
     ...config
   });
 
-  // // Pagination
-  // const pagination = document.querySelector("#categories-swiper #pagination");
 
-  // if (pagination) {
-  //   pagination.innerHTML = "";
-
-  //   const views = Math.ceil(
-  //     catSwiper.slides.length / catSwiper.slidesPerViewDynamic()
-  //   );
-
-  //   for (let index = 0; index < views; index++) {
-  //     const activeTemp = '<div class="w-4 rounded-[100px] h-1 bg-red45"></div>';
-  //     const inactiveTemp =
-  //       '<div class="w-4 rounded-[100px] h-1 bg-bk20"></div>';
-
-  //     if (index === catSwiper.activeIndex) {
-  //       pagination.insertAdjacentHTML("beforeend", activeTemp);
-  //     } else {
-  //       pagination.insertAdjacentHTML("beforeend", inactiveTemp);
-  //     }
-  //   }
-  // }
 
   // Navigation
   document.querySelector(`${el} #prev-slide`).addEventListener("click", () => {
@@ -85,49 +61,58 @@ export function createSwiper(el, config = {}) {
 
 // moviesSwp(".moviesSwiper");
 
-
 export function creatSwipers() {
-  const swiperSelectors = ["#categories-swiper-7", "#categories-swiper-10", "#categories-swiper-9", "#categories-swiper-8", "#categories-swiper-5"];
-  swiperSelectors.forEach(selector => {
+  const swiperSelectors = [
+    "#categories-swiper-7",
+    "#categories-swiper-10",
+    "#categories-swiper-9",
+    "#categories-swiper-8",
+    "#categories-swiper-5"
+  ];
+  swiperSelectors.forEach((selector) => {
     createSwiper(selector, {
       slidesPerView: 4,
-      // breakpoints:{
-      //   375: {
-      //     slidesPerView: 2,
-     
-      //   },
-      //   640: {
-      //     slidesPerView: 2,
-      //   },
-      //   768: {
-      //     slidesPerView: 3,
-      //   },
-      //   1024: {
-      //     slidesPerView: 4,
-      //   },
-      //   1224: {
-      //     slidesPerView: 5,
-      //   },
-      // }
+      breakpoints: {
+        375: {
+          slidesPerView: 2
+        },
+        640: {
+          slidesPerView: 2
+        },
+        768: {
+          slidesPerView: 3
+        },
+        1024: {
+          slidesPerView: 4
+        }
+      }
     });
   });
-  const swiperSelector5 = ["#categories-swiper", "#categories-swiper-2", "#categories-swiper-3", "#categories-swiper-4", "#categories-swiper-6",];
-  swiperSelector5.forEach(selector => {
+  const swiperSelector5 = [
+    "#categories-swiper",
+    "#categories-swiper-2",
+    "#categories-swiper-3",
+    "#categories-swiper-4",
+    "#categories-swiper-6"
+  ];
+  swiperSelector5.forEach((selector) => {
     createSwiper(selector, {
       slidesPerView: 5,
-      // breakpoints:{
-      //   375: {
-      //     slidesPerView: 2,
-      //   },
-    
-      //   768: {
-      //     slidesPerView: 3,
-      //   },
-      //   1024: {
-      //     slidesPerView: 4,
-      //   },
-      
-      // }
+      breakpoints: {
+        375: {
+          slidesPerView: 2
+        },
+
+        768: {
+          slidesPerView: 3
+        },
+        920: {
+          slidesPerView: 4
+        },
+        1200: {
+          slidesPerView: 5
+        }
+      }
     });
   });
 
@@ -164,5 +149,15 @@ export function creatSwipers() {
         spaceBetween: 10
       }
     }
+  });
+  createSwiper("#hero-swiper", {
+    
+    slidesPerView: 1,
+    effect: "fade", // Enables fade effect
+   
+    autoplay: {
+      delay: 3000, // 3-second auto slide
+      disableOnInteraction: false, // Keeps autoplay running
+    },
   });
 }
