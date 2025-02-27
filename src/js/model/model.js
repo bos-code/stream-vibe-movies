@@ -39,3 +39,8 @@ export const trendingData = await data.fetchData(
   null,
   (Headers = API_CONFIG)
 );
+export const mustWatchData = await data.fetchData(
+  TMDB_ENDPOINTS[3],
+  null,
+  (Headers = API_CONFIG)
+);

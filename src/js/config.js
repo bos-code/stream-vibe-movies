@@ -9,9 +9,9 @@ export const API_CONFIG = {
 
 export const TMDB_ENDPOINTS = [
   "trending/movie/day",
-  "/discover/movie",
+  "discover/movie",
   "movie/popular",
-  "movie/changes",
+  "movie/top_rated",
   "genre/movie/list",
   "movie/now_playing"
 ];

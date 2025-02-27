@@ -10,10 +10,10 @@ export function createSwiper(el, config = {}) {
   if (!document.querySelector(el)) return;
 
   const catSwiper = new Swiper(el, {
-    modules: [Navigation, Pagination, EffectFade,Autoplay],
+    modules: [Navigation, Pagination, EffectFade, Autoplay],
     spaceBetween: 10,
     mousewheel: {
-         invert: true,
+      invert: true
     },
     navigation: {
       nextEl: ".swiper-button-next",
@@ -28,8 +28,6 @@ export function createSwiper(el, config = {}) {
     loop: true,
     ...config
   });
-
-
 
   // Navigation
   document.querySelector(`${el} #prev-slide`)?.addEventListener("click", () => {
@@ -55,7 +53,7 @@ export function createSwiper(el, config = {}) {
       .querySelector(
         `${el} #pagination div:nth-child(${catSwiper.activeIndex + 1})`
       )
-      ?.classList?.add?.("bg-red45");
+      ?.classList?.add("bg-red45");
   }
 }
 
@@ -151,13 +149,12 @@ export function creatSwipers() {
     }
   });
   createSwiper("#hero-swiper", {
-    
     slidesPerView: 1,
     effect: "fade", // Enables fade effect
-   
+
     autoplay: {
       delay: 3000, // 3-second auto slide
-      disableOnInteraction: false, // Keeps autoplay running
-    },
+      disableOnInteraction: false // Keeps autoplay running
+    }
   });
 }

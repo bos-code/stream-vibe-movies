@@ -12,9 +12,17 @@ export default defineConfig({
     
       target: "esnext" ,// Allows top-level await
     
-    rollupOptions: {
-      external: ["fsevents"]
-    }
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('swiper')) return 'swiper';
+              if (id.includes('lodash')) return 'lodash';
+              return 'vendor'; // Generic chunk for other modules
+            }
+          }
+        }
+      }
   }
   //   plugins: [
   //     imagemin({
