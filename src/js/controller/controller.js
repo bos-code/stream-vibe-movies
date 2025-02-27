@@ -1,17 +1,16 @@
 import "../../sass/main.scss";
 
-import model, { trendingData } from "../model/model.js";
+import { dataRel, trendingData } from "../model/model.js";
 import { datast } from "../model/model.js";
 import { renderHero } from "../views/discoverView.js";
 import { rendertrends } from "../views/trendingView.js";
-import View from "../views/view.js";
-// import { movieTemplate } from "../views/discoverView.js";
+import { renderNewRelsease } from "../views/newRelease.js";
 
 const movies = await datast.results;
-
+const relData = await dataRel.results;
 const trendData = await trendingData.results;
 //
-
-console.log(trendData);
+console.log(relData)
+renderNewRelsease(relData);
 renderHero(movies);
-rendertrends(trendData)
+rendertrends(trendData);

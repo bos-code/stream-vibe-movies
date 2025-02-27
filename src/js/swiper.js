@@ -32,7 +32,7 @@ export function createSwiper(el, config = {}) {
 
 
   // Navigation
-  document.querySelector(`${el} #prev-slide`).addEventListener("click", () => {
+  document.querySelector(`${el} #prev-slide`)?.addEventListener("click", () => {
     catSwiper.slidePrev();
     updatePagination();
   });

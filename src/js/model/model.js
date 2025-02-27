@@ -29,6 +29,11 @@ export const datast = await data.fetchData(
   null,
   (Headers = API_CONFIG)
 );
+export const dataRel = await data.fetchData(
+  TMDB_ENDPOINTS[5],
+  null,
+  (Headers = API_CONFIG)
+);
 export const trendingData = await data.fetchData(
   TMDB_ENDPOINTS[0],
   null,

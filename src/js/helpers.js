@@ -62,7 +62,6 @@ export async function fetchMovieDetails(movieId) {
     if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
 
     const dat = await response.json();
-    console.log(dat.runtime)
     return dat.runtime;
   } catch (error) {
     console.error('Error fetching movie details:', error);

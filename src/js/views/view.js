@@ -1,30 +1,35 @@
-export default class View {
-    constructor(selector) {
-      this.parentElement = document.querySelector(selector);
-      if (!this.parentElement) throw new Error(`Element ${selector} not found`);
-    }
+export function View(selector) {
+  const parentElement = document.querySelector(selector);
+  if (!parentElement) throw new Error(`Element ${selector} not found`);
+
+  function render(data, templateFn) {
+    if (!data ) return renderError("Invalid or empty data!");
+    clear();
+    data.forEach(async (item) => {
+      const content = await templateFn(item);
   
-    render(data) {
-      if (!data) return this.renderError("No data available!");
-      this.clear();
-      this.parentElement.insertAdjacentHTML("beforeend", this.getTemplate(data));
-    }
+      parentElement.innerHTML += content;
   
-    clear() {
-      this.parentElement.innerHTML = "";
-    }
-  
-    attachEvent(eventType, handler) {
-      this.parentElement.addEventListener(eventType, handler);
-    }
-  
-    getTemplate(data) {
-      return `<pre>${JSON.stringify(data, null, 2)}</pre>`; // Default: show JSON
-    }
-  
-    renderError(message = "Something went wrong!") {
-      this.clear();
-      this.parentElement.insertAdjacentHTML("afterbegin", `<p>${message}</p>`);
-    }
+    });
   }
-  
+
+  function clear() {
+    parentElement.innerHTML = "";
+  }
+
+  function attachEvent(eventType, handler) {
+    parentElement.addEventListener(eventType, handler);
+  }
+
+  function renderError(message = "Something went wrong!") {
+    clear();
+    parentElement.insertAdjacentHTML("afterbegin", `<p>${message}</p>`);
+  }
+
+  return {
+    render,
+    clear,
+    attachEvent,
+    renderError,
+  };
+}
