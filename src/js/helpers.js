@@ -9,32 +9,71 @@ const timeout = function (s) {
     });
   };
   
+  // export const AJAX = async function (endpoint, bodyData = null, headers = {}) {
+  //   try {
+  //     const url = `https://api.themoviedb.org/3/${endpoint}?append_to_response=details`;
+  //     const options = {
+  //       method : 'GET',
+  //       mode: "cors",
+        
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         ...headers,
+  //       },
+  //     };
+  
+  //     if (bodyData) options.body = JSON.stringify(bodyData);
+  
+  //     const fetchPro = fetch(url, options);
+  //     const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
+  //     const data = await res.json();
+  
+  //     if (!res.ok) throw new Error(`${data.message || 'Request failed'} (${res.status})`);
+  //     return data;
+  //   } catch (err) {
+  //     throw err;
+  //   }
+  // };
+  
   export const AJAX = async function (endpoint, bodyData = null, headers = {}) {
     try {
-      const url = `https://api.themoviedb.org/3/${endpoint}?append_to_response=details`;
-      const options = {
-        method : 'GET',
-        mode: "cors",
-        
-        headers: {
-          'Content-Type': 'application/json',
-          ...headers,
-        },
-      };
-  
-      if (bodyData) options.body = JSON.stringify(bodyData);
-  
-      const fetchPro = fetch(url, options);
-      const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
-      const data = await res.json();
-  
-      if (!res.ok) throw new Error(`${data.message || 'Request failed'} (${res.status})`);
-      return data;
+        let allResults = [];
+
+        for (let page = 1; page <= 2; page++) { // Always fetch 5 pages (100 results)
+            const url = `https://api.themoviedb.org/3/${endpoint}?page=${page}`;
+
+            const options = {
+                method: 'GET',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...headers,
+                },
+            };
+
+            if (bodyData) options.body = JSON.stringify(bodyData);
+
+            const fetchPro = fetch(url, options);
+            const res = await fetchPro;
+
+            if (!res.ok) throw new Error(`Request failed (${res.status})`);
+
+            const data = await res.json();
+
+            if (data.results) {
+                allResults = allResults.concat(data.results);
+            }
+
+            if (allResults.length >= 100) break; // Stop once we reach 100 results
+        }
+
+        return allResults.slice(0, 100); // Ensure exactly 100 results
     } catch (err) {
-      throw err;
+        console.error('Error in AJAX function:', err);
+        throw err;
     }
-  };
-  
+};
+
 
 
   export function formatNumber(num) {
@@ -48,7 +87,7 @@ const timeout = function (s) {
 
 
 export async function fetchMovieDetails(movieId) {
-  const url = `https://api.themoviedb.org/3/movie/${movieId}?append_to_response=videos`;
+  const url = `https://api.themoviedb.org/3/movie/${movieId}?page=1`;
   
   try {
     const response = await fetch(url, {

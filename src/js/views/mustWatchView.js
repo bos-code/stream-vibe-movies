@@ -5,7 +5,7 @@ import { View } from "./view";
 async function mustTemplate(item) {
     const runtime = await fetchMovieDetails(item.id);
       return `
-      <li class="views swiper-slide" item-ID="${item.id}">
+      <li class="views swiper-slide" data-ID="${item.id}">
            <figure class="rounded-md  overflow-hidden">
         <img src="${
           item.poster_path

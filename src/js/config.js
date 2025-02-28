@@ -13,5 +13,6 @@ export const TMDB_ENDPOINTS = [
   "movie/popular",
   "movie/top_rated",
   "genre/movie/list",
-  "movie/now_playing"
+  "movie/now_playing",
+  "trending/tv/week"
 ];
