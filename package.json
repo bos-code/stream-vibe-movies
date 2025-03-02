@@ -17,12 +17,14 @@
     "sharp": "^0.33.5",
     "svgo": "^3.3.2",
     "tailwindcss": "^3.4.17",
-    "vite": "^6.1.1"
+    "vite": "^6.1.1",
+    "vite-plugin-commonjs": "^0.10.4"
   },
   "dependencies": {
     "core-js": "^3.40.0",
     "gsap": "^3.12.5",
     "sass-embedded": "^1.83.1",
+    "source-map-js": "^1.2.1",
     "swiper": "^11.2.1"
   }
 }

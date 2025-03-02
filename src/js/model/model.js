@@ -68,5 +68,9 @@ export const trendingTv = await data.fetchData(
   null,
   (Headers = API_CONFIG)
 );
+export const newTv = await data.fetchData(
+  TMDB_ENDPOINTS[7],
+  null,
+  (Headers = API_CONFIG)
+);
 
-console.log(trendingTv)
