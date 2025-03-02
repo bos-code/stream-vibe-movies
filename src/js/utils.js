@@ -1,3 +1,5 @@
+import { rule } from "postcss";
+
 export function formatDateCustom(dateInput) {
   var date = new Date(dateInput);
 
@@ -74,5 +76,16 @@ export async function fetchTvDetails(tvId) {
   } catch (error) {
     console.error("Error fetching TV details:", error);
     return null;
+  }
+}
+
+export function tvDuration(r, nE) {
+  const rtime = r;
+ 
+  if ((rtime === Array)) {
+    const rTA = rtime.reduce((sum, num) => sum + num, 0) / rtime.length;
+    return rTA * nE;
+  } else {
+    return r * nE;
   }
 }

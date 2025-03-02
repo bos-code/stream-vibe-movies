@@ -73,4 +73,9 @@ export const newTv = await data.fetchData(
   null,
   (Headers = API_CONFIG)
 );
+export const MustTv = await data.fetchData(
+  TMDB_ENDPOINTS[8],
+  null,
+  (Headers = API_CONFIG)
+);
 

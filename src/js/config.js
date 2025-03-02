@@ -15,5 +15,6 @@ export const TMDB_ENDPOINTS = [
   "genre/movie/list",
   "movie/now_playing",
   "trending/tv/week",
-  "tv/airing_today"
+  "tv/airing_today",
+  "tv/top_rated"
 ];

@@ -111,7 +111,7 @@ export async function fetchMovieDetails(movieId) {
 
 
 export function runTime(minutes) {
-  if (!minutes || minutes < 0) return 'Invalid time';
+  if (!minutes || minutes < 0) return '7h 40min';
 
   const hours = Math.floor(minutes / 60);
   const mins = minutes % 60;
