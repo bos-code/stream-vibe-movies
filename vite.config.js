@@ -9,22 +9,24 @@ export default defineConfig({
     }
   },
   optimizeDeps: {
-    exclude: ['source-map']
+    include: ["core-js/stable"],
+
+    exclude: ["node_modules"]
   },
   build: {
-    
-      target: "esnext" ,// Allows top-level await
-    
-      rollupOptions: {
-        output: {
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              if (id.includes('swiper')) return 'swiper';
-              return 'vendor'; // Generic chunk for other modules
-            }
+    target: "esnext", // Allows top-level await
+
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            return "vendor"; // Moves all node_modules dependencies to a separate chunk
+          }
+          if (id.includes("largeModule.js")) {
+            return "large-module"; // Moves specific large file to its own chunk
           }
         }
-    
       }
+    }
   }
 });

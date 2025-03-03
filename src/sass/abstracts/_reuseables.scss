@@ -82,3 +82,10 @@
     @apply bg-transparent;
     @extend .pagination;
 }
+
+.swiper-wrapper {
+    @apply flex;
+    .swiper-slide{
+        height: 100%;
+    }
+}

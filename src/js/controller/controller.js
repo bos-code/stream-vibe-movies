@@ -1,4 +1,7 @@
 import "../../sass/main.scss";
+import "core-js/stable";
+import "regenerator-runtime/runtime"; 
+
 
 import { dataRel, MustTv, mustWatchData, newTv, trendingData, trendingTv } from "../model/model.js";
 import { datast } from "../model/model.js";

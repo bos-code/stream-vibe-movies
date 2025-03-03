@@ -4,7 +4,7 @@ import { View } from "./view";
 
 async function TvNewTemplate(item) {
   const details = await fetchTvDetails(item.id);
-  console.log(details);
+  details;
   return `
         <li class="views swiper-slide" data-ID="${item.id}>
                <figure class="rounded-lg  overflow-hidden">
@@ -21,7 +21,9 @@ async function TvNewTemplate(item) {
               </div>
               <div class="views-tag">
                 <img src="/asset/svg/videos.svg" alt="" />
-                <span class="text-xs text-gray60">${details.number_of_seasons} Season</span>
+                <span class="text-xs text-gray60">${
+                  details.number_of_seasons
+                } Season</span>
               </div>
             </div>
           </li>

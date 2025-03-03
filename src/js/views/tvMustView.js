@@ -4,7 +4,6 @@ import { View } from "./view";
 
 async function mustTvTemplate(item) {
   const runtime = await fetchTvDetails(item.id);
-  console.log(runtime);
   return `
       <li class="views swiper-slide" data-ID="${item.id}">
            <figure class="rounded-md  overflow-hidden">

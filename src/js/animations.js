@@ -6,10 +6,9 @@ const heroImages = document.querySelectorAll(".bgimages img");
 const logoItems = document.querySelectorAll("#logo path");
 
 export function animateImages() {
-  if (!images ) return;
+  if (!images) return;
   if (images && header) {
     images.classList.remove(".hidden");
-   
 
     // const center = (windowWidth / 2 - distance / 2) / 2;
     const tl = gsap.timeline();
@@ -35,23 +34,22 @@ export function animateImages() {
 function logo() {
   gsap.from(logoItems, {
     opacity: 0,
-    duration: .9,
+    duration: 0.9,
     scale: 0.2,
     y: -30,
     x: -130,
     rotationX: 490,
     stagger: 0.3,
     ease: "back",
-    delay: 0.5,
-    
+    delay: 0.5
   });
 }
-const list = ['hash', 'load']
-list.forEach(function(listern){
-  window.addEventListener(`${listern}`, logo)
-})
+const list = ["hash", "load"];
+list.forEach(function (listern) {
+  window.addEventListener(`${listern}`, logo);
+});
 window.addEventListener("load", animateImages);
 
 // window.addEventListener("scroll", () => {
-//   console.log(window.scrollX);
+//   (window.scrollX);
 // });
