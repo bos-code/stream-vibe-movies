@@ -1,5 +1,6 @@
 export function renderHero(movies) {
   const parentEl = document.getElementById("heroSlides");
+  if(!parentEl)return
   parentEl.innerHTML = "";
   movies.forEach((dataVal) => {
    

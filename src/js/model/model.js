@@ -13,7 +13,6 @@ export default class model {
 
   async fetchData(endpoint, bodyData = null, headers = {}) {
     try {
-      // Append API key to the endpoint
       const fullEndpoint = endpoint;
       return await AJAX(fullEndpoint, bodyData, headers);
     } catch (error) {
@@ -22,25 +21,7 @@ export default class model {
     }
   }
 }
-//  class model100 {
-//   constructor() {
-//     this.API_CONFIG = API_CONFIG;
-//     this.state = {
-//         movies: []
-//     }
-//   }
 
-//   async fetchData(endpoint, bodyData = null, headers = {}) {
-//     try {
-//       // Append API key to the endpoint
-//       const fullEndpoint = endpoint;
-//       return await AJAX100(fullEndpoint, bodyData, headers);
-//     } catch (error) {
-//       console.error("Error fetching data:", error);
-//       throw error;
-//     }
-//   }
-// }
 
 const data = new model();
 export const datast = await data.fetchData(

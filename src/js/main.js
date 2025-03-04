@@ -1,6 +1,9 @@
 import "../js/controller/controller";
 import "../js/views/heroView";
 import "../js/animations";
-import {creatSwipers} from "../js/swiper";
-creatSwipers(); 
+import { moviesInit } from "../js/controller/controller";
+
+const initButton =document.getElementById("movies")
+
+initButton.addEventListener('click', moviesInit());
 

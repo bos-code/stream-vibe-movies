@@ -3,6 +3,7 @@ import {fetchMovieDetails, formatNumber, runTime} from "../helpers";
 
 export async function rendertrends(trends) {
   const parentEl = document.getElementById("trends");
+  if(!parentEl)return
   parentEl.innerHTML = "";
   trends.forEach(async (trend) => {
     const runtime = await fetchMovieDetails(trend.id);

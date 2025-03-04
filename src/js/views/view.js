@@ -1,6 +1,6 @@
 export function View(selector) {
   const parentElement = document.querySelector(selector);
-  if (!parentElement) throw new Error(`Element ${selector} not found`);
+  if (!parentElement)return;
 
   function render(data, templateFn) {
     if (!data ) return renderError("Invalid or empty data!");
