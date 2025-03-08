@@ -3,7 +3,7 @@ import { AJAX } from "../helpers";
 import { API_CONFIG, TMDB_ENDPOINTS } from "../config";
 
 // const state
-export default class model {
+ class model {
   constructor() {
     this.API_CONFIG = API_CONFIG;
     this.state = {
@@ -19,6 +19,29 @@ export default class model {
       console.error("Error fetching data:", error);
       throw error;
     }
+  }
+}
+async function fetchGenres(type) {
+  try {
+    const url = `https://api.themoviedb.org/3/genre/${type}/list?language=en`;
+
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0NjVjOGEwM2E0OTY2NWExNjc4YjQ3YzRlNGE2NTNhZiIsIm5iZiI6MTczNTc1MDQ0MC4wMSwic3ViIjoiNjc3NTczMjgxOTRiNTgxNmQ3NjEzYjAzIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.rrD9n7tnIMUfuxs3Wh1wWMqzB3dSr4Ds4uiqCeapjTE"
+      }
+    };
+
+    const response = await fetch(url, options);
+    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+    const data = await response.json();
+   
+    return data.genres;
+  } catch (error) {
+    console.error("Error fetching genres:", error);
   }
 }
 
@@ -59,4 +82,8 @@ export const MustTv = await data.fetchData(
   null,
   (Headers = API_CONFIG)
 );
+
+export const genDDta = await fetchGenres("movie");
+export const genDDtatv =await fetchGenres("tv");
+
 

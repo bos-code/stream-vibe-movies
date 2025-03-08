@@ -18,7 +18,7 @@ export function animateImages() {
       y: -50,
       opacity: 0,
       rotationY: -360,
-      // scrollTo: 50,
+      // scrollTo: 50
       stagger: 0.02,
       ease: "back"
     });

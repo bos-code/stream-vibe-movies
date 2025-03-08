@@ -1,6 +1,7 @@
 export const TIMEOUT_SEC = 10;
 export const RES_PER_PAGE = 10;
 const MODAL_CLOSE_SEC = 2.5;
+export const API_URL = "https://api.themoviedb.org/3/";
 
 export const API_CONFIG = {
   authorization:
@@ -16,5 +17,6 @@ export const TMDB_ENDPOINTS = [
   "movie/now_playing",
   "trending/tv/week",
   "tv/airing_today",
-  "tv/top_rated"
+  "tv/top_rated",
+  "genre/movie/list",
 ];

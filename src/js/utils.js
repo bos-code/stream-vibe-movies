@@ -1,4 +1,5 @@
 import { rule } from "postcss";
+import { API_URL } from "./config";
 
 export function formatDateCustom(dateInput) {
   var date = new Date(dateInput);
@@ -89,3 +90,10 @@ export function tvDuration(r, nE) {
     return r * nE;
   }
 }
+
+ async function iDsearch(id){
+  const response = fetch(`${API_URL}movie/${id}?api_key=${API_KEY}`); 
+  const data = await response.json();
+  return data;
+}
+ 

@@ -3,7 +3,8 @@ import "../js/views/heroView";
 import "../js/animations";
 import { moviesInit } from "../js/controller/controller";
 
-const initButton =document.getElementById("movies")
+// const initButton = document.getElementById("movies");
 
-initButton.addEventListener('click', moviesInit());
+moviesInit();
+
 
