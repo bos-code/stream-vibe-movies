@@ -17,7 +17,10 @@ async function mustTvTemplate(item) {
               <div class="time-tag">
                 <img src="/asset/images/time.svg" alt="" />
                 <span class="text-xs text-gray60">${runTime(
-                  tvDuration(runtime.episode_run_time , runtime.number_of_episodes)
+                  tvDuration(
+                    runtime.episode_run_time,
+                    runtime.number_of_episodes
+                  )
                 )}</span>
               </div>
               <div class="views-tag">
@@ -35,5 +38,5 @@ async function mustTvTemplate(item) {
 
 const mustTvView = View("#tvMust");
 export async function renderMustWatchTv(data) {
-  mustTvView.render(data, mustTvTemplate);
+  mustTvView?.render(data, mustTvTemplate);
 }

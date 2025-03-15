@@ -29,5 +29,5 @@ const newReleaseView = View("#newRelease");
 
 // Fetch movie trends and render them
 export async function renderNewRelsease(data) {
-  newReleaseView.render(data, trendTemplate);
+  newReleaseView?.render(data, trendTemplate);
 }

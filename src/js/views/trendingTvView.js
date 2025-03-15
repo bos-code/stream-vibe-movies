@@ -20,7 +20,9 @@ async function TvTemplate(item) {
               </div>
               <div class="views-tag">
                 <img src="/asset/svg/videos.svg" alt="" />
-                <span class="text-xs text-gray60">${details.number_of_seasons} Season</span>
+                <span class="text-xs text-gray60">${
+                  details.number_of_seasons
+                } Season</span>
               </div>
             </div>
           </li>
@@ -30,5 +32,5 @@ async function TvTemplate(item) {
 
 const tvView = View("#tvView");
 export async function renderTv(data) {
-  tvView.render(data, TvTemplate);
+  tvView?.render(data, TvTemplate);
 }
