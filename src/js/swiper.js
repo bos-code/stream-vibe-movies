@@ -77,15 +77,35 @@ export const SWIPER_SELECTOR_5_CONFIG = {
     }
   }
 };
+export const SWIPER_SELECTOR_4_CONFIG = {
+    slidesPerView: 5,
+    breakpoints: {
+      375: {
+        slidesPerView: 2
+      },
+
+      768: {
+        slidesPerView: 3
+      },
+      920: {
+        slidesPerView: 4
+      },
+      1200: {
+        slidesPerView: 5
+      }
+    }
+
+}
+const swiperSelectors = [
+  "#categories-swiper-7",
+  "#categories-swiper-10",
+  "#categories-swiper-9",
+  "#categories-swiper-8",
+  "#categories-swiper-5"
+];
 
 export function creatSwipers() {
-  const swiperSelectors = [
-    "#categories-swiper-7",
-    "#categories-swiper-10",
-    "#categories-swiper-9",
-    "#categories-swiper-8",
-    "#categories-swiper-5"
-  ];
+ 
   swiperSelectors.forEach((selector) => {
     createSwiper(selector, {
       slidesPerView: 4,

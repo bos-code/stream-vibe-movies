@@ -30,6 +30,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;
   // padding: 2px;
   border: 1px solid red;
+  
 }
 
 @supports not selector(::-webkit-scrollbar) {

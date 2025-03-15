@@ -1,11 +1,13 @@
 import { createSwiper, SWIPER_SELECTOR_5_CONFIG } from "../swiper";
+import { fetchMoviesByGenre, loop } from "../utils";
 import { View } from "./view";
 
 async function genreTemplate(item) {
-  return `
+  const img = await fetchMoviesByGenre(item.id)
+ return `
      <li class="catItems swiper-slide" data-id="${item.ID}">
             <div class="gridImg">
-              <img src="/asset/images/Image-18.png" alt="" />
+            ${loop(img)}
               
             </div>
             <div class="title">

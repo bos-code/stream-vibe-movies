@@ -22,12 +22,13 @@ async function trendTemplate(item) {
             </div>
           </li>
     `;
+    
 }
 
 // Initialize the View
 const newReleaseView = View("#newRelease");
 
-// Fetch movie trends and render them
+// Fetch movie trends 
 export async function renderNewRelsease(data) {
   newReleaseView?.render(data, trendTemplate);
 }

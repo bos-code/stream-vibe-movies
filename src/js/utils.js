@@ -1,5 +1,5 @@
 import { rule } from "postcss";
-import { API_URL } from "./config";
+import { API_Key, API_URL } from "./config";
 
 export function formatDateCustom(dateInput) {
   var date = new Date(dateInput);
@@ -89,11 +89,43 @@ export function tvDuration(r, nE) {
   } else {
     return r * nE;
   }
+
 }
 
- async function iDsearch(id){
-  const response = fetch(`${API_URL}movie/${id}?api_key=${API_KEY}`); 
-  const data = await response.json();
-  return data;
+
+
+const API_KEY = "465c8a03a49665a1678b47c4e4a653af";
+
+export async function fetchMoviesByGenre(genreId) {
+  const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (!data.results || data.results.length === 0) {
+      console.log("No movies found for this genre.");
+      return;
+    }
+
+    // Shuffle the array and pick four random movies
+    const shuffledMovies = data.results.sort(() => 0.5 - Math.random()).slice(0, 4);
+
+    // Map out and log their poster paths
+    const imageUrls = shuffledMovies.map(movie => `https://image.tmdb.org/t/p/w500${movie.poster_path}`);
+
+    return imageUrls;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
 }
- 
+
+export function loop(arr){
+  let imgTemp = ''
+
+  arr.forEach(img => {
+    imgTemp += `<img src="${img}" alt="">`
+  });
+
+  return imgTemp
+}

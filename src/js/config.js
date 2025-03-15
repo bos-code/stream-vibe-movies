@@ -2,6 +2,7 @@ export const TIMEOUT_SEC = 10;
 export const RES_PER_PAGE = 10;
 const MODAL_CLOSE_SEC = 2.5;
 export const API_URL = "https://api.themoviedb.org/3/";
+export const API_Key = "465c8a03a49665a1678b47c4e4a653af";
 
 export const API_CONFIG = {
   authorization:
