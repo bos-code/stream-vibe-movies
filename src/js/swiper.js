@@ -59,6 +59,25 @@ export function createSwiper(el, config = {}) {
 
 // moviesSwp(".moviesSwiper");
 
+export const SWIPER_SELECTOR_5_CONFIG = {
+  slidesPerView: 5,
+  breakpoints: {
+    375: {
+      slidesPerView: 2
+    },
+
+    768: {
+      slidesPerView: 3
+    },
+    920: {
+      slidesPerView: 4
+    },
+    1200: {
+      slidesPerView: 5
+    }
+  }
+};
+
 export function creatSwipers() {
   const swiperSelectors = [
     "#categories-swiper-7",
@@ -87,12 +106,11 @@ export function creatSwipers() {
     });
   });
   const swiperSelector5 = [
-    "#categories-swiper",
     "#categories-swiper-2",
-    "#categories-swiper-3",
     "#categories-swiper-4",
     "#categories-swiper-6"
   ];
+
   swiperSelector5.forEach((selector) => {
     createSwiper(selector, {
       slidesPerView: 5,
@@ -129,6 +147,7 @@ export function creatSwipers() {
       }
     }
   });
+
   createSwiper("#casts-swiper", {
     slidesPerView: 10,
     spaceBetween: 10,
@@ -148,7 +167,8 @@ export function creatSwipers() {
       }
     }
   });
-  createSwiper("#hero-swiper", {
+
+  createSwiper.bind(null, "#hero-swiper", {
     slidesPerView: 1,
     effect: "fade", // Enables fade effect
 

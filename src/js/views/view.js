@@ -1,15 +1,14 @@
 export function View(selector) {
   const parentElement = document.querySelector(selector);
-  if (!parentElement)return;
+  if (!parentElement) return;
 
   function render(data, templateFn) {
-    if (!data ) return renderError("Invalid or empty data!");
+    if (!data) return renderError("Invalid or empty data!");
     clear();
     data.forEach(async (item) => {
       const content = await templateFn(item);
-  
+
       parentElement.innerHTML += content;
-  
     });
   }
 
@@ -30,6 +29,6 @@ export function View(selector) {
     render,
     clear,
     attachEvent,
-    renderError,
+    renderError
   };
 }

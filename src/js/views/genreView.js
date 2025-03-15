@@ -1,3 +1,4 @@
+import { createSwiper, SWIPER_SELECTOR_5_CONFIG } from "../swiper";
 import { View } from "./view";
 
 async function genreTemplate(item) {
@@ -20,5 +21,9 @@ const moviesGenreView = View("#categories");
 
 // Fetch movie trends and render them
 export async function renderMoviesGenres(data) {
+  if (!moviesGenreView) return;
+
   moviesGenreView.render(data, genreTemplate);
+
+  createSwiper("#categories-swiper", SWIPER_SELECTOR_5_CONFIG);
 }

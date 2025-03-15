@@ -33,5 +33,5 @@ async function TvNewTemplate(item) {
 
 const tvNewView = View("#tvNewView");
 export async function renderNewTv(data) {
-  tvNewView.render(data, TvNewTemplate);
+  tvNewView?.render(data, TvNewTemplate);
 }

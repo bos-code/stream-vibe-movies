@@ -3,8 +3,8 @@ import { renderStars } from "../utils";
 import { View } from "./view";
 
 async function mustTemplate(item) {
-    const runtime = await fetchMovieDetails(item.id);
-      return `
+  const runtime = await fetchMovieDetails(item.id);
+  return `
       <li class="views swiper-slide" data-ID="${item.id}">
            <figure class="rounded-md  overflow-hidden">
         <img src="${
@@ -22,14 +22,16 @@ async function mustTemplate(item) {
                 <div class="rating flex items-center justify-center">
                 ${renderStars(item.vote_average / 2)}            
                 </div>
-                <span class="text-xs text-gray60">${formatNumber(item.vote_count)}</span>
+                <span class="text-xs text-gray60">${formatNumber(
+                  item.vote_count
+                )}</span>
               </div>
             </div>
           </li>
-    `
+    `;
 }
 
-const mustWatchView = View("#mustWatch")
+const mustWatchView = View("#mustWatch");
 export async function renderMustWatch(data) {
-    mustWatchView.render(data,mustTemplate)
+  mustWatchView?.render(data, mustTemplate);
 }
