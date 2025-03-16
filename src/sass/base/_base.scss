@@ -30,7 +30,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;
   // padding: 2px;
   border: 1px solid red;
-  
+
 }
 
 @supports not selector(::-webkit-scrollbar) {
@@ -57,4 +57,10 @@ li {
 
 .cont {
   padding: 0 4vw;
+}
+
+ul.cat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

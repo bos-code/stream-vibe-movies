@@ -1,5 +1,9 @@
 import { fetchMovieDetails, formatNumber, runTime } from "../helpers";
-import { creatSwipers, SWIPER_SELECTOR_4_CONFIG } from "../swiper";
+import {
+  createSwiper,
+  creatSwipers,
+  SWIPER_SELECTOR_4_CONFIG
+} from "../swiper";
 import { renderStars } from "../utils";
 import { View } from "./view";
 
@@ -35,5 +39,5 @@ async function mustTemplate(item) {
 const mustWatchView = View("#mustWatch");
 export async function renderMustWatch(data) {
   mustWatchView?.render(data, mustTemplate);
-    creatSwipers("#categories-swiper-5", SWIPER_SELECTOR_4_CONFIG);
+  createSwiper("#categories-swiper-5", SWIPER_SELECTOR_4_CONFIG);
 }

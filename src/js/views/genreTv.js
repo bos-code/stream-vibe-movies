@@ -18,21 +18,21 @@ async function genreTemplate(item) {
     `;
 }
 // Initialize the View
-const moviesGenreView = View("#categories");
-const movie10 = View("#top10");
+const tvGenresView = View("#tvgenre");
+const tvGenresView10 = View("#tvtop10");
 
 // Fetch movie trends and render them
-export async function renderMoviesGenres(data) {
-  if (!moviesGenreView) return;
+export async function renderTvGenres(data) {
+  if (!tvGenresView) return;
 
-  moviesGenreView.render(data, genreTemplate);
+  tvGenresView.render(data, genreTemplate);
 
-  createSwiper("#categories-swiper", SWIPER_SELECTOR_5_CONFIG);
+  createSwiper("#categories-swiper-6", SWIPER_SELECTOR_5_CONFIG);
 }
-export async function renderMoviesGenres10(data) {
-  if (!movie10) return;
+export async function renderTvGenres10(data) {
+  if (!tvGenresView10) return;
 
-  movie10.render(data, genreTemplate);
+  tvGenresView10.render(data, genreTemplate);
 
-  createSwiper("#top10", SWIPER_SELECTOR_5_CONFIG);
+  createSwiper("#categories-swiper-7", SWIPER_SELECTOR_5_CONFIG);
 }
