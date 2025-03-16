@@ -35,7 +35,7 @@ export default {
       gray90: "#e4e4e7",
       gray95: "#f1f1f3",
       gray97: "#f7f7f8",
-      gray99: "#fcfcfd",
+      gray99: "#fcfcfd"
     },
     screens: {
       xsm: "360px",
@@ -45,7 +45,8 @@ export default {
       lg: "976px",
       xl: "1440px",
       lp: "1600px",
+      xxl: "1950px"
     },
-    plugins: [],
-  },
+    plugins: []
+  }
 };

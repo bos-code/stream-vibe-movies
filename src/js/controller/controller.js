@@ -52,3 +52,17 @@ export function moviesInit() {
   renderTvGenres10(genDDtatv);
   creatSwipers();
 }
+
+document.querySelectorAll(".cat").forEach((ul) => {
+  ul.addEventListener("click", (event) => {
+    const listItem = event.target.closest("li"); // Finds the nearest <li> ancestor
+    if (listItem) windowChange();
+  });
+});
+
+function windowChange() {
+  const currentUrl = window.location.href; // Get full URL
+  const newUrl =
+    currentUrl.slice(0, currentUrl.lastIndexOf("/") + 1) + "display.html"; // Replace movies.html with display.html
+  window.location.href = newUrl; // Redirect to the new URL
+}

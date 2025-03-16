@@ -1,4 +1,3 @@
-
 #movies,
 #tv {
   gap: 100px;
@@ -6,15 +5,16 @@
   flex-direction: column;
 }
 
-.content--wrapper {
-  // align-items: start;
-  // @apply grid grid-cols-1 gap-24 ;
+.open-main {
+  align-items: start;
+  // @apply grid grid-cols-2 gap-24;
+  @apply grid grid-cols-12 lg:gap-12 xl:gap-24;
 
 
   .main-content {
     display: flex;
     flex-direction: column;
-    grid-column: span 7 / span 7;
+    grid-column: span 8 / span 8;
     gap: 1.25rem;
 
     .content {
@@ -43,12 +43,15 @@
       .casts-swiper-wrapper {
         overflow: hidden;
         display: flex;
+
         flex-direction: column;
         gap: 1.9rem;
       }
 
       .casts-slide {
         display: flex;
+        justify-content: center;
+        align-items: center;
 
         swiper-slide {
           border-radius: 12px;
@@ -67,7 +70,9 @@
       }
 
       .myreview {
+
         .swiper-slide {
+          @apply p-5;
           border: 1px solid #262626;
 
           border-radius: 12px;
@@ -109,10 +114,7 @@
     padding: 50px;
     background: #1a1a1a;
     border: 1px solid #262626;
-    display: flex;
-    gap: 1.9rem;
-    flex-direction: column;
-    grid-column: span 5 / span 5;
+    @apply flex flex-col gap-7 col-span-4 xxl:col-span-5;
 
     @media (max-width: 98.8em) {
       padding: 30px;
