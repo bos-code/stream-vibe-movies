@@ -17,17 +17,17 @@ export function populateHeroImages(imagesArray) {
     heroContainer.innerHTML = "";
 
     const fragment = document.createDocumentFragment(); 
-    images.forEach((image) => {
+    images.forEach((image, index) => {
         const img = document.createElement("img");
-        img.src = `https://image.tmdb.org/t/p/original${image}`;
+        // Use w342 (not original) — these are small grid thumbnails, not hero posters
+        img.src = `https://image.tmdb.org/t/p/w342${image}`;
         img.alt = "Movie Poster";
-        img.classList.add("bgimages__img");
         img.className = "bgimages img";
+        img.decoding = "async";
+        // Only eagerly load the first 4 — the rest are below/off screen
+        if (index >= 4) img.loading = "lazy";
         fragment.appendChild(img);
     });
-        
-    
-
     heroContainer.appendChild(fragment);
 }
 

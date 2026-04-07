@@ -23,11 +23,18 @@ export async function rendertrends(trends) {
     const discoverTemp = `
     <li class="views swiper-slide" data-ID="${trend.id}">
      <figure class="rounded-md  overflow-hidden">
-    <img src="${
-      trend.poster_path
-        ? `https://image.tmdb.org/t/p/w500${trend.poster_path}`
-        : "/asset/images/hero.png"
-    }" alt="${trend.title}" />
+    <img
+      src="${
+        trend.poster_path
+          ? `https://image.tmdb.org/t/p/w342${trend.poster_path}`
+          : "/asset/images/hero.png"
+      }"
+      alt="${trend.title}"
+      loading="lazy"
+      decoding="async"
+      width="342"
+      height="513"
+    />
   </figure>
         <div class="details">
           <div class="time-tag">

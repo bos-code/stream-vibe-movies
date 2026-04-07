@@ -33,9 +33,6 @@ export default defineConfig({
           if (id.includes("node_modules")) {
             return "vendor"; // Moves all node_modules dependencies to a separate chunk
           }
-          if (id.includes("largeModule.js")) {
-            return "large-module"; // Moves specific large file to its own chunk
-          }
         }
       }
     }

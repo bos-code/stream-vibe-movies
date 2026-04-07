@@ -7,11 +7,19 @@ async function TvTemplate(item) {
   return `
         <li class="views swiper-slide" data-ID="${item.id}>
                <figure class="rounded-lg  overflow-hidden">
-        <img src="${
-          item.poster_path
-            ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
-            : "/asset/images/hero.png"
-        }" alt="${item.title}" class="rounded-lg" />
+        <img
+          src="${
+            item.poster_path
+              ? `https://image.tmdb.org/t/p/w342${item.poster_path}`
+              : "/asset/images/hero.png"
+          }"
+          alt="${item.name || item.title}"
+          class="rounded-lg"
+          loading="lazy"
+          decoding="async"
+          width="342"
+          height="513"
+        />
       </figure>
             <div class="details">
               <div class="time-tag">

@@ -1,4 +1,3 @@
-import { rule } from "postcss";
 import { API_Key, API_URL } from "./config";
 
 export function formatDateCustom(dateInput) {

@@ -1,87 +1,45 @@
-import { data } from "autoprefixer";
 import { TIMEOUT_SEC } from "./config";
 
-const timeout = function (s) {
-  return new Promise(function (_, reject) {
-    setTimeout(function () {
-      reject(new Error(`Request took too long! Timeout after ${s} second`));
-    }, s * 1000);
-  });
-};
-
-export const AJA = async function (endpoint, bodyData = null, headers = {}) {
-  try {
-    let allResults = [];
-
-    for (let page = 1; page <= 2; page++) {
-      // Always fetch 5 pages (100 results)
-      const url = `https://api.themoviedb.org/3/${endpoint}?language=en-US`;
-
-      const options = {
-        method: "GET",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-          ...headers
-        }
-      };
-
-      if (bodyData) options.body = JSON.stringify(bodyData);
-
-      const fetchPro = fetch(url, options);
-      const res = await fetchPro;
-
-      if (!res.ok) throw new Error(`Request failed (${res.status})`);
-
-      const data = await res.json();
-
-      if (data.results) {
-        allResults = allResults.concat(data.results);
-      }
-
-      if (allResults.length >= 100) break; // Stop once we reach 100 results
-    }
-
-    return allResults.slice(0, 100); // Ensure exactly 100 results
-  } catch (err) {
-    console.error("Error in AJAX function:", err);
-    throw err;
-  }
-};
+/**
+ * AJAX — Fetch an endpoint across N pages in parallel using Promise.all.
+ * Both pages fire simultaneously and results are merged once both resolve.
+ */
 export const AJAX = async function (endpoint, bodyData = null, headers = {}) {
+  const PAGES = 2; // number of pages to fetch concurrently
+
+  const buildOptions = () => ({
+    method: "GET",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      ...headers
+    },
+    ...(bodyData ? { body: JSON.stringify(bodyData) } : {})
+  });
+
   try {
-    let allResults = [];
+    // Fire all page requests simultaneously
+    const requests = Array.from({ length: PAGES }, (_, i) =>
+      fetch(
+        `https://api.themoviedb.org/3/${endpoint}?language=en-US&page=${i + 1}`,
+        buildOptions()
+      )
+    );
 
-    for (let page = 1; page <= 2; page++) {
-      // Always fetch 5 pages (100 results)
-      const url = `https://api.themoviedb.org/3/${endpoint}?language=en-US&page=${page}`;
+    const responses = await Promise.all(requests);
 
-      const options = {
-        method: "GET",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-          ...headers
-        }
-      };
-
-      if (bodyData) options.body = JSON.stringify(bodyData);
-
-      const fetchPro = fetch(url, options);
-      const res = await fetchPro;
-
+    // Check each response status
+    responses.forEach(res => {
       if (!res.ok) throw new Error(`Request failed (${res.status})`);
+    });
 
-      const data = await res.json();
+    // Parse all JSON in parallel
+    const pages = await Promise.all(responses.map(r => r.json()));
 
-      if (data.results) {
-        allResults = allResults.concat(data.results);
-      }
+    // Flatten results across pages
+    const allResults = pages.flatMap(page => page.results ?? []);
 
-      if (allResults.length >= 100) break; // Stop once we reach 100 results
-    }
-
-    return allResults.slice(0, 100); // Ensure exactly 100 results
+    return allResults.slice(0, 100);
   } catch (err) {
     console.error("Error in AJAX function:", err);
     throw err;

@@ -10,6 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- TMDB CDN preconnect: images and API load ~200ms faster on first request -->
+    <link rel="preconnect" href="https://image.tmdb.org" />
+    <link rel="dns-prefetch" href="https://api.themoviedb.org" />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
       rel="stylesheet"
@@ -298,160 +301,142 @@
         </div>
         <div class="faqs">
           <div class="accordion">
-            <div class="accordion-item" id="question1">
-              <a class="accordion-link" href="#question1">
+
+            <div class="accordion-item">
+              <button class="accordion-trigger accordion-link" aria-expanded="false">
                 <div class="flex justify-center gap-4">
                   <div class="no box">1</div>
                   <p>What is StreamVibe?</p>
                 </div>
-                <img class="plus" src="./asset/svg/plusIcon.svg" alt="" />
-                <img class="minus" src="./asset/svg/minusIcon.svg" alt="" />
-              </a>
+                <img class="plus" src="./asset/svg/plusIcon.svg" alt="expand" />
+                <img class="minus" src="./asset/svg/minusIcon.svg" alt="collapse" />
+              </button>
               <div class="answer">
-                <p>
-                  StreamVibe is a streaming service that allows you to watch
-                  movies and shows on demand.
-                </p>
+                <p>StreamVibe is a premium streaming platform where you can watch thousands of movies and TV shows on demand — anytime, anywhere, on any device.</p>
               </div>
               <hr />
             </div>
 
-            <div class="accordion-item" id="question2">
-              <a class="accordion-link" href="#question2">
+            <div class="accordion-item">
+              <button class="accordion-trigger accordion-link" aria-expanded="false">
                 <div class="flex justify-center gap-4">
                   <div class="no box">2</div>
-                  <p>What is StreamVibe?</p>
+                  <p>How much does StreamVibe cost?</p>
                 </div>
-                <img class="plus" src="./asset/svg/plusIcon.svg" alt="" />
-                <img class="minus" src="./asset/svg/minusIcon.svg" alt="" />
-              </a>
+                <img class="plus" src="./asset/svg/plusIcon.svg" alt="expand" />
+                <img class="minus" src="./asset/svg/minusIcon.svg" alt="collapse" />
+              </button>
               <div class="answer">
-                <p>
-                  StreamVibe is a streaming service that allows you to watch
-                  movies and shows on demand.
-                </p>
+                <p>StreamVibe offers flexible plans starting at $9.99/month for the Basic plan, $12.99/month for Standard, and $17.99/month for Premium. All plans include a free 30-day trial.</p>
               </div>
               <hr />
             </div>
-            <div class="accordion-item" id="question3">
-              <a class="accordion-link" href="#question3">
+
+            <div class="accordion-item">
+              <button class="accordion-trigger accordion-link" aria-expanded="false">
                 <div class="flex justify-center gap-4">
                   <div class="no box">3</div>
-                  <p>What is StreamVibe?</p>
+                  <p>What devices can I watch StreamVibe on?</p>
                 </div>
-                <img class="plus" src="./asset/svg/plusIcon.svg" alt="" />
-                <img class="minus" src="./asset/svg/minusIcon.svg" alt="" />
-              </a>
+                <img class="plus" src="./asset/svg/plusIcon.svg" alt="expand" />
+                <img class="minus" src="./asset/svg/minusIcon.svg" alt="collapse" />
+              </button>
               <div class="answer">
-                <p>
-                  StreamVibe is a streaming service that allows you to watch
-                  movies and shows on demand.
-                </p>
+                <p>StreamVibe is available on smartphones (iOS & Android), tablets, smart TVs, laptops, gaming consoles (PS5, Xbox), and VR headsets. Watch seamlessly across all your devices.</p>
               </div>
               <hr />
             </div>
-            <div class="accordion-item" id="question4">
-              <a class="accordion-link" href="#question4">
+
+            <div class="accordion-item">
+              <button class="accordion-trigger accordion-link" aria-expanded="false">
                 <div class="flex justify-center gap-4">
                   <div class="no box">4</div>
-                  <p>What is StreamVibe?</p>
+                  <p>Can I download content to watch offline?</p>
                 </div>
-                <img class="plus" src="./asset/svg/plusIcon.svg" alt="" />
-                <img class="minus" src="./asset/svg/minusIcon.svg" alt="" />
-              </a>
+                <img class="plus" src="./asset/svg/plusIcon.svg" alt="expand" />
+                <img class="minus" src="./asset/svg/minusIcon.svg" alt="collapse" />
+              </button>
               <div class="answer">
-                <p>
-                  StreamVibe is a streaming service that allows you to watch
-                  movies and shows on demand.
-                </p>
+                <p>Yes! Standard and Premium subscribers can download movies and episodes to their mobile devices for offline viewing. Downloads are available for up to 30 days.</p>
               </div>
               <hr />
             </div>
-            <div class="accordion-item" id="question5">
-              <a class="accordion-link" href="#question5">
+
+            <div class="accordion-item">
+              <button class="accordion-trigger accordion-link" aria-expanded="false">
                 <div class="flex justify-center gap-4">
                   <div class="no box">5</div>
-                  <p>What is StreamVibe?</p>
+                  <p>How many screens can I watch simultaneously?</p>
                 </div>
-                <img class="plus" src="./asset/svg/plusIcon.svg" alt="" />
-                <img class="minus" src="./asset/svg/minusIcon.svg" alt="" />
-              </a>
+                <img class="plus" src="./asset/svg/plusIcon.svg" alt="expand" />
+                <img class="minus" src="./asset/svg/minusIcon.svg" alt="collapse" />
+              </button>
               <div class="answer">
-                <p>
-                  StreamVibe is a streaming service that allows you to watch
-                  movies and shows on demand.
-                </p>
+                <p>Basic allows 1 screen at a time, Standard allows 2 simultaneous screens, and Premium allows up to 4 screens — perfect for the whole family.</p>
               </div>
               <hr />
             </div>
-            <div class="accordion-item" id="question6">
-              <a class="accordion-link" href="#question6">
+
+            <div class="accordion-item">
+              <button class="accordion-trigger accordion-link" aria-expanded="false">
                 <div class="flex justify-center gap-4">
                   <div class="no box">6</div>
-                  <p>What is StreamVibe?</p>
+                  <p>Is there a free trial available?</p>
                 </div>
-                <img class="plus" src="./asset/svg/plusIcon.svg" alt="" />
-                <img class="minus" src="./asset/svg/minusIcon.svg" alt="" />
-              </a>
+                <img class="plus" src="./asset/svg/plusIcon.svg" alt="expand" />
+                <img class="minus" src="./asset/svg/minusIcon.svg" alt="collapse" />
+              </button>
               <div class="answer">
-                <p>
-                  StreamVibe is a streaming service that allows you to watch
-                  movies and shows on demand.
-                </p>
+                <p>Absolutely! New subscribers get a free 30-day trial with full access to all content on their chosen plan. No commitments — cancel anytime before the trial ends.</p>
               </div>
               <hr />
             </div>
-            <div class="accordion-item" id="question7">
-              <a class="accordion-link" href="#question7">
+
+            <div class="accordion-item">
+              <button class="accordion-trigger accordion-link" aria-expanded="false">
                 <div class="flex justify-center gap-4">
                   <div class="no box">7</div>
-                  <p>What is StreamVibe?</p>
+                  <p>Can I cancel my subscription at any time?</p>
                 </div>
-                <img class="plus" src="./asset/svg/plusIcon.svg" alt="" />
-                <img class="minus" src="./asset/svg/minusIcon.svg" alt="" />
-              </a>
+                <img class="plus" src="./asset/svg/plusIcon.svg" alt="expand" />
+                <img class="minus" src="./asset/svg/minusIcon.svg" alt="collapse" />
+              </button>
               <div class="answer">
-                <p>
-                  StreamVibe is a streaming service that allows you to watch
-                  movies and shows on demand.
-                </p>
+                <p>Yes. StreamVibe has no lock-in contracts. You can cancel your subscription at any time directly from your account settings and you'll retain access until the end of your billing period.</p>
               </div>
               <hr />
             </div>
-            <div class="accordion-item" id="question8">
-              <a class="accordion-link" href="#question8">
+
+            <div class="accordion-item">
+              <button class="accordion-trigger accordion-link" aria-expanded="false">
                 <div class="flex justify-center gap-4">
                   <div class="no box">8</div>
-                  <p>What is StreamVibe?</p>
+                  <p>What streaming quality does StreamVibe support?</p>
                 </div>
-                <img class="plus" src="./asset/svg/plusIcon.svg" alt="" />
-                <img class="minus" src="./asset/svg/minusIcon.svg" alt="" />
-              </a>
+                <img class="plus" src="./asset/svg/plusIcon.svg" alt="expand" />
+                <img class="minus" src="./asset/svg/minusIcon.svg" alt="collapse" />
+              </button>
               <div class="answer">
-                <p>
-                  StreamVibe is a streaming service that allows you to watch
-                  movies and shows on demand.
-                </p>
+                <p>Basic supports SD (480p), Standard supports Full HD (1080p), and Premium supports Ultra HD 4K + HDR streaming. Audio quality scales up to Dolby Atmos on Premium.</p>
               </div>
               <hr />
             </div>
-            <div class="accordion-item" id="question9">
-              <a class="accordion-link" href="#question9">
+
+            <div class="accordion-item">
+              <button class="accordion-trigger accordion-link" aria-expanded="false">
                 <div class="flex justify-center gap-4">
                   <div class="no box">9</div>
-                  <p>What is StreamVibe?</p>
+                  <p>How do I create multiple profiles on one account?</p>
                 </div>
-                <img class="plus" src="./asset/svg/plusIcon.svg" alt="" />
-                <img class="minus" src="./asset/svg/minusIcon.svg" alt="" />
-              </a>
+                <img class="plus" src="./asset/svg/plusIcon.svg" alt="expand" />
+                <img class="minus" src="./asset/svg/minusIcon.svg" alt="collapse" />
+              </button>
               <div class="answer">
-                <p>
-                  StreamVibe is a streaming service that allows you to watch
-                  movies and shows on demand.
-                </p>
+                <p>Go to your account settings and select "Manage Profiles". You can create up to 5 individual profiles per account, each with their own watchlist, preferences, and viewing history.</p>
               </div>
               <hr />
             </div>
+
           </div>
         </div>
       </section>

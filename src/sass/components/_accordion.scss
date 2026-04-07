@@ -1,70 +1,98 @@
+// accordion.scss
+// Driven by JS: .accordion-item.is-open shows the answer panel.
+// All transitions are CSS so they're smooth and GPU-friendly.
+
+.accordion-trigger {
+  // Reset button defaults
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+}
+
 .accordion-item {
-    // background-color: #000000;
-    border-radius: 0.4rem;
+  border-radius: 0.4rem;
 }
 
 .accordion-link div p {
-@apply text-lg  xsm:text-sm  md:text-xl;
+  @apply text-lg xsm:text-sm md:text-xl;
 }
-.accordion-item hr  {
-    // border-width: 8px;bo
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-    border: 10px solid;
-    border-image-slice: 1;
-    border-width: 1px;
-    border-style: solid;
-    border-image-source: linear-gradient(90deg, rgba(229, 0, 0, 0) 0%, #E50000 16.67%, rgba(229, 0, 0, 0) 100%);
+
+// Gradient divider between items
+.accordion-item hr {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-image-source: linear-gradient(
+    90deg,
+    rgba(229, 0, 0, 0) 0%,
+    #e50000 16.67%,
+    rgba(229, 0, 0, 0) 100%
+  );
+  border-image-slice: 1;
 }
 
 .accordion-link {
-    // font-size: 1.6rem;
-    // color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    // background-color: #000000;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0;
+  text-decoration: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
 }
-
-
-
-
-
 
 .accordion-link div {
-    display: flex;
+  display: flex;
 }
 
+// ── Icon state ────────────────────────────────────────────────────────────────
+// Plus visible by default, minus hidden
 .accordion-link .minus {
-    display: none;
+  display: none;
+  // Subtle pop-in when it appears
+  animation: icon-appear 0.2s ease;
 }
 
+// When open: swap icons
+.accordion-item.is-open .accordion-link .plus {
+  display: none;
+}
+.accordion-item.is-open .accordion-link .minus {
+  display: block;
+}
+
+// Update aria-expanded attribute for screen readers (toggled by JS)
+.accordion-trigger[aria-expanded="true"] {
+  // Optional: add a subtle highlight on the open trigger
+  opacity: 1;
+}
+
+// ── Answer panel ─────────────────────────────────────────────────────────────
 .answer {
-    max-height: 0;
-    overflow: hidden;
-    position: relative;
-    // background-color: #000;
-    transition: max-height 650ms;
+  max-height: 0;
+  overflow: hidden;
+  // Smooth ease-out on open, snappier on close
+  transition: max-height 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-// .answer p {
-//     // color: #fff;
-//     font-size: 15px;
-//     padding: 2rem;
-// }
-
-.accordion-item:target .answer {
-    max-height: 20rem;
+// JS sets an explicit pixel max-height on the element when open,
+// so this rule just ensures the closed state is always 0
+.accordion-item:not(.is-open) .answer {
+  max-height: 0 !important;
 }
 
-.accordion-item:target .accordion-link .plus {
-    display: none;
-}
-
-.accordion-item:target .accordion-link .minus {
-    display: block;
+// ── Animations ────────────────────────────────────────────────────────────────
+@keyframes icon-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.7) rotate(45deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
 }
