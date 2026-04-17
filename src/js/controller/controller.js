@@ -1,5 +1,3 @@
-import "../../sass/main.scss";
-
 import {
   dataRel,
   genDDta,
@@ -36,31 +34,21 @@ const imagePaths = [
 ].flatMap((image) => image.poster_path); // Extract `poster_path` from each object
 populateHeroImages(imagePaths);
 
-export function moviesInit() {
-  renderNewRelsease(dataRel);
+export async function moviesInit() {
   renderHero(datast);
-  rendertrends(trendingData);
-  renderMustWatch(mustWatchData);
-  renderTv(trendingTv);
-  renderNewTv(newTv);
-  renderMustWatchTv(MustTv);
-  renderMoviesGenres(genDDta);
-  renderMoviesGenres10(genDDta);
-  renderTvGenres(genDDtatv);
-  renderTvGenres10(genDDtatv);
+
+  await Promise.all([
+    renderNewRelsease(dataRel),
+    rendertrends(trendingData),
+    renderMustWatch(mustWatchData),
+    renderTv(trendingTv),
+    renderNewTv(newTv),
+    renderMustWatchTv(MustTv),
+    renderMoviesGenres(genDDta),
+    renderMoviesGenres10(genDDta),
+    renderTvGenres(genDDtatv),
+    renderTvGenres10(genDDtatv)
+  ]);
+
   creatSwipers();
-}
-
-document.querySelectorAll(".cat").forEach((ul) => {
-  ul.addEventListener("click", (event) => {
-    const listItem = event.target.closest("li"); // Finds the nearest <li> ancestor
-    if (listItem) windowChange();
-  });
-});
-
-function windowChange() {
-  const currentUrl = window.location.href; // Get full URL
-  const newUrl =
-    currentUrl.slice(0, currentUrl.lastIndexOf("/") + 1) + "display.html"; // Replace movies.html with display.html
-  window.location.href = newUrl; // Redirect to the new URL
 }

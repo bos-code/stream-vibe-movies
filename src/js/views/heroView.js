@@ -12,7 +12,7 @@ const heroContainer = document.querySelector(".bgimages");
 
 
 export function populateHeroImages(imagesArray) {
-    const images = getRandomImages(imagesArray);
+    const images = getRandomImages(imagesArray.filter(Boolean));
     if(!heroContainer)return
     heroContainer.innerHTML = "";
 

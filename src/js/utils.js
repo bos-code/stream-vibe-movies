@@ -13,6 +13,7 @@ export function formatDateCustom(dateInput) {
 }
 
 export function renderStars(rating) {
+  const safeRating = Math.max(0, Math.min(5, Number(rating) || 0));
   const fullStar = `
       <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
         <path d="M9.38 0.5L12.5 5.21l5.44 1.51-3.52 4.42.25 5.64-5.29-1.98-5.29 1.98.25-5.64L.82 6.72 6.26 5.21 9.38 0.5Z" fill="#E60000"/>
@@ -23,8 +24,8 @@ export function renderStars(rating) {
         <path d="M9.38 0.5L12.5 5.21l5.44 1.51-3.52 4.42.25 5.64-5.29-1.98-5.29 1.98.25-5.64L.82 6.72 6.26 5.21 9.38 0.5Z" fill="gray"/>
       </svg>`;
 
-  const fullStars = Math.floor(rating);
-  const fraction = rating % 1; // Get decimal part for precise coloring
+  const fullStars = Math.floor(safeRating);
+  const fraction = safeRating % 1; // Get decimal part for precise coloring
   let starsHTML = "";
 
   // Render full stars
@@ -82,7 +83,7 @@ export async function fetchTvDetails(tvId) {
 export function tvDuration(r, nE) {
   const rtime = r;
  
-  if ((rtime === Array)) {
+  if (Array.isArray(rtime)) {
     const rTA = rtime.reduce((sum, num) => sum + num, 0) / rtime.length;
     return rTA * nE;
   } else {
@@ -95,8 +96,8 @@ export function tvDuration(r, nE) {
 
 const API_KEY = "465c8a03a49665a1678b47c4e4a653af";
 
-export async function fetchMoviesByGenre(genreId) {
-  const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`;
+export async function fetchMediaByGenre(genreId, type = "movie") {
+  const url = `https://api.themoviedb.org/3/discover/${type}?api_key=${API_KEY}&with_genres=${genreId}`;
 
   try {
     const response = await fetch(url);
@@ -108,7 +109,10 @@ export async function fetchMoviesByGenre(genreId) {
     }
 
     // Shuffle the array and pick four random movies
-    const shuffledMovies = data.results.sort(() => 0.5 - Math.random()).slice(0, 4);
+    const shuffledMovies = data.results
+      .filter((item) => item.poster_path)
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 4);
 
     // Map out and log their poster paths
     const imageUrls = shuffledMovies.map(movie => `https://image.tmdb.org/t/p/w500${movie.poster_path}`);
@@ -119,7 +123,11 @@ export async function fetchMoviesByGenre(genreId) {
   }
 }
 
-export function loop(arr){
+export function fetchMoviesByGenre(genreId) {
+  return fetchMediaByGenre(genreId, "movie");
+}
+
+export function loop(arr = []){
   let imgTemp = ''
 
   arr.forEach(img => {

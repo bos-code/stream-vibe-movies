@@ -1,4 +1,5 @@
 import { fetchMovieDetails, formatNumber, runTime } from "../helpers";
+import { escapeHTML, getImage, getTitle } from "../media";
 import { createSwiper, SWIPER_SELECTOR_5_CONFIG } from "../swiper";
 
 export async function rendertrends(trends) {
@@ -21,15 +22,19 @@ export async function rendertrends(trends) {
     const trend = trends[index];
 
     const discoverTemp = `
-    <li class="views swiper-slide" data-ID="${trend.id}">
+    <li
+      class="views swiper-slide"
+      data-media-id="${trend.id}"
+      data-media-type="movie"
+      data-media-title="${escapeHTML(getTitle(trend))}"
+      data-media-poster="${trend.poster_path || ""}"
+      data-media-backdrop="${trend.backdrop_path || ""}"
+      data-media-overview="${escapeHTML(trend.overview || "")}"
+    >
      <figure class="rounded-md  overflow-hidden">
     <img
-      src="${
-        trend.poster_path
-          ? `https://image.tmdb.org/t/p/w342${trend.poster_path}`
-          : "/asset/images/hero.png"
-      }"
-      alt="${trend.title}"
+      src="${getImage(trend.poster_path)}"
+      alt="${escapeHTML(getTitle(trend))}"
       loading="lazy"
       decoding="async"
       width="342"
@@ -55,7 +60,7 @@ export async function rendertrends(trends) {
     finalTemplate += discoverTemp;
   });
 
-  parentEl.innerHtml = "";
+  parentEl.innerHTML = "";
   parentEl.innerHTML = finalTemplate;
 
   createSwiper("#categories-swiper-3", SWIPER_SELECTOR_5_CONFIG);

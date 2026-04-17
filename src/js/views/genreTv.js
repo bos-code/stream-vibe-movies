@@ -1,11 +1,11 @@
 import { createSwiper, SWIPER_SELECTOR_5_CONFIG } from "../swiper";
-import { fetchMoviesByGenre, loop } from "../utils";
+import { fetchMediaByGenre, loop } from "../utils";
 import { View } from "./view";
 
 async function genreTemplate(item) {
-  const img = await fetchMoviesByGenre(item.id);
+  const img = await fetchMediaByGenre(item.id, "tv");
   return `
-     <li class="catItems swiper-slide" data-id="${item.ID}">
+     <li class="catItems swiper-slide" data-genre-id="${item.id}" data-genre-type="tv">
             <div class="gridImg">
             ${loop(img)}
               
@@ -25,14 +25,14 @@ const tvGenresView10 = View("#tvtop10");
 export async function renderTvGenres(data) {
   if (!tvGenresView) return;
 
-  tvGenresView.render(data, genreTemplate);
+  await tvGenresView.render(data, genreTemplate);
 
   createSwiper("#categories-swiper-6", SWIPER_SELECTOR_5_CONFIG);
 }
 export async function renderTvGenres10(data) {
   if (!tvGenresView10) return;
 
-  tvGenresView10.render(data, genreTemplate);
+  await tvGenresView10.render(data, genreTemplate);
 
   createSwiper("#categories-swiper-7", SWIPER_SELECTOR_5_CONFIG);
 }

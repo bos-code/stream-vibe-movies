@@ -1,19 +1,24 @@
 import { formatNumber, runTime } from "../helpers";
+import { escapeHTML, getImage, getTitle } from "../media";
 import { fetchTvDetails, renderStars, tvDuration } from "../utils";
 import { View } from "./view";
 
 async function mustTvTemplate(item) {
   const runtime = await fetchTvDetails(item.id);
   return `
-      <li class="views swiper-slide" data-ID="${item.id}">
+      <li
+        class="views swiper-slide"
+        data-media-id="${item.id}"
+        data-media-type="tv"
+        data-media-title="${escapeHTML(getTitle(item))}"
+        data-media-poster="${item.poster_path || ""}"
+        data-media-backdrop="${item.backdrop_path || ""}"
+        data-media-overview="${escapeHTML(item.overview || "")}"
+      >
            <figure class="rounded-md  overflow-hidden">
         <img
-          src="${
-            item.poster_path
-              ? `https://image.tmdb.org/t/p/w342${item.poster_path}`
-              : "/asset/images/hero.png"
-          }"
-          alt="${item.name || item.title}"
+          src="${getImage(item.poster_path)}"
+          alt="${escapeHTML(getTitle(item))}"
           loading="lazy"
           decoding="async"
           width="342"
@@ -25,8 +30,8 @@ async function mustTvTemplate(item) {
                 <img src="/asset/images/time.svg" alt="" />
                 <span class="text-xs text-gray60">${runTime(
                   tvDuration(
-                    runtime.episode_run_time,
-                    runtime.number_of_episodes
+                    runtime?.episode_run_time,
+                    runtime?.number_of_episodes
                   )
                 )}</span>
               </div>
@@ -45,5 +50,5 @@ async function mustTvTemplate(item) {
 
 const mustTvView = View("#tvMust");
 export async function renderMustWatchTv(data) {
-  mustTvView?.render(data, mustTvTemplate);
+  await mustTvView?.render(data, mustTvTemplate);
 }

@@ -5,7 +5,7 @@ import { View } from "./view";
 async function genreTemplate(item) {
   const img = await fetchMoviesByGenre(item.id);
   return `
-     <li class="catItems swiper-slide" data-id="${item.ID}">
+     <li class="catItems swiper-slide" data-genre-id="${item.id}" data-genre-type="movie">
             <div class="gridImg">
             ${loop(img)}
               
@@ -25,14 +25,14 @@ const movie10 = View("#top10");
 export async function renderMoviesGenres(data) {
   if (!moviesGenreView) return;
 
-  moviesGenreView.render(data, genreTemplate);
+  await moviesGenreView.render(data, genreTemplate);
 
   createSwiper("#categories-swiper", SWIPER_SELECTOR_5_CONFIG);
 }
 export async function renderMoviesGenres10(data) {
   if (!movie10) return;
 
-  movie10.render(data, genreTemplate);
+  await movie10.render(data, genreTemplate);
 
-  createSwiper("#top10", SWIPER_SELECTOR_5_CONFIG);
+  createSwiper("#categories-swiper-2", SWIPER_SELECTOR_5_CONFIG);
 }

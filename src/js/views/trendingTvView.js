@@ -1,19 +1,23 @@
-import { runTime } from "../helpers";
+import { escapeHTML, getImage, getTitle } from "../media";
 import { fetchTvDetails } from "../utils";
 import { View } from "./view";
 
 async function TvTemplate(item) {
   const details = await fetchTvDetails(item.id);
   return `
-        <li class="views swiper-slide" data-ID="${item.id}>
+        <li
+          class="views swiper-slide"
+          data-media-id="${item.id}"
+          data-media-type="tv"
+          data-media-title="${escapeHTML(getTitle(item))}"
+          data-media-poster="${item.poster_path || ""}"
+          data-media-backdrop="${item.backdrop_path || ""}"
+          data-media-overview="${escapeHTML(item.overview || "")}"
+        >
                <figure class="rounded-lg  overflow-hidden">
         <img
-          src="${
-            item.poster_path
-              ? `https://image.tmdb.org/t/p/w342${item.poster_path}`
-              : "/asset/images/hero.png"
-          }"
-          alt="${item.name || item.title}"
+          src="${getImage(item.poster_path)}"
+          alt="${escapeHTML(getTitle(item))}"
           class="rounded-lg"
           loading="lazy"
           decoding="async"
@@ -29,7 +33,7 @@ async function TvTemplate(item) {
               <div class="views-tag">
                 <img src="/asset/svg/videos.svg" alt="" />
                 <span class="text-xs text-gray60">${
-                  details.number_of_seasons
+                  details?.number_of_seasons || 1
                 } Season</span>
               </div>
             </div>
@@ -40,5 +44,5 @@ async function TvTemplate(item) {
 
 const tvView = View("#tvView");
 export async function renderTv(data) {
-  tvView?.render(data, TvTemplate);
+  await tvView?.render(data, TvTemplate);
 }

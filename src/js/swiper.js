@@ -16,11 +16,11 @@ export function createSwiper(el, config = {}) {
       invert: true
     },
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
+      nextEl: `${el} #next-slide`,
+      prevEl: `${el} #prev-slide`
     },
     pagination: {
-      el: ".dots",
+      el: `${el} .dots`,
       clickable: true,
       dynamicBullets: true,
       dynamicMainBullets: 4
@@ -35,7 +35,7 @@ export function createSwiper(el, config = {}) {
     updatePagination();
   });
 
-  document.querySelector(`${el} #next-slide`).addEventListener("click", () => {
+  document.querySelector(`${el} #next-slide`)?.addEventListener("click", () => {
     catSwiper.slideNext();
     updatePagination();
   });
@@ -96,7 +96,6 @@ export const SWIPER_SELECTOR_4_CONFIG = {
   }
 };
 const swiperSelectors = [
-  "#categories-swiper-7",
   "#categories-swiper-10",
   "#categories-swiper-9",
   "#categories-swiper-8"
@@ -123,9 +122,7 @@ export function creatSwipers() {
     });
   });
   const swiperSelector5 = [
-    "#categories-swiper-2",
-    "#categories-swiper-4",
-    "#categories-swiper-6"
+    "#categories-swiper-4"
   ];
 
   swiperSelector5.forEach((selector) => {
@@ -185,7 +182,7 @@ export function creatSwipers() {
     }
   });
 
-  createSwiper.bind(null, "#hero-swiper", {
+  createSwiper("#hero-swiper", {
     slidesPerView: 1,
     effect: "fade", // Enables fade effect
 

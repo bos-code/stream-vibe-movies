@@ -1,8 +1,21 @@
-import "../js/controller/controller";
+import "../sass/main.scss";
 import "../js/views/heroView";
 import "../js/animations";
-import { moviesInit } from "../js/controller/controller";
+import { initDetailPage } from "./detail";
 import { initFAQ } from "../js/faq";
+import { initMediaRouting } from "./routing";
+import { initNavigation } from "./navigation";
+import { initNotifications } from "./notifications";
+import { initSearch } from "./search";
 
-moviesInit();
+initNavigation();
+initSearch();
+initNotifications();
 initFAQ();
+initMediaRouting();
+initDetailPage();
+
+if (document.querySelector("#categories, #heroSlides, #trends, #tvView")) {
+  const { moviesInit } = await import("./controller/controller");
+  await moviesInit();
+}

@@ -1,7 +1,7 @@
 import { fetchMovieDetails, formatNumber, runTime } from "../helpers";
+import { escapeHTML, getImage, getTitle } from "../media";
 import {
   createSwiper,
-  creatSwipers,
   SWIPER_SELECTOR_4_CONFIG
 } from "../swiper";
 import { renderStars } from "../utils";
@@ -10,15 +10,19 @@ import { View } from "./view";
 async function mustTemplate(item) {
   const runtime = await fetchMovieDetails(item.id);
   return `
-      <li class="views swiper-slide" data-ID="${item.id}">
+      <li
+        class="views swiper-slide"
+        data-media-id="${item.id}"
+        data-media-type="movie"
+        data-media-title="${escapeHTML(getTitle(item))}"
+        data-media-poster="${item.poster_path || ""}"
+        data-media-backdrop="${item.backdrop_path || ""}"
+        data-media-overview="${escapeHTML(item.overview || "")}"
+      >
        <figure class="rounded-md  overflow-hidden">
         <img
-          src="${
-            item.poster_path
-              ? `https://image.tmdb.org/t/p/w342${item.poster_path}`
-              : "/asset/images/hero.png"
-          }"
-          alt="${item.title}"
+          src="${getImage(item.poster_path)}"
+          alt="${escapeHTML(getTitle(item))}"
           loading="lazy"
           decoding="async"
           width="342"
@@ -45,6 +49,6 @@ async function mustTemplate(item) {
 
 const mustWatchView = View("#mustWatch");
 export async function renderMustWatch(data) {
-  mustWatchView?.render(data, mustTemplate);
+  await mustWatchView?.render(data, mustTemplate);
   createSwiper("#categories-swiper-5", SWIPER_SELECTOR_4_CONFIG);
 }

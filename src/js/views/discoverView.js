@@ -1,3 +1,5 @@
+import { escapeHTML, getImage, getTitle } from "../media";
+
 export function renderHero(movies) {
   const parentEl = document.getElementById("heroSlides");
   if (!parentEl) return;
@@ -6,15 +8,19 @@ export function renderHero(movies) {
   const html = movies
     .map(
       dataVal => `
-      <div class="swiper-slide w-1/12 mx-auto" data-ID="${dataVal.id}">
+      <div
+        class="swiper-slide w-1/12 mx-auto"
+        data-media-id="${dataVal.id}"
+        data-media-type="movie"
+        data-media-title="${escapeHTML(getTitle(dataVal))}"
+        data-media-poster="${dataVal.poster_path || ""}"
+        data-media-backdrop="${dataVal.backdrop_path || ""}"
+        data-media-overview="${escapeHTML(dataVal.overview || "")}"
+      >
         <figure>
           <img
-            src="${
-              dataVal.poster_path
-                ? `https://image.tmdb.org/t/p/w342${dataVal.poster_path}`
-                : "/asset/images/hero.png"
-            }"
-            alt="${dataVal.title}"
+            src="${getImage(dataVal.poster_path)}"
+            alt="${escapeHTML(getTitle(dataVal))}"
             loading="lazy"
             decoding="async"
             width="342"
@@ -23,9 +29,9 @@ export function renderHero(movies) {
         </figure>
         <div class="overlay">
           <div class="textbox">
-            <h1 class="heading-primary">${dataVal.title}</h1>
+            <h1 class="heading-primary">${escapeHTML(getTitle(dataVal))}</h1>
             <p class="section-description text-center">
-              ${dataVal.overview || "No description available."}
+              ${escapeHTML(dataVal.overview || "No description available.")}
             </p>
           </div>
           <div class="pagination-hero">
