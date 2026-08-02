@@ -1,0 +1,388 @@
+.open-hero {
+  position: relative;
+  display: flex;
+  min-height: clamp(32rem, 70vh, 52rem);
+  align-items: flex-end;
+  width: min(92vw, 100rem);
+  margin: 2rem auto 6rem;
+  padding: clamp(1.25rem, 4vw, 3.5rem);
+  overflow: hidden;
+  border: 1px solid #262626;
+  border-radius: 0.75rem;
+  background: #0f0f0f;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, #141414 2%, rgba(20, 20, 20, 0.08) 75%);
+  }
+
+  .heroimages,
+  .heroimages img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .heroimages img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .contentbox {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .textbox {
+    max-width: 54rem;
+  }
+
+  .heading-tertiary {
+    text-align: left;
+  }
+
+  .contDesc {
+    margin-top: 0.75rem;
+    color: #bfbfbf;
+  }
+
+  .tab,
+  .action {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .tab {
+    flex-shrink: 0;
+  }
+
+  .action button,
+  .btn-def-red {
+    min-height: 3.25rem;
+    border: 1px solid #262626;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+
+  .action button {
+    display: grid;
+    width: 3.25rem;
+    place-items: center;
+    background: #0f0f0f;
+  }
+
+  .action button.is-saved,
+  .action button.is-liked {
+    border-color: #e50000;
+    background: #e50000;
+  }
+}
+
+.open-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+
+  .main-content,
+  .aside {
+    grid-column: 1 / -1;
+    min-width: 0;
+  }
+
+  .main-content {
+    .content {
+      padding: clamp(1.2rem, 3vw, 3rem);
+    }
+  }
+}
+
+.detail-section-meta {
+  margin-top: 0.3rem;
+  color: #777;
+  font-size: 0.85rem;
+}
+
+.detail-empty {
+  width: 100%;
+  padding: 2.5rem 1rem;
+  color: #999;
+  text-align: center;
+
+  button {
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    border: 0;
+    border-radius: 0.5rem;
+    color: #fff;
+    background: #e50000;
+  }
+}
+
+.detail-review {
+  display: flex;
+  height: auto;
+  min-height: 13rem;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border: 1px solid #262626;
+  border-radius: 0.75rem;
+  background: #0f0f0f;
+
+  .rating > .rating {
+    gap: 2px;
+  }
+
+  .review {
+    display: -webkit-box;
+    overflow: hidden;
+    color: #999;
+    line-height: 1.6;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+  }
+}
+
+#detail-review-swiper {
+  overflow: hidden;
+
+  .navigation button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+}
+
+.detail-seasons__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  select {
+    min-width: 9rem;
+    padding: 0.75rem 2.2rem 0.75rem 0.9rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    color: #fff;
+    background: #0f0f0f;
+  }
+}
+
+.detail-episodes {
+  display: grid;
+}
+
+.detail-episode {
+  display: grid;
+  grid-template-columns: 2rem 8.5rem minmax(0, 1fr) 3rem;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.35rem 0;
+  border-top: 1px solid #262626;
+
+  &:first-child {
+    border-top: 0;
+  }
+
+  figure {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: #262626;
+  }
+
+  figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  p,
+  span {
+    color: #999;
+  }
+
+  p {
+    display: -webkit-box;
+    margin-top: 0.5rem;
+    overflow: hidden;
+    line-height: 1.5;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  button {
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    border: 1px solid #333;
+    border-radius: 50%;
+    color: #fff;
+    background: #1a1a1a;
+    cursor: pointer;
+  }
+}
+
+.episode-skeleton {
+  height: 8rem;
+  border-top: 1px solid #262626;
+  background: linear-gradient(100deg, transparent 20%, #262626 40%, transparent 60%);
+  background-size: 200% 100%;
+  animation: discovery-loading 1.2s linear infinite;
+}
+
+.detail-dialog {
+  width: min(92vw, 48rem);
+  max-height: 90vh;
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid #333;
+  border-radius: 0.75rem;
+  color: #fff;
+  background: #141414;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.6);
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(8px);
+  }
+}
+
+.detail-dialog__close {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  z-index: 2;
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  color: #fff;
+  background: #1a1a1a;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.trailer-dialog__frame {
+  aspect-ratio: 16 / 9;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+.review-form {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+
+  h2 {
+    margin: -0.5rem 3rem 0.5rem 0;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+  }
+
+  label {
+    display: grid;
+    gap: 0.45rem;
+    color: #bfbfbf;
+    font-weight: 600;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    color: #fff;
+    background: #0f0f0f;
+    font: inherit;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #e50000;
+    outline: 2px solid rgba(229, 0, 0, 0.35);
+  }
+}
+
+.review-form__submit {
+  justify-self: start;
+  padding: 0.85rem 1.4rem;
+  border: 0;
+  border-radius: 0.5rem;
+  color: #fff;
+  background: #e50000;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .open-main {
+    grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
+
+    .main-content {
+      grid-column: 1;
+    }
+
+    .aside {
+      grid-column: 2;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .open-hero {
+    min-height: 38rem;
+
+    .contentbox,
+    .tab {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .contDesc {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+    }
+  }
+
+  .detail-episode {
+    grid-template-columns: 1.5rem minmax(0, 1fr) 2.75rem;
+
+    figure {
+      display: none;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .episode-skeleton {
+    animation: none;
+  }
+}

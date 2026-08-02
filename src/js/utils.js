@@ -50,7 +50,8 @@ export function renderStars(rating) {
         </svg>`;
   }
   // Render remaining empty stars
-  for (let i = fullStars + 1; i < 5; i++) {
+  const renderedStars = fullStars + (fraction > 0 ? 1 : 0);
+  for (let i = renderedStars; i < 5; i++) {
     starsHTML += emptyStar;
   }
 

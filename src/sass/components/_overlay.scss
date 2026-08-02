@@ -180,11 +180,12 @@ body.overlay-is-open {
   font-size: 1rem;
 }
 
-.open-hero .action li {
+.open-hero .action button {
   cursor: pointer;
 }
 
-.open-hero .action li.is-saved {
+.open-hero .action button.is-saved,
+.open-hero .action button.is-liked {
   border-color: #e50000;
   background: #e50000;
 }
