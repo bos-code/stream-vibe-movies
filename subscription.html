@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Compare StreamVibe plans and choose a monthly or yearly subscription." />
+    <link rel="icon" type="image/svg+xml" href="/asset/svg/streamvibe-logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/sass/main.scss" />
+    <title>Subscription Plans | StreamVibe</title>
+  </head>
+  <body>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/" class="logo" aria-label="StreamVibe home"><img class="animate-spin" src="/asset/svg/streamvibe-logo.svg" alt="" /><span class="logo-wordmark">StreamVibe</span></a>
+      <button class="menuBar z-50" type="button" aria-label="Open navigation menu"><img src="/asset/svg/meunIcon.svg" alt="" /></button>
+      <ul class="mainLinks hidden"><li><a class="mainNavLink" href="/">Home</a></li><li><a class="mainNavLink" href="./movies.html">Movies &amp; Shows</a></li><li><a class="mainNavLink" href="./support.html">Support</a></li><li><a class="mainNavLink" href="./subscription.html">Subscription</a></li></ul>
+      <ul class="navItems hidden md:flex"><li><img src="/asset/svg/search.svg" alt="" /></li><li><img src="/asset/svg/notification.svg" alt="" /></li></ul>
+      <aside class="md:hidden navmobile fixed shadow-2xl pt-40" aria-label="Mobile navigation"><ul class="nav-items hidden"><li><a class="mainNavLink" href="/">Home</a></li><li><a class="mainNavLink" href="./movies.html">Movies &amp; Shows</a></li><li><a class="mainNavLink" href="./support.html">Support</a></li><li><a class="mainNavLink" href="./subscription.html">Subscription</a></li><li class="flex items-center justify-center"><img src="/asset/svg/search.svg" alt="" class="w-6 h-6" /><span>search</span></li><li class="flex items-center justify-center"><img src="/asset/svg/notification.svg" class="w-6 h-6" alt="" /><span>notification</span></li></ul></aside>
+    </nav>
+
+    <main class="subscription-page cont">
+      <section class="plans-section" aria-labelledby="plans-title">
+        <div class="plans-section__heading">
+          <div><p class="support-eyebrow">Flexible entertainment</p><h1 id="plans-title">Choose the plan that's right for you</h1><p>Join StreamVibe with a plan tailored to your viewing preferences. Switch or cancel whenever you need.</p></div>
+          <div class="billing-tabs" role="group" aria-label="Billing period"><button type="button" class="is-active" data-billing="monthly" aria-pressed="true">Monthly</button><button type="button" data-billing="yearly" aria-pressed="false">Yearly <span>2 months free</span></button></div>
+        </div>
+
+        <div class="plan-grid">
+          <article class="plan-card" data-plan="basic">
+            <div><h2>Basic Plan</h2><p>Enjoy an extensive library of movies and shows, including recently released titles.</p></div>
+            <p class="plan-price"><strong data-plan-price>Ksh. 900</strong><span data-plan-suffix>/month</span></p>
+            <ul><li>HD streaming</li><li>1 simultaneous stream</li><li>Ad-free viewing</li></ul>
+            <div class="plan-card__actions"><button type="button" data-plan-action="trial">Start Free Trial</button><button type="button" data-plan-action="choose">Choose Plan</button></div>
+          </article>
+          <article class="plan-card plan-card--popular" data-plan="standard">
+            <span class="plan-card__badge">Most Popular</span>
+            <div><h2>Standard Plan</h2><p>Access more new releases, exclusive titles, Full HD, and two simultaneous streams.</p></div>
+            <p class="plan-price"><strong data-plan-price>Ksh. 1,200</strong><span data-plan-suffix>/month</span></p>
+            <ul><li>Full HD streaming</li><li>2 simultaneous streams</li><li>Selected offline downloads</li></ul>
+            <div class="plan-card__actions"><button type="button" data-plan-action="trial">Start Free Trial</button><button type="button" data-plan-action="choose">Choose Plan</button></div>
+          </article>
+          <article class="plan-card" data-plan="premium">
+            <div><h2>Premium Plan</h2><p>Watch every new release in 4K, download offline, and share with the whole family.</p></div>
+            <p class="plan-price"><strong data-plan-price>Ksh. 1,499</strong><span data-plan-suffix>/month</span></p>
+            <ul><li>4K + HDR streaming</li><li>4 simultaneous streams</li><li>All-title offline viewing</li></ul>
+            <div class="plan-card__actions"><button type="button" data-plan-action="trial">Start Free Trial</button><button type="button" data-plan-action="choose">Choose Plan</button></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="comparison-section" id="comparison" aria-labelledby="comparison-title">
+        <div class="comparison-section__heading"><h2 id="comparison-title">Compare our plans and find the right one for you</h2><p>Every plan includes StreamVibe's core catalogue. Compare quality, devices, downloads, and sharing below.</p></div>
+        <div class="comparison-table-wrap" tabindex="0" aria-label="Scrollable plan comparison">
+          <table class="comparison-table">
+            <thead><tr><th scope="col">Features</th><th scope="col">Basic</th><th scope="col">Standard <span>Popular</span></th><th scope="col">Premium</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Monthly Price</th><td>Ksh. 900</td><td>Ksh. 1,200</td><td>Ksh. 1,499</td></tr>
+              <tr><th scope="row">Content</th><td>Extensive library</td><td>Wider selection + exclusives</td><td>Complete library + all releases</td></tr>
+              <tr><th scope="row">Devices</th><td>1</td><td>2</td><td>4</td></tr>
+              <tr><th scope="row">Free Trial</th><td>7 days</td><td>7 days</td><td>7 days</td></tr>
+              <tr><th scope="row">Cancel Anytime</th><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">Video Quality</th><td>HD</td><td>Full HD</td><td>4K + HDR</td></tr>
+              <tr><th scope="row">Dolby Atmos</th><td>No</td><td>Selected titles</td><td>Yes</td></tr>
+              <tr><th scope="row">Ad-Free</th><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">Offline Viewing</th><td>No</td><td>Selected titles</td><td>All titles</td></tr>
+              <tr><th scope="row">Family Sharing</th><td>No</td><td>Up to 5 members</td><td>Up to 6 members</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="dec mar-btm">
+        <div class="section-fx items-center justify-center gap-9"><div class="textBox"><h2 class="heading-secondary">Start your free trial today!</h2><p class="section-description">Choose your plan now and start discovering a world of entertainment.</p></div><button type="button" class="subscription-cta" data-subscription-cta>Start a Free Trial</button></div>
+      </section>
+    </main>
+
+    <footer class="footer cont">
+      <nav aria-label="Footer navigation" class="footerGrid"><ul class="footer-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10">
+        <li><h3>Home</h3><ul><li><a href="/">Categories</a></li><li><a href="/#devices">Devices</a></li><li><a href="./subscription.html">Pricing</a></li><li><a href="/#faq">FAQ</a></li></ul></li>
+        <li><h3>Movies</h3><ul><li><a href="./movies.html#movies">Genres</a></li><li><a href="./movies.html#movies">Trending</a></li><li><a href="./movies.html#movies">New Release</a></li><li><a href="./movies.html#movies">Popular</a></li></ul></li>
+        <li><h3>Shows</h3><ul><li><a href="./movies.html#shows">Genres</a></li><li><a href="./movies.html#shows">Trending</a></li><li><a href="./movies.html#shows">New Episodes</a></li><li><a href="./movies.html#shows">Popular</a></li></ul></li>
+        <li><h3>Support</h3><ul><li><a href="./support.html">Contact Us</a></li></ul></li>
+        <li><h3>Subscription</h3><ul><li><a href="./subscription.html">Plans</a></li><li><a href="#comparison">Features</a></li></ul></li>
+        <li><h3>Connect With Us</h3><ul id="social-media-icons"><li><a href="#"><img src="/asset/images/facebook.svg" alt="Facebook" /></a></li><li><a href="#"><img src="/asset/images/Icon-linkin.svg" alt="LinkedIn" /></a></li><li><a href="#"><img src="/asset/images/Icon-x.svg" alt="X" /></a></li></ul></li>
+      </ul></nav>
+      <div class="footer-footer"><div class="navbox flex justify-between flex-col md:flex-row"><p>© <span id="year">2026</span> StreamVibe. All rights reserved.</p><ul><li>Terms of Use</li><li>Privacy Policy</li><li>Cookie Policy</li></ul></div></div>
+    </footer>
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

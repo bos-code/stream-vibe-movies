@@ -6,21 +6,21 @@ const PLAN_DATA = {
       name: "Basic Plan",
       description:
         "Enjoy an extensive library of movies and shows, including recently released titles.",
-      price: "$9.99",
+      price: "Ksh. 900",
       suffix: "/month"
     },
     {
       name: "Standard Plan",
       description:
         "Access more new releases, exclusive titles, Full HD, and two simultaneous streams.",
-      price: "$12.99",
+      price: "Ksh. 1,200",
       suffix: "/month"
     },
     {
       name: "Premium Plan",
       description:
         "Watch every new release in 4K, download offline, and stream on four devices.",
-      price: "$14.99",
+      price: "Ksh. 1,499",
       suffix: "/month"
     }
   ],
@@ -29,21 +29,21 @@ const PLAN_DATA = {
       name: "Basic Plan",
       description:
         "Enjoy an extensive library of movies and shows with two months included free.",
-      price: "$99.90",
+      price: "Ksh. 9,000",
       suffix: "/year"
     },
     {
       name: "Standard Plan",
       description:
         "Get Full HD, two simultaneous streams, and two months included free.",
-      price: "$129.90",
+      price: "Ksh. 12,000",
       suffix: "/year"
     },
     {
       name: "Premium Plan",
       description:
         "Enjoy 4K, offline downloads, four streams, and two months included free.",
-      price: "$149.90",
+      price: "Ksh. 14,990",
       suffix: "/year"
     }
   ]
@@ -113,6 +113,12 @@ export function initHomePage() {
           ? `${planName} free trial selected.`
           : `${planName} plan selected for ${billing} billing.`
       );
+      const params = new URLSearchParams({
+        billing: selection.billing,
+        plan: selection.plan,
+        trial: String(selection.trial)
+      });
+      window.location.href = `./subscription.html?${params.toString()}`;
     });
   });
 

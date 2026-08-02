@@ -14,12 +14,18 @@ export function initFAQ() {
     const trigger = item.querySelector(".accordion-trigger");
     const answer = item.querySelector(".answer");
     if (!trigger || !answer) return;
+    const initiallyOpen = item.classList.contains("is-open");
 
     const answerId = answer.id || `faq-answer-${Math.random().toString(36).slice(2, 9)}`;
     answer.id = answerId;
     trigger.setAttribute("aria-controls", answerId);
-    trigger.setAttribute("aria-expanded", "false");
-    answer.setAttribute("aria-hidden", "true");
+    trigger.setAttribute("aria-expanded", String(initiallyOpen));
+    answer.setAttribute("aria-hidden", String(!initiallyOpen));
+    if (initiallyOpen) {
+      requestAnimationFrame(() => {
+        answer.style.maxHeight = `${answer.scrollHeight}px`;
+      });
+    }
 
     trigger.addEventListener("click", () => {
       const isAlreadyOpen = item.classList.contains("is-open");

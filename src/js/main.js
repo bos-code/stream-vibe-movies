@@ -9,6 +9,8 @@ import { initNotifications } from "./notifications";
 import { initSearch } from "./search";
 import { initHomePage } from "./home";
 import { initDiscoveryPage } from "./discovery";
+import { initSupportPage } from "./support";
+import { initSubscriptionPage } from "./subscription";
 
 initNavigation();
 initSearch();
@@ -17,6 +19,8 @@ initFAQ();
 initMediaRouting();
 initDetailPage();
 initHomePage();
+initSupportPage();
+initSubscriptionPage();
 
 if (document.querySelector("#categories, #heroSlides, #trends, #tvView")) {
   const { moviesInit } = await import("./controller/controller");
