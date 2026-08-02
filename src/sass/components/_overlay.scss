@@ -180,6 +180,128 @@ body.overlay-is-open {
   font-size: 1rem;
 }
 
+.library-trigger {
+  position: relative;
+}
+
+.library-nav-badge {
+  position: absolute;
+  top: -0.45rem;
+  right: -0.55rem;
+  display: grid;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  place-items: center;
+  padding: 0 0.3rem;
+  border: 2px solid #141414;
+  border-radius: 999px;
+  color: #fff;
+  background: #e50000;
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.library-tabs {
+  display: flex;
+  gap: 0.35rem;
+  margin: 0 0 1.5rem;
+  padding: 0.35rem;
+  overflow-x: auto;
+  border: 1px solid #262626;
+  border-radius: 0.65rem;
+  background: #0f0f0f;
+
+  button {
+    flex: 1 0 auto;
+    padding: 0.65rem 0.8rem;
+    border: 0;
+    border-radius: 0.45rem;
+    color: #999;
+    background: transparent;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  button.is-active {
+    color: #fff;
+    background: #1f1f1f;
+  }
+}
+
+.library-panel__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+
+  h3 {
+    font-size: 1rem;
+  }
+}
+
+.library-panel__clear {
+  border: 0;
+  color: #e50000;
+  background: transparent;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.library-item {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0;
+  padding: 0;
+
+  > a {
+    display: grid;
+    min-width: 0;
+    grid-template-columns: 58px minmax(0, 1fr);
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.65rem;
+    color: #fff;
+  }
+
+  > a span {
+    min-width: 0;
+  }
+
+  > a strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  > button {
+    align-self: stretch;
+    width: 2.8rem;
+    border: 0;
+    border-left: 1px solid #262626;
+    color: #999;
+    background: transparent;
+    font-size: 1.35rem;
+    cursor: pointer;
+  }
+
+  > button:hover {
+    color: #fff;
+    background: #e50000;
+  }
+}
+
 .open-hero .action button {
   cursor: pointer;
 }

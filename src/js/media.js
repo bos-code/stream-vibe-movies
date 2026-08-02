@@ -5,6 +5,7 @@ import {
   TMDB_READ_TOKEN
 } from "./config";
 import { withCache } from "./cache";
+import { recordHistory } from "./library";
 
 const IMAGE_BASE = "https://image.tmdb.org/t/p/";
 const SELECTED_MEDIA_KEY = "streamvibe:selected-media";
@@ -62,6 +63,7 @@ export function getSelectedMediaFromSession() {
 
 export function openMediaDetail(item, type = getMediaType(item)) {
   if (!item?.id) return;
+  recordHistory(item, type);
   rememberSelectedMedia(item, type);
   window.location.href = getDetailUrl(item, type);
 }

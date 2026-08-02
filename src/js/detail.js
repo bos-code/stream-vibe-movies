@@ -8,9 +8,12 @@ import {
   tmdbFetch
 } from "./media";
 import { showToast } from "./ui";
+import {
+  isSaved,
+  recordHistory,
+  toggleSaved
+} from "./library";
 
-const WATCHLIST_KEY = "streamvibe:watchlist";
-const LIKES_KEY = "streamvibe:likes";
 const REVIEWS_KEY = "streamvibe:user-reviews";
 let activeDetails;
 let activeType = "movie";
@@ -27,6 +30,11 @@ export async function initDetailPage() {
     return;
   }
 
+  const selected = getSelectedMediaFromSession();
+  if (selected && String(selected.id) === String(target.id)) {
+    recordHistory(selected, target.type);
+  }
+
   setLoadingState(true);
 
   try {
@@ -35,6 +43,7 @@ export async function initDetailPage() {
     });
     activeDetails = details;
     activeType = target.type;
+    recordHistory(details, target.type);
     hydrateDetailPage(details, target.type);
     wireWatchlist(details, target.type);
     wireLike(details, target.type);
@@ -266,14 +275,18 @@ function wireWatchlist(details, type) {
   };
 
   const syncState = () => {
-    const saved = getWatchlist().some((entry) => entry.id === item.id && entry.type === item.type);
+    const saved = isSaved("watchlist", item, item.type);
     button.classList.toggle("is-saved", saved);
     button.setAttribute("aria-label", saved ? "Remove from watchlist" : "Add to watchlist");
   };
 
   button.addEventListener("click", () => {
-    toggleWatchlist(item);
+    const added = toggleSaved("watchlist", item, item.type);
     syncState();
+    showToast(added ? "Added to your watchlist." : "Removed from your watchlist.");
+  });
+  window.addEventListener("streamvibe:library-updated", (event) => {
+    if (event.detail?.collection === "watchlist") syncState();
   });
 
   syncState();
@@ -286,54 +299,28 @@ function wireWatchlistFromStaticPage() {
   wireWatchlist({ id: title, title }, type);
 }
 
-function toggleWatchlist(item) {
-  const current = getWatchlist();
-  const exists = current.some((entry) => entry.id === item.id && entry.type === item.type);
-  const next = exists
-    ? current.filter((entry) => !(entry.id === item.id && entry.type === item.type))
-    : [item, ...current].slice(0, 30);
-
-  try {
-    localStorage.setItem(WATCHLIST_KEY, JSON.stringify(next));
-    window.dispatchEvent(new CustomEvent("streamvibe:watchlist-updated"));
-  } catch {
-    // Local storage is optional; the button simply will not persist.
-  }
-}
-
-export function getWatchlist() {
-  try {
-    return JSON.parse(localStorage.getItem(WATCHLIST_KEY) || "[]");
-  } catch {
-    return [];
-  }
-}
+export { getWatchlist } from "./library";
 
 function wireLike(details, type) {
   const button = document.querySelector("[data-detail-action='like']");
   if (!button) return;
-  const key = `${type}:${details.id}`;
 
   const syncState = () => {
-    const liked = getLikes().includes(key);
+    const liked = isSaved("liked", details, type);
     button.classList.toggle("is-liked", liked);
     button.setAttribute("aria-pressed", String(liked));
     button.setAttribute("aria-label", liked ? "Remove like" : "Like this title");
   };
 
   button.addEventListener("click", () => {
-    const likes = getLikes();
-    const next = likes.includes(key) ? likes.filter((item) => item !== key) : [key, ...likes];
-    writeJSON(LIKES_KEY, next);
+    const added = toggleSaved("liked", details, type);
     syncState();
-    showToast(next.includes(key) ? "Added to your liked titles." : "Removed from your liked titles.");
+    showToast(added ? "Added to your liked titles." : "Removed from your liked titles.");
+  });
+  window.addEventListener("streamvibe:library-updated", (event) => {
+    if (event.detail?.collection === "liked") syncState();
   });
   syncState();
-}
-
-function getLikes() {
-  const likes = readJSON(LIKES_KEY, []);
-  return Array.isArray(likes) ? likes : [];
 }
 
 function openTrailerDialog(trailer = activeTrailer) {
