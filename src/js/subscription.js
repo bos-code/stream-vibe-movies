@@ -23,11 +23,18 @@ export function initSubscriptionPage() {
 
   const stored = readSelectedPlan();
   const params = new URLSearchParams(window.location.search);
-  billing = params.get("billing") === "yearly" || stored?.billing === "yearly" ? "yearly" : "monthly";
+  const requestedBilling = params.get("billing");
+  billing = ["monthly", "yearly"].includes(requestedBilling)
+    ? requestedBilling
+    : stored?.billing === "yearly"
+      ? "yearly"
+      : "monthly";
   selectedPlan = ["basic", "standard", "premium"].includes(params.get("plan"))
     ? params.get("plan")
-    : stored?.plan || "standard";
-  trialSelected = params.get("trial") === "true" || Boolean(stored?.trial);
+    : ["basic", "standard", "premium"].includes(stored?.plan)
+      ? stored.plan
+      : "standard";
+  trialSelected = params.has("trial") ? params.get("trial") === "true" : Boolean(stored?.trial);
 
   page.querySelector(".billing-tabs").addEventListener("click", (event) => {
     const target = event.target instanceof Element ? event.target.closest("[data-billing]") : null;

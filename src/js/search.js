@@ -60,6 +60,7 @@ function ensureSearchUI() {
   searchRoot = document.createElement("section");
   searchRoot.className = "search-panel";
   searchRoot.setAttribute("aria-hidden", "true");
+  searchRoot.inert = true;
   searchRoot.innerHTML = `
     <div class="search-panel__backdrop" data-search-close></div>
     <div class="search-panel__dialog" role="dialog" aria-modal="true" aria-labelledby="search-title">

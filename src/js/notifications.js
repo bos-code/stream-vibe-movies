@@ -77,6 +77,7 @@ function ensurePanel() {
   panel = document.createElement("section");
   panel.className = "watchlist-panel library-panel";
   panel.setAttribute("aria-hidden", "true");
+  panel.inert = true;
   panel.innerHTML = `
     <div class="watchlist-panel__backdrop" data-library-close></div>
     <aside class="watchlist-panel__drawer" role="dialog" aria-modal="true" aria-labelledby="library-title">

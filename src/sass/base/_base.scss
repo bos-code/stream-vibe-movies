@@ -51,6 +51,29 @@ a {
   text-decoration: none;
 }
 
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100000;
+  border-radius: 0.45rem;
+  color: #fff;
+  background: #e50000;
+  padding: 0.75rem 1rem;
+  font-weight: 800;
+  transform: translateY(-160%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid #ff3333;
+  outline-offset: 3px;
+}
+
 li {
   list-style: none;
 }
@@ -63,4 +86,17 @@ ul.cat {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

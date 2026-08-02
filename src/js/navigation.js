@@ -9,17 +9,39 @@ const ROUTES = {
   home: "./index.html",
   "movies & shows": "./movies.html",
   support: "./support.html",
-  subcription: "./index.html#subscription",
-  subscription: "./index.html#subscription"
+  subcription: "./subscription.html",
+  subscription: "./subscription.html"
 };
 
 export function initNavigation() {
+  enhanceDocumentAccessibility();
   setSectionIds();
   wireMobileMenu();
   repairNavLinks();
   repairFooterLinks();
+  repairSocialLinks();
   setCurrentYear();
   wireTrialButtons();
+  optimizeImages();
+}
+
+function enhanceDocumentAccessibility() {
+  const main = document.querySelector("main");
+  if (main) {
+    main.id ||= "main-content";
+    main.tabIndex = -1;
+    if (!document.querySelector(".skip-link")) {
+      const skipLink = document.createElement("a");
+      skipLink.className = "skip-link";
+      skipLink.href = `#${main.id}`;
+      skipLink.textContent = "Skip to main content";
+      document.body.prepend(skipLink);
+    }
+  }
+
+  document.querySelectorAll("button:not([type])").forEach((button) => {
+    button.type = "button";
+  });
 }
 
 function setSectionIds() {
@@ -39,6 +61,7 @@ function wireMobileMenu() {
   mobileItems?.classList.remove("hidden");
   mobileNav.id ||= "mobile-navigation";
   mobileNav.setAttribute("aria-hidden", "true");
+  mobileNav.inert = true;
   menuButton.setAttribute("role", "button");
   menuButton.setAttribute("tabindex", "0");
   menuButton.setAttribute("aria-controls", mobileNav.id);
@@ -78,12 +101,14 @@ function wireMobileMenu() {
   };
 
   menuButton.addEventListener("click", toggleMenu);
-  menuButton.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      toggleMenu();
-    }
-  });
+  if (!(menuButton instanceof HTMLButtonElement)) {
+    menuButton.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        toggleMenu();
+      }
+    });
+  }
 
   mobileNav.addEventListener("click", (event) => {
     const target = event.target instanceof Element ? event.target : event.target.parentElement;
@@ -113,7 +138,13 @@ function repairNavLinks() {
 
     link.href = route;
     if (key === "subcription") link.textContent = "subscription";
-    if (isActiveRoute(route)) link.classList.add("is-active");
+    if (isActiveRoute(route)) {
+      link.classList.add("is-active");
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.classList.remove("is-active");
+      link.removeAttribute("aria-current");
+    }
   });
 }
 
@@ -121,16 +152,16 @@ function repairFooterLinks() {
   const footerMap = {
     Categories: "./index.html#categories-swiper",
     Devices: "./index.html#devices",
-    Pricing: "./index.html#subscription",
+    Pricing: "./subscription.html",
     FAQ: "./index.html#faq",
     Genres: "./movies.html#movies",
     Trending: "./movies.html#categories-swiper-3",
     "New Release": "./movies.html#categories-swiper-4",
     Popular: "./movies.html#categories-swiper-5",
-    "Contact Us": "./support.html#contact",
+    "Contact Us": "./support.html#support-form",
     "New Episodes": "./movies.html#categories-swiper-9",
-    Plans: "./index.html#subscription",
-    Features: "./index.html#devices"
+    Plans: "./subscription.html",
+    Features: "./subscription.html#comparison"
   };
 
   document.querySelectorAll(".footer a").forEach((link) => {
@@ -139,13 +170,34 @@ function repairFooterLinks() {
   });
 }
 
+function repairSocialLinks() {
+  const destinations = [
+    "https://www.facebook.com/",
+    "https://www.linkedin.com/",
+    "https://x.com/"
+  ];
+  document.querySelectorAll("#social-media-icons a").forEach((link, index) => {
+    link.href = destinations[index] || destinations[0];
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+  });
+}
+
 function wireTrialButtons() {
   document.querySelectorAll('a[href="#"]').forEach((link) => {
     const text = normalizeText(link.textContent);
     if (text.includes("free trail") || text.includes("free trial")) {
-      link.href = "./index.html#subscription";
+      link.href = "./subscription.html?plan=standard&trial=true";
       link.textContent = "Start a Free Trial";
     }
+  });
+}
+
+function optimizeImages() {
+  document.querySelectorAll("img").forEach((image) => {
+    if (!image.hasAttribute("decoding")) image.decoding = "async";
+    const aboveFold = Boolean(image.closest(".nav, .header, .open-hero, .support-intro"));
+    if (!image.hasAttribute("loading")) image.loading = aboveFold ? "eager" : "lazy";
   });
 }
 
@@ -161,7 +213,6 @@ function normalizeText(text = "") {
 
 function isActiveRoute(route) {
   const page = window.location.pathname.split("/").pop() || "index.html";
-  if (route.includes("#subscription")) return window.location.hash === "#subscription";
   if (route.includes("index.html")) return page === "" || page === "index.html";
   return route.includes(page);
 }

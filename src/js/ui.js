@@ -14,6 +14,7 @@ export function openLayer(
   );
 
   lastFocused.set(layer, trigger || document.activeElement);
+  layer.inert = false;
   layer.classList.add(openClass);
   layer.setAttribute("aria-hidden", "false");
   trigger?.setAttribute("aria-expanded", "true");
@@ -37,6 +38,7 @@ export function closeLayer(
 
   layer.classList.remove(openClass);
   layer.setAttribute("aria-hidden", "true");
+  layer.inert = true;
   trigger?.setAttribute("aria-expanded", "false");
   syncBodyLock();
 

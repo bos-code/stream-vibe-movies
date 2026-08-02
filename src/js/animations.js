@@ -4,13 +4,16 @@ const images = document.querySelector(".bgimages");
 const header = document.querySelector(".header");
 const heroImages = document.querySelectorAll(".bgimages img");
 const logoItems = document.querySelectorAll("#logo path");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 export function animateImages() {
   if (!images) return;
+  images.classList.remove("hidden");
+  if (reducedMotion.matches) {
+    gsap.set(heroImages, { clearProps: "all" });
+    return;
+  }
   if (images && header) {
-    images.classList.remove(".hidden");
-
-    // const center = (windowWidth / 2 - distance / 2) / 2;
     const tl = gsap.timeline();
 
     tl.from(heroImages, {
@@ -18,20 +21,17 @@ export function animateImages() {
       y: -50,
       opacity: 0,
       rotationY: -360,
-      // scrollTo: 50
       stagger: 0.02,
       ease: "back"
     });
     tl.to(images, {
       duration: 2,
-      // x: center,
       ease: "back"
     });
-  } else {
-    console.error("Elements not found in the DOM");
   }
 }
 function logo() {
+  if (!logoItems.length || reducedMotion.matches) return;
   gsap.from(logoItems, {
     opacity: 0,
     duration: 0.9,
@@ -44,12 +44,13 @@ function logo() {
     delay: 0.5
   });
 }
-const list = ["hash", "load"];
-list.forEach(function (listern) {
-  window.addEventListener(`${listern}`, logo);
-});
-window.addEventListener("load", animateImages);
+export function initAnimations() {
+  if (document.readyState === "complete") {
+    logo();
+    animateImages();
+    return;
+  }
 
-// window.addEventListener("scroll", () => {
-//   (window.scrollX);
-// });
+  window.addEventListener("load", logo, { once: true });
+  window.addEventListener("load", animateImages, { once: true });
+}

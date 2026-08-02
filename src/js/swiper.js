@@ -137,9 +137,12 @@ export function creatSwipers() {
     slidesPerView: 1,
     effect: "fade", // Enables fade effect
 
-    autoplay: {
-      delay: 3000, // 3-second auto slide
-      disableOnInteraction: false // Keeps autoplay running
-    }
+    autoplay: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? false
+      : {
+          delay: 5000,
+          disableOnInteraction: true,
+          pauseOnMouseEnter: true
+        }
   });
 }

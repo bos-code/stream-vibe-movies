@@ -1,7 +1,4 @@
 import "../sass/main.scss";
-import "../js/views/heroView";
-import "../js/animations";
-import { initDetailPage } from "./detail";
 import { initFAQ } from "../js/faq";
 import { initMediaRouting } from "./routing";
 import { initNavigation } from "./navigation";
@@ -17,10 +14,19 @@ initSearch();
 initNotifications();
 initFAQ();
 initMediaRouting();
-initDetailPage();
 initHomePage();
 initSupportPage();
 initSubscriptionPage();
+
+if (document.querySelector(".open-main")) {
+  const { initDetailPage } = await import("./detail");
+  initDetailPage();
+}
+
+if (document.querySelector(".bgimages")) {
+  const { initAnimations } = await import("./animations");
+  initAnimations();
+}
 
 if (document.querySelector("#categories, #heroSlides, #trends, #tvView")) {
   const { moviesInit } = await import("./controller/controller");
