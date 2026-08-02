@@ -8,6 +8,7 @@
 
 const CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes
 const memoryCache = new Map();
+const inflightRequests = new Map();
 
 /**
  * Get or fetch data, checking memory → sessionStorage → network (in that order).
@@ -15,46 +16,60 @@ const memoryCache = new Map();
  * @param {() => Promise<any>} fetcher - Async function that returns the data
  * @returns {Promise<any>}
  */
-export async function withCache(key, fetcher) {
+export async function withCache(
+  key,
+  fetcher,
+  { ttl = CACHE_TTL_MS, persist = true } = {}
+) {
   // 1. Check in-memory cache (fastest — same page)
   const memHit = memoryCache.get(key);
-  if (memHit && Date.now() - memHit.ts < CACHE_TTL_MS) {
+  if (memHit && Date.now() - memHit.ts < ttl) {
     return memHit.data;
   }
 
+  if (inflightRequests.has(key)) return inflightRequests.get(key);
+
   // 2. Check sessionStorage (survives page navigations)
   try {
-    const raw = sessionStorage.getItem(`sv_${key}`);
+    const raw = persist ? sessionStorage.getItem(`sv_${key}`) : null;
     if (raw) {
       const parsed = JSON.parse(raw);
-      if (Date.now() - parsed.ts < CACHE_TTL_MS) {
+      if (Date.now() - parsed.ts < ttl) {
         // Populate memory cache for subsequent calls
         memoryCache.set(key, parsed);
         return parsed.data;
       }
+      sessionStorage.removeItem(`sv_${key}`);
     }
   } catch {
     // sessionStorage unavailable (private browsing, storage full) — skip silently
   }
 
   // 3. Fetch from network
-  const data = await fetcher();
-  const entry = { data, ts: Date.now() };
+  const request = Promise.resolve()
+    .then(fetcher)
+    .then((data) => {
+      const entry = { data, ts: Date.now() };
+      memoryCache.set(key, entry);
+      if (persist) {
+        try {
+          sessionStorage.setItem(`sv_${key}`, JSON.stringify(entry));
+        } catch {
+          // Ignore storage quota errors.
+        }
+      }
+      return data;
+    })
+    .finally(() => inflightRequests.delete(key));
 
-  // Store in both tiers
-  memoryCache.set(key, entry);
-  try {
-    sessionStorage.setItem(`sv_${key}`, JSON.stringify(entry));
-  } catch {
-    // Ignore storage quota errors
-  }
-
-  return data;
+  inflightRequests.set(key, request);
+  return request;
 }
 
 /** Clear all StreamVibe entries from sessionStorage (useful for debugging) */
 export function clearCache() {
   memoryCache.clear();
+  inflightRequests.clear();
   for (const key of Object.keys(sessionStorage)) {
     if (key.startsWith("sv_")) sessionStorage.removeItem(key);
   }

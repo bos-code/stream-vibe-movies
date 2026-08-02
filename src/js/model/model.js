@@ -1,9 +1,6 @@
 import { AJAX } from "../helpers";
-import { API_CONFIG, TMDB_ENDPOINTS } from "../config";
-import { withCache } from "../cache";
-
-// ─── Auth header used for every TMDB call ────────────────────────────────────
-const AUTH = API_CONFIG;
+import { TMDB_ENDPOINTS } from "../config";
+import { tmdbFetch } from "../media";
 
 /**
  * cachedFetch — wraps AJAX with the two-tier cache.
@@ -11,28 +8,24 @@ const AUTH = API_CONFIG;
  * within a session.
  */
 async function cachedFetch(endpoint) {
-  return withCache(endpoint, () => AJAX(endpoint, null, AUTH));
+  return AJAX(endpoint);
 }
 
 /**
  * fetchGenres — fetches genre lists, also cached.
  */
 async function fetchGenres(type) {
-  return withCache(`genre_${type}`, async () => {
-    const res = await fetch(
-      `https://api.themoviedb.org/3/genre/${type}/list?language=en`,
-      {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-          Authorization: AUTH.authorization
-        }
-      }
-    );
-    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-    const data = await res.json();
-    return data.genres;
-  });
+  const data = await tmdbFetch(`genre/${type}/list`);
+  return data.genres || [];
+}
+
+async function safeFetch(label, fetcher) {
+  try {
+    return await fetcher();
+  } catch (error) {
+    console.warn(`Unable to load ${label}:`, error.message);
+    return [];
+  }
 }
 
 // ─── Fire ALL endpoints simultaneously ───────────────────────────────────────
@@ -49,15 +42,15 @@ const [
   genDDta,      // genre/movie/list
   genDDtatv     // genre/tv/list
 ] = await Promise.all([
-  cachedFetch(TMDB_ENDPOINTS[1]),
-  cachedFetch(TMDB_ENDPOINTS[5]),
-  cachedFetch(TMDB_ENDPOINTS[0]),
-  cachedFetch(TMDB_ENDPOINTS[3]),
-  cachedFetch(TMDB_ENDPOINTS[6]),
-  cachedFetch(TMDB_ENDPOINTS[7]),
-  cachedFetch(TMDB_ENDPOINTS[8]),
-  fetchGenres("movie"),
-  fetchGenres("tv")
+  safeFetch("movies", () => cachedFetch(TMDB_ENDPOINTS[1])),
+  safeFetch("new releases", () => cachedFetch(TMDB_ENDPOINTS[5])),
+  safeFetch("trending movies", () => cachedFetch(TMDB_ENDPOINTS[0])),
+  safeFetch("top rated movies", () => cachedFetch(TMDB_ENDPOINTS[3])),
+  safeFetch("trending shows", () => cachedFetch(TMDB_ENDPOINTS[6])),
+  safeFetch("new shows", () => cachedFetch(TMDB_ENDPOINTS[7])),
+  safeFetch("top rated shows", () => cachedFetch(TMDB_ENDPOINTS[8])),
+  safeFetch("movie genres", () => fetchGenres("movie")),
+  safeFetch("show genres", () => fetchGenres("tv"))
 ]);
 
 export { datast, dataRel, trendingData, mustWatchData, trendingTv, newTv, MustTv, genDDta, genDDtatv };

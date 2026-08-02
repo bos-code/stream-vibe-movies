@@ -11,7 +11,9 @@ export function View(selector) {
    * means we wait for every template to resolve first, then do a single DOM write.
    */
   async function render(data, templateFn) {
-    if (!data) return renderError("Invalid or empty data!");
+    if (!Array.isArray(data) || !data.length) {
+      return renderError("This section is temporarily unavailable.");
+    }
     clear();
 
     // Resolve all templates concurrently, then join and write once

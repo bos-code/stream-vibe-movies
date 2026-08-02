@@ -1,4 +1,4 @@
-import { API_Key, API_URL } from "./config";
+import { getImage, tmdbFetch } from "./media";
 
 export function formatDateCustom(dateInput) {
   var date = new Date(dateInput);
@@ -58,24 +58,9 @@ export function renderStars(rating) {
 }
 
 export async function fetchTvDetails(tvId) {
-  const apiKey = "465c8a03a49665a1678b47c4e4a653af"; // Use stored API key
-  const url = `https://api.themoviedb.org/3/tv/${tvId}?api_key=${apiKey}`;
-
   try {
-    const response = await fetch(url, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
-
-    if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
-
-    const data = await response.json();
-
-    return data;
-  } catch (error) {
-    console.error("Error fetching TV details:", error);
+    return await tmdbFetch(`tv/${tvId}`);
+  } catch {
     return null;
   }
 }
@@ -94,18 +79,12 @@ export function tvDuration(r, nE) {
 
 
 
-const API_KEY = "465c8a03a49665a1678b47c4e4a653af";
-
 export async function fetchMediaByGenre(genreId, type = "movie") {
-  const url = `https://api.themoviedb.org/3/discover/${type}?api_key=${API_KEY}&with_genres=${genreId}`;
-
   try {
-    const response = await fetch(url);
-    const data = await response.json();
+    const data = await tmdbFetch(`discover/${type}`, { with_genres: genreId });
 
     if (!data.results || data.results.length === 0) {
-      console.log("No movies found for this genre.");
-      return;
+      return [];
     }
 
     // Shuffle the array and pick four random movies
@@ -115,11 +94,13 @@ export async function fetchMediaByGenre(genreId, type = "movie") {
       .slice(0, 4);
 
     // Map out and log their poster paths
-    const imageUrls = shuffledMovies.map(movie => `https://image.tmdb.org/t/p/w500${movie.poster_path}`);
+    const imageUrls = shuffledMovies.map((movie) =>
+      getImage(movie.poster_path, "w500")
+    );
 
     return imageUrls;
-  } catch (error) {
-    console.error("Error fetching data:", error);
+  } catch {
+    return [];
   }
 }
 
