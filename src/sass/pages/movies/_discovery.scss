@@ -1,0 +1,230 @@
+.discovery-switcher {
+  position: sticky;
+  top: 5.5rem;
+  z-index: 8;
+  display: flex;
+  width: fit-content;
+  margin: 1.5rem auto 3rem;
+  padding: 0.4rem;
+  gap: 0.4rem;
+  border: 1px solid #262626;
+  border-radius: 0.75rem;
+  background: rgba(15, 15, 15, 0.92);
+  backdrop-filter: blur(14px);
+
+  button {
+    min-width: 7rem;
+    padding: 0.75rem 1rem;
+    border: 0;
+    border-radius: 0.5rem;
+    color: #999;
+    background: transparent;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  button.is-active {
+    color: #fff;
+    background: #1f1f1f;
+  }
+}
+
+.hero-play-button,
+.genre-results__more,
+.genre-results__clear,
+.discovery-empty button {
+  border: 0;
+  border-radius: 0.5rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hero-play-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+  padding: 0.85rem 1.35rem;
+  color: #fff;
+  background: #e50000;
+}
+
+.genre-results {
+  scroll-margin-top: 10rem;
+  margin: 2rem 0 4rem;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  border: 1px solid #262626;
+  border-radius: 0.75rem;
+  background: #0f0f0f;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.genre-results__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.genre-results__eyebrow {
+  margin-bottom: 0.35rem;
+  color: #e50000;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.genre-results__clear {
+  padding: 0.75rem 1rem;
+  color: #fff;
+  border: 1px solid #333;
+  background: #1a1a1a;
+}
+
+.genre-results__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.discovery-result-card {
+  overflow: hidden;
+  border: 1px solid #262626;
+  border-radius: 0.75rem;
+  background: #1a1a1a;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease;
+
+  &:hover,
+  &:focus-visible {
+    border-color: #e50000;
+    outline: none;
+    transform: translateY(-4px);
+  }
+
+  figure {
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+    background: #262626;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.discovery-result-card__body {
+  padding: 0.9rem;
+
+  h3 {
+    overflow: hidden;
+    font-size: 0.95rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  p {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.55rem;
+    color: #999;
+    font-size: 0.78rem;
+  }
+}
+
+.genre-results__more {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.85rem 1.5rem;
+  color: #fff;
+  background: #e50000;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.discovery-skeleton {
+  aspect-ratio: 2 / 3;
+  border-radius: 0.75rem;
+  background: linear-gradient(100deg, #1a1a1a 20%, #262626 40%, #1a1a1a 60%);
+  background-size: 200% 100%;
+  animation: discovery-loading 1.2s linear infinite;
+}
+
+.discovery-empty {
+  grid-column: 1 / -1;
+  padding: 3rem 1rem;
+  color: #999;
+  text-align: center;
+
+  button {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    background: #e50000;
+  }
+}
+
+[data-genre-id].is-selected {
+  border-color: #e50000 !important;
+  box-shadow: 0 0 0 1px #e50000;
+}
+
+[data-media-id]:focus-visible,
+[data-genre-id]:focus-visible,
+.discovery-switcher button:focus-visible,
+.genre-results button:focus-visible,
+.hero-play-button:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+#movies,
+#shows {
+  scroll-margin-top: 10rem;
+}
+
+@keyframes discovery-loading {
+  to { background-position-x: -200%; }
+}
+
+@media (min-width: 640px) {
+  .genre-results__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 920px) {
+  .discovery-switcher {
+    position: relative;
+    top: auto;
+  }
+
+  .genre-results__grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .genre-results__header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .discovery-result-card,
+  .discovery-skeleton {
+    animation: none;
+    transition: none;
+  }
+}

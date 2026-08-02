@@ -1,19 +1,20 @@
 import Swiper from "swiper";
-import { Scrollbar } from "swiper/modules";
-import { Navigation, Pagination, EffectFade } from "swiper/modules";
-import { Autoplay } from "swiper/modules";
+import { Navigation, Pagination, EffectFade, Autoplay, Keyboard } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 export function createSwiper(el, config = {}) {
-  if (!document.querySelector(el)) return;
+  const element = document.querySelector(el);
+  if (!element) return;
+  if (element.swiper) return element.swiper;
 
   const catSwiper = new Swiper(el, {
-    modules: [Navigation, Pagination, EffectFade, Autoplay],
+    modules: [Navigation, Pagination, EffectFade, Autoplay, Keyboard],
     spaceBetween: 10,
-    mousewheel: {
-      invert: true
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true
     },
     navigation: {
       nextEl: `${el} #next-slide`,
@@ -25,7 +26,7 @@ export function createSwiper(el, config = {}) {
       dynamicBullets: true,
       dynamicMainBullets: 4
     },
-    loop: true,
+    loop: element.querySelectorAll(".swiper-slide").length > 1,
     ...config
   });
 
@@ -86,55 +87,14 @@ export const SWIPER_SELECTOR_4_CONFIG = {
     }
   }
 };
-const swiperSelectors = [
-  "#categories-swiper-10",
-  "#categories-swiper-9",
-  "#categories-swiper-8"
-];
+const swiperSelectors = Array.from({ length: 10 }, (_, index) =>
+  index === 0 ? "#categories-swiper" : `#categories-swiper-${index + 1}`
+);
 
 export function creatSwipers() {
   swiperSelectors.forEach((selector) => {
-    createSwiper(selector, {
-      slidesPerView: 4,
-      breakpoints: {
-        375: {
-          slidesPerView: 2
-        },
-        640: {
-          slidesPerView: 2
-        },
-        768: {
-          slidesPerView: 3
-        },
-        1024: {
-          slidesPerView: 4
-        }
-      }
-    });
-  });
-  const swiperSelector5 = [
-    "#categories-swiper-4"
-  ];
-
-  swiperSelector5.forEach((selector) => {
-    createSwiper(selector, {
-      slidesPerView: 5,
-      breakpoints: {
-        375: {
-          slidesPerView: 2
-        },
-
-        768: {
-          slidesPerView: 3
-        },
-        920: {
-          slidesPerView: 4
-        },
-        1200: {
-          slidesPerView: 5
-        }
-      }
-    });
+    const swiper = createSwiper(selector, SWIPER_SELECTOR_5_CONFIG);
+    bindRangeControl(selector, swiper);
   });
 
   createSwiper("#myreview", {

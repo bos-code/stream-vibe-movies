@@ -8,6 +8,7 @@ import { initNavigation } from "./navigation";
 import { initNotifications } from "./notifications";
 import { initSearch } from "./search";
 import { initHomePage } from "./home";
+import { initDiscoveryPage } from "./discovery";
 
 initNavigation();
 initSearch();
@@ -20,4 +21,5 @@ initHomePage();
 if (document.querySelector("#categories, #heroSlides, #trends, #tvView")) {
   const { moviesInit } = await import("./controller/controller");
   await moviesInit();
+  initDiscoveryPage();
 }

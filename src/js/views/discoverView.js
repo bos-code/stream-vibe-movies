@@ -33,6 +33,10 @@ export function renderHero(movies) {
             <p class="section-description text-center">
               ${escapeHTML(dataVal.overview || "No description available.")}
             </p>
+            <button class="hero-play-button" type="button" data-hero-action="open">
+              <span aria-hidden="true">▶</span>
+              Play Now
+            </button>
           </div>
           <div class="pagination-hero">
             <img src="/asset/svg/ButtonR.svg" alt="button right" id="prev-slide" />
