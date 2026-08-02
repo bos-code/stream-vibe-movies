@@ -7,8 +7,18 @@
   color: #ffffff;
 }
 
-body.search-is-open {
+body.overlay-is-open {
   overflow: hidden;
+}
+
+.nav-action:focus-visible,
+.menuBar:focus-visible,
+.search-panel button:focus-visible,
+.watchlist-panel button:focus-visible,
+.search-result:focus-visible,
+.watchlist-item:focus-visible {
+  outline: 2px solid #e50000;
+  outline-offset: 3px;
 }
 
 .search-panel,

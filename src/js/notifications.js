@@ -1,9 +1,16 @@
 import { escapeHTML, getDetailUrl, getImage, rememberSelectedMedia } from "./media";
 import { getWatchlist } from "./detail";
+import {
+  closeLayer,
+  closeWhenAnotherLayerOpens,
+  openLayer,
+  trapFocus
+} from "./ui";
 
 let panel;
 let listEl;
 let countEl;
+let activeTrigger;
 
 export function initNotifications() {
   const triggers = [
@@ -23,17 +30,20 @@ export function initNotifications() {
     button.setAttribute("role", "button");
     button.setAttribute("tabindex", "0");
     button.setAttribute("aria-label", "Open watchlist");
-    button.addEventListener("click", openPanel);
+    button.setAttribute("aria-haspopup", "dialog");
+    button.setAttribute("aria-expanded", "false");
+    button.addEventListener("click", () => openPanel(button));
     button.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-        openPanel();
+        openPanel(button);
       }
     });
   });
 
   refreshPanel();
   window.addEventListener("streamvibe:watchlist-updated", refreshPanel);
+  closeWhenAnotherLayerOpens("watchlist", closePanel);
 }
 
 function ensurePanel() {
@@ -62,17 +72,29 @@ function ensurePanel() {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && panel.classList.contains("is-open")) closePanel();
   });
+
+  panel
+    .querySelector(".watchlist-panel__drawer")
+    .addEventListener("keydown", (event) =>
+      trapFocus(panel.querySelector(".watchlist-panel__drawer"), event)
+    );
 }
 
-function openPanel() {
+function openPanel(trigger) {
+  activeTrigger = trigger;
   refreshPanel();
-  panel.classList.add("is-open");
-  panel.setAttribute("aria-hidden", "false");
+  openLayer(panel, {
+    name: "watchlist",
+    trigger,
+    focusTarget: panel.querySelector(".watchlist-panel__close")
+  });
 }
 
-function closePanel() {
-  panel.classList.remove("is-open");
-  panel.setAttribute("aria-hidden", "true");
+function closePanel({ restoreFocus = true } = {}) {
+  closeLayer(panel, {
+    trigger: activeTrigger,
+    restoreFocus
+  });
 }
 
 function refreshPanel() {

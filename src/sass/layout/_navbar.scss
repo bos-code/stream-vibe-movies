@@ -91,3 +91,21 @@
     transform: translateX(0) !important;
 
 }
+
+.mobile-nav-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 8;
+    display: none;
+    border: 0;
+    background: rgba(0, 0, 0, 0.66);
+    backdrop-filter: blur(3px);
+
+    &.is-open {
+        display: block;
+    }
+
+    @media (min-width: 768px) {
+        display: none !important;
+    }
+}

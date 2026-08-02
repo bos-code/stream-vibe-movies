@@ -1,3 +1,10 @@
+import {
+  closeLayer,
+  closeWhenAnotherLayerOpens,
+  openLayer,
+  trapFocus
+} from "./ui";
+
 const ROUTES = {
   home: "./index.html",
   "movies & shows": "./movies.html",
@@ -19,7 +26,8 @@ function setSectionIds() {
   document.querySelector(".features")?.setAttribute("id", "devices");
   document.querySelector(".FAQ")?.setAttribute("id", "faq");
   document.querySelector(".subscription")?.setAttribute("id", "subscription");
-  document.querySelector(".support-header, form")?.setAttribute("id", "contact");
+  document.querySelector(".support-header")?.setAttribute("id", "contact");
+  document.querySelector(".support-form")?.setAttribute("id", "support-form");
 }
 
 function wireMobileMenu() {
@@ -29,15 +37,44 @@ function wireMobileMenu() {
   if (!menuButton || !mobileNav) return;
 
   mobileItems?.classList.remove("hidden");
+  mobileNav.id ||= "mobile-navigation";
+  mobileNav.setAttribute("aria-hidden", "true");
   menuButton.setAttribute("role", "button");
   menuButton.setAttribute("tabindex", "0");
+  menuButton.setAttribute("aria-controls", mobileNav.id);
   menuButton.setAttribute("aria-label", "Open menu");
   menuButton.setAttribute("aria-expanded", "false");
 
+  const backdrop = document.createElement("button");
+  backdrop.type = "button";
+  backdrop.className = "mobile-nav-backdrop";
+  backdrop.setAttribute("aria-label", "Close menu");
+  mobileNav.before(backdrop);
+
+  const openMenu = () => {
+    openLayer(mobileNav, {
+      name: "navigation",
+      trigger: menuButton,
+      openClass: "slide-in",
+      focusTarget: mobileItems?.querySelector("a")
+    });
+    menuButton.setAttribute("aria-label", "Close menu");
+    backdrop.classList.add("is-open");
+  };
+
+  const closeMenu = ({ restoreFocus = true } = {}) => {
+    closeLayer(mobileNav, {
+      trigger: menuButton,
+      openClass: "slide-in",
+      restoreFocus
+    });
+    menuButton.setAttribute("aria-label", "Open menu");
+    backdrop.classList.remove("is-open");
+  };
+
   const toggleMenu = () => {
-    const isOpen = mobileNav.classList.toggle("slide-in");
-    menuButton.setAttribute("aria-expanded", String(isOpen));
-    menuButton.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    if (mobileNav.classList.contains("slide-in")) closeMenu();
+    else openMenu();
   };
 
   menuButton.addEventListener("click", toggleMenu);
@@ -51,17 +88,21 @@ function wireMobileMenu() {
   mobileNav.addEventListener("click", (event) => {
     const target = event.target instanceof Element ? event.target : event.target.parentElement;
     if (target?.closest("a")) {
-      mobileNav.classList.remove("slide-in");
-      menuButton.setAttribute("aria-expanded", "false");
+      closeMenu({ restoreFocus: false });
     }
   });
 
+  mobileNav.addEventListener("keydown", (event) => trapFocus(mobileNav, event));
+  backdrop.addEventListener("click", () => closeMenu());
+
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      mobileNav.classList.remove("slide-in");
-      menuButton.setAttribute("aria-expanded", "false");
-    }
+    if (event.key === "Escape") closeMenu();
   });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) closeMenu({ restoreFocus: false });
+  });
+  closeWhenAnotherLayerOpens("navigation", closeMenu);
 }
 
 function repairNavLinks() {

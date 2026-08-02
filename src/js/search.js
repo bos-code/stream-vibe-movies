@@ -7,6 +7,12 @@ import {
   rememberSelectedMedia,
   tmdbFetch
 } from "./media";
+import {
+  closeLayer,
+  closeWhenAnotherLayerOpens,
+  openLayer,
+  trapFocus
+} from "./ui";
 
 let searchRoot;
 let searchInput;
@@ -14,6 +20,7 @@ let resultsEl;
 let statusEl;
 let debounceTimer;
 let activeRequest = 0;
+let activeTrigger;
 
 export function initSearch() {
   const triggers = [
@@ -33,14 +40,18 @@ export function initSearch() {
     button.setAttribute("role", "button");
     button.setAttribute("tabindex", "0");
     button.setAttribute("aria-label", "Search movies and shows");
-    button.addEventListener("click", openSearch);
+    button.setAttribute("aria-haspopup", "dialog");
+    button.setAttribute("aria-expanded", "false");
+    button.addEventListener("click", () => openSearch(button));
     button.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-        openSearch();
+        openSearch(button);
       }
     });
   });
+
+  closeWhenAnotherLayerOpens("search", closeSearch);
 }
 
 function ensureSearchUI() {
@@ -84,6 +95,12 @@ function ensureSearchUI() {
     firstResult?.click();
   });
 
+  searchRoot
+    .querySelector(".search-panel__dialog")
+    .addEventListener("keydown", (event) =>
+      trapFocus(searchRoot.querySelector(".search-panel__dialog"), event)
+    );
+
   searchInput.addEventListener("input", () => {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => runSearch(searchInput.value.trim()), 320);
@@ -96,17 +113,20 @@ function ensureSearchUI() {
   });
 }
 
-function openSearch() {
-  searchRoot.classList.add("is-open");
-  searchRoot.setAttribute("aria-hidden", "false");
-  document.body.classList.add("search-is-open");
-  searchInput.focus();
+function openSearch(trigger) {
+  activeTrigger = trigger;
+  openLayer(searchRoot, {
+    name: "search",
+    trigger,
+    focusTarget: searchInput
+  });
 }
 
-function closeSearch() {
-  searchRoot.classList.remove("is-open");
-  searchRoot.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("search-is-open");
+function closeSearch({ restoreFocus = true } = {}) {
+  closeLayer(searchRoot, {
+    trigger: activeTrigger,
+    restoreFocus
+  });
 }
 
 async function runSearch(query) {
