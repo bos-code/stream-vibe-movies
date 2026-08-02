@@ -15,6 +15,12 @@ export function initFAQ() {
     const answer = item.querySelector(".answer");
     if (!trigger || !answer) return;
 
+    const answerId = answer.id || `faq-answer-${Math.random().toString(36).slice(2, 9)}`;
+    answer.id = answerId;
+    trigger.setAttribute("aria-controls", answerId);
+    trigger.setAttribute("aria-expanded", "false");
+    answer.setAttribute("aria-hidden", "true");
+
     trigger.addEventListener("click", () => {
       const isAlreadyOpen = item.classList.contains("is-open");
 
@@ -22,14 +28,24 @@ export function initFAQ() {
       items.forEach((el) => {
         el.classList.remove("is-open");
         el.querySelector(".answer").style.maxHeight = null;
+        el.querySelector(".answer").setAttribute("aria-hidden", "true");
+        el.querySelector(".accordion-trigger").setAttribute("aria-expanded", "false");
       });
 
       // If it wasn't open, open it now
       if (!isAlreadyOpen) {
         item.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+        answer.setAttribute("aria-hidden", "false");
         // Set explicit pixel height so CSS transition works correctly
         answer.style.maxHeight = answer.scrollHeight + "px";
       }
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    document.querySelectorAll(".accordion-item.is-open .answer").forEach((answer) => {
+      answer.style.maxHeight = `${answer.scrollHeight}px`;
     });
   });
 }

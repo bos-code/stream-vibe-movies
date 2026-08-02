@@ -1,6 +1,7 @@
 const lastFocused = new WeakMap();
 const OPEN_LAYER_SELECTOR =
   ".search-panel.is-open, .watchlist-panel.is-open, .navmobile.slide-in";
+let toastTimer;
 
 export function openLayer(
   layer,
@@ -78,4 +79,20 @@ export function syncBodyLock() {
     "overlay-is-open",
     Boolean(document.querySelector(OPEN_LAYER_SELECTOR))
   );
+}
+
+export function showToast(message) {
+  let toast = document.querySelector(".app-toast");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.className = "app-toast";
+    toast.setAttribute("role", "status");
+    toast.setAttribute("aria-live", "polite");
+    document.body.appendChild(toast);
+  }
+
+  clearTimeout(toastTimer);
+  toast.textContent = message;
+  toast.classList.add("is-visible");
+  toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 3200);
 }

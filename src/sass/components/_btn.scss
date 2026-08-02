@@ -83,6 +83,10 @@
     button {
         @apply px-5 py-3 text-gray60 rounded-md hover:bg-bk12 hover:text-white;
     }
+
+    button.is-active {
+        @apply bg-bk12 text-white;
+    }
 }
 
 .btn-def-red {

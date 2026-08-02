@@ -29,40 +29,31 @@ export function createSwiper(el, config = {}) {
     ...config
   });
 
-  // Navigation
-  document.querySelector(`${el} #prev-slide`)?.addEventListener("click", () => {
-    catSwiper.slidePrev();
-    updatePagination();
+  return catSwiper;
+}
+
+export function bindRangeControl(containerSelector, swiper) {
+  const range = document.querySelector(`${containerSelector} input[type="range"]`);
+  if (!range || !swiper) return;
+
+  const max = Math.max(0, swiper.slides.length - 1);
+  range.min = "0";
+  range.max = String(max);
+  range.step = "1";
+  range.setAttribute("aria-label", "Browse carousel items");
+
+  range.addEventListener("input", () => swiper.slideToLoop(Number(range.value)));
+  swiper.on("realIndexChange", () => {
+    range.value = String(Math.min(swiper.realIndex, max));
   });
-
-  document.querySelector(`${el} #next-slide`)?.addEventListener("click", () => {
-    catSwiper.slideNext();
-    updatePagination();
-  });
-
-  function updatePagination() {
-    document
-      .querySelector(`${el} #pagination .bg-red45`)
-      ?.classList?.add?.("bg-bk20");
-
-    document
-      .querySelector(`${el} #pagination .bg-red45`)
-      ?.classList?.remove?.("bg-red45");
-
-    document
-      .querySelector(
-        `${el} #pagination div:nth-child(${catSwiper.activeIndex + 1})`
-      )
-      ?.classList?.add("bg-red45");
-  }
 }
 
 // moviesSwp(".moviesSwiper");
 
 export const SWIPER_SELECTOR_5_CONFIG = {
-  slidesPerView: 5,
+  slidesPerView: 2,
   breakpoints: {
-    375: {
+    0: {
       slidesPerView: 2
     },
 
@@ -78,9 +69,9 @@ export const SWIPER_SELECTOR_5_CONFIG = {
   }
 };
 export const SWIPER_SELECTOR_4_CONFIG = {
-  slidesPerView: 4,
+  slidesPerView: 2,
   breakpoints: {
-    375: {
+    0: {
       slidesPerView: 2
     },
 

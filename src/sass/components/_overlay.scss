@@ -217,6 +217,29 @@ body.overlay-is-open {
   opacity: 0.75;
 }
 
+.app-toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 10000;
+  max-width: min(420px, calc(100vw - 32px));
+  transform: translateY(18px);
+  border: 1px solid #333333;
+  border-left: 4px solid #e50000;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 14px 18px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.app-toast.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 @media (max-width: 640px) {
   .search-panel h2,
   .watchlist-panel h2 {

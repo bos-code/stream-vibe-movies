@@ -1,4 +1,8 @@
-import { createSwiper, SWIPER_SELECTOR_5_CONFIG } from "../swiper";
+import {
+  bindRangeControl,
+  createSwiper,
+  SWIPER_SELECTOR_5_CONFIG
+} from "../swiper";
 import { fetchMoviesByGenre, loop } from "../utils";
 import { View } from "./view";
 
@@ -27,7 +31,8 @@ export async function renderMoviesGenres(data) {
 
   await moviesGenreView.render(data, genreTemplate);
 
-  createSwiper("#categories-swiper", SWIPER_SELECTOR_5_CONFIG);
+  const swiper = createSwiper("#categories-swiper", SWIPER_SELECTOR_5_CONFIG);
+  bindRangeControl("#categories-swiper", swiper);
 }
 export async function renderMoviesGenres10(data) {
   if (!movie10) return;
